@@ -1,23 +1,77 @@
+import * as Expo from 'expo';
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component<{}> {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.ts to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-      </View>
-    );
-  }
+import {Body, Button, Container, Content, Footer, FooterTab, Header, Icon, Left, Right, Text, Title} from 'native-base';
+
+import {StyleSheet, StatusBar, ViewStyle, View} from 'react-native'
+
+interface AppProperties {
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+interface AppState {
+    loading: boolean
+}
+
+export default class App extends React.Component<AppProperties, AppState> {
+    constructor(props: AppProperties) {
+        super(props);
+        this.state = {
+            loading: true
+        };
+    }
+
+    async componentDidMount() {
+        await Expo.Font.loadAsync({
+            Roboto: require("native-base/Fonts/Roboto.ttf"),
+            Roboto_medium: require("native-base/Fonts/Roboto_medium.ttf"),
+            Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
+        });
+        this.setState({loading: false});
+    }
+
+    render() {
+        if (this.state.loading) {
+            return <Expo.AppLoading/>;
+        }
+        return (
+            <View style={styles.container}>
+                <Container>
+                    <Header>
+                        <Left>
+                            <Button transparent>
+                                <Icon name='menu'/>
+                            </Button>
+                        </Left>
+                        <Body>
+                        <Title>Main Screen</Title>
+                        </Body>
+                        <Right/>
+                    </Header>
+                    <Content>
+                        <Text>
+                            Some Content
+                        </Text>
+                    </Content>
+                    <Footer>
+                        <FooterTab>
+                            <Button full>
+                                <Text>Button</Text>
+                            </Button>
+                        </FooterTab>
+                    </Footer>
+                </Container>
+            </View>
+        );
+    }
+}
+
+interface Style {
+    container: ViewStyle;
+}
+
+const styles = StyleSheet.create<Style>({
+    container: {
+        marginTop: StatusBar.currentHeight,
+        flex: 1,
+    }
 });
