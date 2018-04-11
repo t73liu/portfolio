@@ -1,24 +1,26 @@
 import * as Expo from 'expo';
 import * as React from 'react';
+import {StatusBar, StyleSheet, View, ViewStyle} from 'react-native'
 
-import {Body, Button, Container, Content, Footer, FooterTab, Header, Icon, Left, Right, Text, Title} from 'native-base';
+import MainScreen from "./src/MainScreen";
 
-import {StyleSheet, StatusBar, ViewStyle, View} from 'react-native'
-
-interface AppProperties {
+interface Style {
+    container: ViewStyle;
 }
 
-interface AppState {
-    loading: boolean
-}
-
-export default class App extends React.Component<AppProperties, AppState> {
-    constructor(props: AppProperties) {
-        super(props);
-        this.state = {
-            loading: true
-        };
+const styles = StyleSheet.create<Style>({
+    container: {
+        marginTop: StatusBar.currentHeight,
+        flex: 1,
     }
+});
+
+const initialState = {loading: true};
+
+type State = Readonly<typeof initialState>
+
+export default class App extends React.Component<object, State> {
+    readonly state: State = initialState;
 
     async componentDidMount() {
         await Expo.Font.loadAsync({
@@ -35,43 +37,8 @@ export default class App extends React.Component<AppProperties, AppState> {
         }
         return (
             <View style={styles.container}>
-                <Container>
-                    <Header>
-                        <Left>
-                            <Button transparent>
-                                <Icon name='menu'/>
-                            </Button>
-                        </Left>
-                        <Body>
-                        <Title>Main Screen</Title>
-                        </Body>
-                        <Right/>
-                    </Header>
-                    <Content>
-                        <Text>
-                            Some Content
-                        </Text>
-                    </Content>
-                    <Footer>
-                        <FooterTab>
-                            <Button full>
-                                <Text>Button</Text>
-                            </Button>
-                        </FooterTab>
-                    </Footer>
-                </Container>
+                <MainScreen/>
             </View>
         );
     }
 }
-
-interface Style {
-    container: ViewStyle;
-}
-
-const styles = StyleSheet.create<Style>({
-    container: {
-        marginTop: StatusBar.currentHeight,
-        flex: 1,
-    }
-});
