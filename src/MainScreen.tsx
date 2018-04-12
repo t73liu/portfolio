@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
 import {Body, Container, Header, Left, Right, Tab, Tabs, Title} from 'native-base'
-import News from "./News";
-import Portfolio from "./Portfolio";
-import Watchlist from "./Watchlist";
+
+import NewsScreen from "./News/NewsScreen";
+import WatchlistScreen from "./Watchlist/WatchlistScreen";
+import PortfolioScreen from "./Portfolio/PortfolioScreen";
 
 export default class MainScreen extends Component {
     render() {
@@ -17,13 +18,13 @@ export default class MainScreen extends Component {
                 </Header>
                 <Tabs initialPage={0}>
                     <Tab heading="Watchlist">
-                        <Watchlist/>
-                    </Tab>
-                    <Tab heading="Portfolio">
-                        <Portfolio/>
+                        <WatchlistScreen/>
                     </Tab>
                     <Tab heading="News">
-                        <News/>
+                        <NewsScreen/>
+                    </Tab>
+                    <Tab heading="Portfolio">
+                        <PortfolioScreen/>
                     </Tab>
                 </Tabs>
             </Container>

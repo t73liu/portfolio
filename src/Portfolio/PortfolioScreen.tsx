@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Body, Card, CardItem, Content, Text} from 'native-base'
 
-export default class Portfolio extends Component {
+export default class PortfolioScreen extends Component {
     render() {
         return (
             <Content>
