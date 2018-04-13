@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Body, Container, Header, Left, Right, Tab, Tabs, Title} from 'native-base'
 
-import NewsScreen from "./News/NewsScreen";
-import WatchlistScreen from "./Watchlist/WatchlistScreen";
-import PortfolioScreen from "./Portfolio/PortfolioScreen";
+import NewsScreen from "./news/NewsScreen";
+import WatchlistScreen from "./watchlist/WatchlistScreen";
+import PortfolioScreen from "./portfolio/PortfolioScreen";
 
 export default class MainScreen extends Component {
     render() {
