@@ -41,6 +41,7 @@ export default class NewsScreen extends Component<object, NewsState> {
         const newsItems = this.state.news;
         return (
             <Content
+                refreshing={this.state.refreshing}
                 refreshControl={
                     <RefreshControl refreshing={this.state.refreshing} onRefresh={this.refreshNews.bind(this)}/>
                 }>
