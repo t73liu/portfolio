@@ -526,8 +526,8 @@
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
 
 "@types/expo@^25.0.3":
-  version "25.0.3"
-  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-25.0.3.tgz#476640d63d04313b22fe03f20d1be2772be44891"
+  version "25.0.4"
+  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-25.0.4.tgz#4699a6afdabe0aaec231df9b7459930e66d21dd7"
   dependencies:
     "@types/fbemitter" "*"
     "@types/react" "*"
@@ -558,8 +558,8 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.60.tgz#5406c35961e4f9e2d5a1b9482daa14501754ecda"
 
 "@types/react-native@*":
-  version "0.55.0"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.0.tgz#94013ad35f9fb21d3ca09410765a8e643f6cac5a"
+  version "0.55.2"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.2.tgz#78e7e963eb1172eb715507e733b99821e4ce9072"
   dependencies:
     "@types/react" "*"
 
@@ -582,7 +582,13 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.1.0":
+"@types/react@*":
+  version "16.3.10"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.10.tgz#2f25eef83f7c7f6c51cea4c02660f727c75d3b33"
+  dependencies:
+    csstype "^2.2.0"
+
+"@types/react@^16.1.0":
   version "16.3.6"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.6.tgz#50cec71f14cbaaf49a53167dc1d6739be1d43f12"
   dependencies:
@@ -2254,9 +2260,9 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   dependencies:
     cssom "0.3.x"
 
-csstype@^2.0.0:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.1.1.tgz#37b01a7a9958ef0b88167ff6678deccd732e0ae2"
+csstype@^2.0.0, csstype@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.2.0.tgz#1656ef97553ac53b77090844a2531c6660ebd902"
 
 dashdash@^1.12.0:
   version "1.14.1"
@@ -5047,8 +5053,8 @@ native-base-shoutem-theme@0.2.2:
     prop-types "^15.5.10"
 
 native-base@^2.4.1:
-  version "2.4.1"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.4.1.tgz#2fca37b85a0a0f631c647c6be6837e879c9a9c82"
+  version "2.4.2"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.4.2.tgz#6a93157439f402753260263eac9190c9b65c1035"
   dependencies:
     blueimp-md5 "^2.5.0"
     clamp "^1.0.1"
@@ -5060,8 +5066,8 @@ native-base@^2.4.1:
     prop-types "^15.5.10"
     react-native-drawer "2.5.0"
     react-native-easy-grid "0.1.17"
-    react-native-keyboard-aware-scroll-view "0.4.2"
-    react-native-vector-icons "~4.4.2"
+    react-native-keyboard-aware-scroll-view "0.5.0"
+    react-native-vector-icons "~4.5.0"
     react-tween-state "^0.1.5"
     tween-functions "^1.0.1"
 
@@ -5777,9 +5783,9 @@ react-native-iphone-x-helper@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.0.2.tgz#7dbca530930f7c1ce8633cc8fd13ba94102992e1"
 
-react-native-keyboard-aware-scroll-view@0.4.2:
-  version "0.4.2"
-  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.4.2.tgz#f8777e5ab14ac8416d86376f15a99dd59e87522f"
+react-native-keyboard-aware-scroll-view@0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-keyboard-aware-scroll-view/-/react-native-keyboard-aware-scroll-view-0.5.0.tgz#57ab933089375bf62f4324797e8be949ad97849d"
   dependencies:
     prop-types "^15.6.0"
     react-native-iphone-x-helper "^1.0.1"
@@ -5846,7 +5852,7 @@ react-native-typescript-transformer@^1.2.3:
     semver "^5.4.1"
     source-map "^0.5.6"
 
-react-native-vector-icons@4.5.0:
+react-native-vector-icons@4.5.0, react-native-vector-icons@~4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.5.0.tgz#6b95619e64f62f05f579f74a01fe5640df95158b"
   dependencies:
@@ -5854,17 +5860,9 @@ react-native-vector-icons@4.5.0:
     prop-types "^15.5.10"
     yargs "^8.0.2"
 
-react-native-vector-icons@~4.4.2:
-  version "4.4.3"
-  resolved "https://registry.yarnpkg.com/react-native-vector-icons/-/react-native-vector-icons-4.4.3.tgz#9e847b8c432a17e5e0ffd60ccf09f3112a18b9df"
-  dependencies:
-    lodash "^4.0.0"
-    prop-types "^15.5.10"
-    yargs "^8.0.2"
-
-react-native@0.54.0:
-  version "0.54.0"
-  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.54.0.tgz#1582cc2b2a639d46e39c44bcc50e051d0061820a"
+react-native@0.54.4:
+  version "0.54.4"
+  resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.54.4.tgz#19c6c598f6acf04f1c032fe9a1812f0c640fa8b7"
   dependencies:
     absolute-path "^0.0.0"
     art "^0.10.0"
