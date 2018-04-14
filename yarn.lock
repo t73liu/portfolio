@@ -576,6 +576,13 @@
     "@types/react" "*"
     "@types/react-native" "*"
 
+"@types/react-redux@^5.0.16":
+  version "5.0.16"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-5.0.16.tgz#46f1b2043abd2b4364a857100abf5e5a6ef94bf0"
+  dependencies:
+    "@types/react" "*"
+    redux "^3.6.0"
+
 "@types/react-test-renderer@^16.0.0":
   version "16.0.1"
   resolved "https://registry.yarnpkg.com/@types/react-test-renderer/-/react-test-renderer-16.0.1.tgz#36ee8c4fe33c61d460ad0e7bc42a2d0ddcc775a1"
@@ -6085,6 +6092,10 @@ redux-logger@^2.7.4:
   resolved "https://registry.yarnpkg.com/redux-logger/-/redux-logger-2.10.2.tgz#3c5a5f0a6f32577c1deadf6655f257f82c6c3937"
   dependencies:
     deep-diff "0.3.4"
+
+redux-persist@^5.9.1:
+  version "5.9.1"
+  resolved "https://registry.yarnpkg.com/redux-persist/-/redux-persist-5.9.1.tgz#83bd4abd526ef768f63fceee338fa9d8ed6552d6"
 
 redux@^3.6.0:
   version "3.7.2"

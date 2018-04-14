@@ -16,7 +16,7 @@ export default class MainScreen extends Component {
                     </Body>
                     <Right/>
                 </Header>
-                <Tabs initialPage={0}>
+                <Tabs initialPage={0} locked={true}>
                     <Tab heading="Watchlist">
                         <WatchlistScreen/>
                     </Tab>
