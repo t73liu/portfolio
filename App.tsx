@@ -1,7 +1,9 @@
 import * as Expo from 'expo';
 import * as React from 'react';
 import {StatusBar, StyleSheet, View, ViewStyle} from 'react-native'
+import {Provider} from "react-redux";
 
+import {store} from './src/store/configureStore'
 import MainScreen from "./src/MainScreen";
 
 interface Style {
@@ -36,9 +38,11 @@ export default class App extends React.Component<object, State> {
             return <Expo.AppLoading/>;
         }
         return (
-            <View style={styles.container}>
-                <MainScreen/>
-            </View>
+            <Provider store={store}>
+                <View style={styles.container}>
+                    <MainScreen/>
+                </View>
+            </Provider>
         );
     }
 }
