@@ -1,6 +1,7 @@
 {
   "expo": {
     "name": "Portfolio Buddy",
+    "description": "Track stocks, news, and portfolio changes. No accounts. State persisted.",
     "slug": "portfolio",
     "icon": "./assets/logo.png",
     "version": "1.0.0",

@@ -1,8 +1,14 @@
-# Stock Portfolio
+# [Stock Portfolio](https://play.google.com/store/apps/details?id=io.github.t73liu.portfolio)
+
+## Preview
+
+- [Expo](https://expo.io/@t73liu/portfolio)
 
 ## Features
 
-TBD
+- Track stocks traded on IEX with a watchlist
+- Track news related to general market and watchlist stocks
+- Track portfolio changes
 
 ## Setup
 
@@ -10,9 +16,9 @@ TBD
 2. Install Expo on Phone
 3. Clone the repository
 4. npm/yarn install
-5. Refer to [create-react-native-app documentation](CRNA.md) for running app 
+5. Refer to create-react-native-app [documentation](CRNA.md) for running app 
 
 ## Third Party Services
 
 - Data provided for free by [IEX](https://iextrading.com/developer/)
-- IEX [terms of service](https://iextrading.com/api-exhibit-a/)
+    - [Terms of service](https://iextrading.com/api-exhibit-a/)
