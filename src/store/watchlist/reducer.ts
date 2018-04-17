@@ -2,8 +2,7 @@ import {StoreState} from "../types";
 import {ActionTypes} from "../actionTypes";
 import {ActionTypeKeys} from "../actionTypeKeys";
 
-// TODO resolve
-export function WatchlistReducer(state: StoreState, action: any): StoreState {
+export function WatchlistReducer(state: StoreState, action: ActionTypes): StoreState {
     switch (action.type) {
         case ActionTypeKeys.ADD_WATCHLIST_TICKER:
             if (state.watchlist.indexOf(action.payload.ticker) == -1) {

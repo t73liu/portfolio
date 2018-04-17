@@ -11,6 +11,7 @@ const persistConfig = {
     stateReconciler: hardSet,
 };
 
-export const rootReducer = persistCombineReducers<StoreState>(persistConfig,{
+// cast as any because of redux-persist using outdated redux
+export const rootReducer = persistCombineReducers<StoreState>(persistConfig, {
     watchlist: WatchlistReducer
-});
+} as any);
