@@ -1,9 +1,10 @@
 import React, {Component} from 'react'
 import {Content, List} from 'native-base'
-import {RefreshControl} from "react-native";
-import NewsDetail from "./NewsDetail";
-import NewsItem from "./NewsItem";
-import {getNews} from "../util/ajax";
+import {RefreshControl} from 'react-native';
+
+import NewsDetail from './NewsDetail';
+import NewsItem from './NewsItem';
+import {getNews} from '../util/ajax';
 
 interface NewsState {
     news: NewsItem[]

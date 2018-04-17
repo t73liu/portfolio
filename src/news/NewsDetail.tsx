@@ -1,13 +1,14 @@
-import {Body, ListItem, Text} from "native-base";
-import * as React from "react";
-import NewsItem from "./NewsItem";
-import {openUrl} from "../util/ajax";
+import {Body, ListItem, Text} from 'native-base';
+import React, {Component} from 'react';
+
+import NewsItem from './NewsItem';
+import {openUrl} from '../util/ajax';
 
 interface NewsDetailProps {
     detail: NewsItem
 }
 
-export default class NewsDetail extends React.Component<NewsDetailProps, object> {
+export default class NewsDetail extends Component<NewsDetailProps, object> {
     constructor(props: NewsDetailProps) {
         super(props);
     }

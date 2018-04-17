@@ -1,9 +1,9 @@
 import React, {Component} from 'react'
 import {Content, List} from 'native-base'
-import {connect} from "react-redux";
+import {connect} from 'react-redux';
 
-import StockDetail from "./StockDetail";
-import {StoreState} from "../store/types";
+import StockDetail from './StockDetail';
+import {StoreState} from '../store/types';
 
 interface WatchlistProps {
     tickers: string[]

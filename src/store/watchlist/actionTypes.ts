@@ -1,6 +1,6 @@
 import {Action} from 'redux';
 
-import {ActionTypeKeys} from "../actionTypeKeys";
+import {ActionTypeKeys} from '../actionTypeKeys';
 
 export interface AddWatchlistTicker extends Action {
     readonly type: ActionTypeKeys.ADD_WATCHLIST_TICKER;

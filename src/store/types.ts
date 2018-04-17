@@ -1,4 +1,4 @@
-import NewsItem from "../news/NewsItem";
+import NewsItem from '../news/NewsItem';
 
 export interface Quote {
     symbol: string,

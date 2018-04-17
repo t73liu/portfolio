@@ -1,10 +1,10 @@
 import * as Expo from 'expo';
 import * as React from 'react';
 import {StatusBar, StyleSheet, View, ViewStyle} from 'react-native'
-import {Provider} from "react-redux";
+import {Provider} from 'react-redux';
 
 import {store} from './src/store/configureStore'
-import MainScreen from "./src/MainScreen";
+import MainScreen from './src/MainScreen';
 
 interface Style {
     container: ViewStyle;

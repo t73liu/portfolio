@@ -1,6 +1,6 @@
-import {StoreState} from "../types";
-import {ActionTypes} from "../actionTypes";
-import {ActionTypeKeys} from "../actionTypeKeys";
+import {StoreState} from '../types';
+import {ActionTypes} from '../actionTypes';
+import {ActionTypeKeys} from '../actionTypeKeys';
 
 export function WatchlistReducer(state: StoreState, action: ActionTypes): StoreState {
     switch (action.type) {

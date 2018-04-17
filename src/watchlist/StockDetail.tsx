@@ -1,6 +1,5 @@
-import * as React from "react";
-import {Component} from "react";
-import {Body, ListItem, Text} from "native-base";
+import React, {Component} from 'react';
+import {Body, ListItem, Text} from 'native-base';
 
 interface StockDetailProps {
     ticker: string
