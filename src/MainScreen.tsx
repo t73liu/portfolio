@@ -1,12 +1,11 @@
 import React, {Component} from 'react'
 import {Body, Container, Footer, Header, Left, Right, Tab, Tabs, Text, Title} from 'native-base'
-import {connect} from "react-redux";
 
 import NewsScreen from "./news/NewsScreen";
 import WatchlistScreen from "./watchlist/WatchlistScreen";
 import PortfolioScreen from "./portfolio/PortfolioScreen";
 
-class MainScreen extends Component {
+export default class MainScreen extends Component {
     render() {
         return (
             <Container>
@@ -37,5 +36,3 @@ class MainScreen extends Component {
         );
     }
 }
-
-export default connect()(MainScreen);

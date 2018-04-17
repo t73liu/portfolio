@@ -6,7 +6,15 @@ interface StockDetailProps {
     ticker: string
 }
 
-export default class StockDetail extends Component<StockDetailProps, object> {
+interface StockDetailState {
+    pressed: boolean
+}
+
+const initialState = {pressed: false};
+
+export default class StockDetail extends Component<StockDetailProps, StockDetailState> {
+    readonly state: StockDetailState = initialState;
+
     constructor(props: StockDetailProps) {
         super(props);
     }

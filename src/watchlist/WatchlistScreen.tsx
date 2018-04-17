@@ -1,18 +1,36 @@
 import React, {Component} from 'react'
 import {Content, List} from 'native-base'
-import StockDetail from "./StockDetail";
+import {connect} from "react-redux";
 
-export default class WatchlistScreen extends Component {
+import StockDetail from "./StockDetail";
+import {StoreState} from "../store/types";
+
+interface WatchlistProps {
+    tickers: string[]
+}
+
+class WatchlistScreen extends Component<WatchlistProps, object> {
+    constructor(props: WatchlistProps) {
+        super(props);
+    }
+
     render() {
-        const tickers = ['APPL', 'AMZN', 'NFLX', 'MSFT', 'GOOGL'];
         return (
             <Content>
-                <List dataArray={tickers}
+                <List dataArray={this.props.tickers}
                       renderRow={(ticker) =>
-                          <StockDetail ticker={ticker}/>
+                          <StockDetail key={ticker} ticker={ticker}/>
                       }>
                 </List>
             </Content>
         );
     }
 }
+
+function mapStateToProps(state: StoreState): WatchlistProps {
+    return ({
+        tickers: state.watchlist
+    });
+}
+
+export default connect(mapStateToProps)(WatchlistScreen);
