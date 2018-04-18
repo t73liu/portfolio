@@ -3,6 +3,8 @@ import {ActionTypes} from '../actionTypes';
 import {ActionTypeKeys} from '../actionTypeKeys';
 
 export const initialState: StoreState = {
+    marketData: new Map(),
+    portfolio: [],
     watchlist: []
 };
 

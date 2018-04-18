@@ -62,6 +62,9 @@ export interface MarketData {
     news: NewsItem[]
 }
 
+// TODO implement proper interface for market data and portfolio
 export interface StoreState {
+    marketData: Map<string, MarketData>
+    portfolio: object[]
     watchlist: string[]
 }

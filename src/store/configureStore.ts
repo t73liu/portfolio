@@ -4,6 +4,8 @@ import {rootReducer} from './reducer';
 import {StoreState} from './types';
 
 const initialState: StoreState = {
+    marketData: new Map(),
+    portfolio: [],
     watchlist: ["AMZN", "NFLX", "MSFT"]
 };
 
