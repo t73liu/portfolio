@@ -2,7 +2,11 @@ import {StoreState} from '../types';
 import {ActionTypes} from '../actionTypes';
 import {ActionTypeKeys} from '../actionTypeKeys';
 
-export function WatchlistReducer(state: StoreState, action: ActionTypes): StoreState {
+export const initialState: StoreState = {
+    watchlist: []
+};
+
+export function WatchlistReducer(state: StoreState = initialState, action: ActionTypes): StoreState {
     switch (action.type) {
         case ActionTypeKeys.ADD_WATCHLIST_TICKER:
             if (state.watchlist.indexOf(action.payload.ticker) == -1) {
@@ -19,7 +23,7 @@ export function WatchlistReducer(state: StoreState, action: ActionTypes): StoreS
                 return state;
             } else {
                 return {
-                    watchlist: Object.assign([], state.watchlist).splice(index, 1),
+                    watchlist: [...state.watchlist].splice(index, 1),
                     ...state
                 };
             }
