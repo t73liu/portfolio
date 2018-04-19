@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Body, ListItem, Text} from 'native-base';
+import {Body, Icon, ListItem, Right, Text} from 'native-base';
 
 interface StockDetailProps {
     ticker: string
@@ -9,10 +9,8 @@ interface StockDetailState {
     pressed: boolean
 }
 
-const initialState = {pressed: false};
-
 export default class StockDetail extends Component<StockDetailProps, StockDetailState> {
-    readonly state: StockDetailState = initialState;
+    readonly state: StockDetailState = {pressed: false};
 
     constructor(props: StockDetailProps) {
         super(props);
@@ -24,6 +22,9 @@ export default class StockDetail extends Component<StockDetailProps, StockDetail
                 <Body>
                 <Text>{this.props.ticker}</Text>
                 </Body>
+                <Right>
+                    <Icon name="trash"/>
+                </Right>
             </ListItem>
         );
     }
