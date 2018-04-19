@@ -1,11 +1,12 @@
 import {combineReducers} from 'redux';
 
-import {WatchlistReducer} from './watchlist/reducer';
 import {StoreState} from './types';
+import {WatchlistReducer} from './watchlist/reducer';
+import {PortfolioReducer} from './portfolio/reducer';
+import {MarketDataReducer} from './marketData/reducer';
 
-// TODO remove placeholder reducers
 export const rootReducer = combineReducers<StoreState>({
-    marketData: WatchlistReducer,
-    portfolio: WatchlistReducer,
-    watchlist: WatchlistReducer
+    marketData: MarketDataReducer,
+    watchlist: WatchlistReducer,
+    portfolio: PortfolioReducer
 } as any);

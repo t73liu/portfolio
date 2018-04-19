@@ -1,12 +1,16 @@
 import {createStore} from 'redux';
 
 import {rootReducer} from './reducer';
-import {StoreState} from './types';
+import {StoreState, SymbolData} from './types';
 
-const initialState: StoreState = {
-    marketData: new Map(),
+export const initialState: StoreState = {
+    marketData: {
+        symbolData: new Map<string, SymbolData>([["NFLX", {news: [], quote: {ytdChange: 15}}]]),
+        isRefreshing: false,
+        lastUpdated: new Date()
+    },
     portfolio: [],
-    watchlist: ["AMZN", "NFLX", "MSFT"]
+    watchlist: ["NFLX"]
 };
 
 export const store = createStore(rootReducer, initialState);

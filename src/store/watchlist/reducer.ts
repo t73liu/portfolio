@@ -3,7 +3,11 @@ import {ActionTypes} from '../actionTypes';
 import {ActionTypeKeys} from '../actionTypeKeys';
 
 export const initialState: StoreState = {
-    marketData: new Map(),
+    marketData: {
+        symbolData: new Map(),
+        isRefreshing: false,
+        lastUpdated: new Date()
+    },
     portfolio: [],
     watchlist: []
 };
@@ -20,6 +24,8 @@ export function WatchlistReducer(state: StoreState = initialState, action: Actio
                 return state;
             }
         case ActionTypeKeys.REMOVE_WATCHLIST_TICKER:
+            console.log(state);
+            console.log(action);
             const index = state.watchlist.indexOf(action.payload.ticker);
             if (index == -1) {
                 return state;
