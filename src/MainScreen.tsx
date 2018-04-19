@@ -1,20 +1,19 @@
 import React, {Component} from 'react'
-import {Body, Container, Footer, Header, Left, Right, Tab, Tabs, Text, Title} from 'native-base'
+import {Body, Container, Footer, FooterTab, Header, Tab, Tabs, Title} from 'native-base'
 
 import NewsScreen from './news/NewsScreen';
 import WatchlistScreen from './watchlist/WatchlistScreen';
 import PortfolioScreen from './portfolio/PortfolioScreen';
+import RefreshButton from './common/RefreshButton';
 
 export default class MainScreen extends Component {
     render() {
         return (
             <Container>
                 <Header hasTabs>
-                    <Left/>
-                    <Body>
-                    <Title>Trading Buddy</Title>
+                    <Body style={{alignItems: "center"}}>
+                    <Title>Portfolio Buddy</Title>
                     </Body>
-                    <Right/>
                 </Header>
                 <Tabs initialPage={0} locked={true}>
                     <Tab heading="Watchlist">
@@ -28,9 +27,9 @@ export default class MainScreen extends Component {
                     </Tab>
                 </Tabs>
                 <Footer>
-                    <Text>
-                        SOME TEXT
-                    </Text>
+                    <FooterTab>
+                        <RefreshButton/>
+                    </FooterTab>
                 </Footer>
             </Container>
         );

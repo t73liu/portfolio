@@ -1,51 +1,24 @@
 import React, {Component} from 'react'
 import {Content, List} from 'native-base'
-import {RefreshControl} from 'react-native';
+import {connect} from 'react-redux';
 
 import NewsDetail from './NewsDetail';
 import NewsItem from './NewsItem';
-import {getNews} from '../util/ajax';
+import {StoreState} from '../store/types';
 
-interface NewsState {
+interface NewsScreenProps {
     news: NewsItem[]
-    refreshing: boolean
 }
 
-const initialState = {
-    news: [],
-    refreshing: false
-};
-
-export default class NewsScreen extends Component<object, NewsState> {
-    readonly state = initialState;
-
-    refreshNews(): void {
-        this.setState((prevState: NewsState) => ({
-            refreshing: true,
-            ...prevState
-        }));
-        getNews("amzn").then(value => {
-            this.setState({
-                refreshing: false,
-                news: value
-            });
-        }).catch(reason => {
-            console.log(reason);
-            this.setState((prevState: NewsState) => ({
-                refreshing: false,
-                ...prevState
-            }))
-        });
+class NewsScreen extends Component<NewsScreenProps, object> {
+    constructor(props: NewsScreenProps) {
+        super(props);
     }
 
     render() {
-        const newsItems = this.state.news;
+        const newsItems = this.props.news;
         return (
-            <Content
-                refreshing={this.state.refreshing}
-                refreshControl={
-                    <RefreshControl refreshing={this.state.refreshing} onRefresh={this.refreshNews.bind(this)}/>
-                }>
+            <Content>
                 <List dataArray={newsItems}
                       renderRow={(item: NewsItem) =>
                           <NewsDetail detail={item}/>
@@ -55,3 +28,11 @@ export default class NewsScreen extends Component<object, NewsState> {
         );
     }
 }
+
+function mapStateToProps(state: StoreState): NewsScreenProps {
+    return ({
+        news: []
+    });
+}
+
+export default connect(mapStateToProps)(NewsScreen);
