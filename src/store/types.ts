@@ -68,9 +68,14 @@ export interface MarketData {
     lastUpdated: Date
 }
 
-// TODO implement proper interface for market data and portfolio
+export interface Holding {
+    ticker: string
+    amount: number
+    buyPrice: number
+}
+
 export interface StoreState {
     marketData: MarketData
-    portfolio: object[]
+    portfolio: Holding[]
     watchlist: string[]
 }

@@ -8,8 +8,8 @@ import {removeWatchlistTicker} from "../store/watchlist/actions";
 
 interface StockDetailProps {
     ticker: string
-    quote: Quote
-    dispatch: Dispatch<StoreState>
+    quote?: Quote
+    dispatch?: Dispatch<StoreState>
 }
 
 interface StockDetailState {
@@ -32,7 +32,7 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
     }
 
     deleteTicker() {
-        this.props.dispatch(removeWatchlistTicker(this.props.ticker));
+        this.props.dispatch!(removeWatchlistTicker(this.props.ticker));
     }
 
     render() {
@@ -46,7 +46,7 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
                     </Body>) :
                     (<Body>
                     <Text>{this.props.ticker}</Text>
-                    <Text note>{this.props.quote.ytdChange}</Text>
+                    <Text note>{this.props.quote!.ytdChange}</Text>
                     </Body>)
                 }
                 <Right>
@@ -60,6 +60,8 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
 }
 
 function mapStateToProps(state: StoreState, ownProps: StockDetailProps): StockDetailProps {
+    console.log(`mapStateToProps state: ${JSON.stringify(state)}`);
+    console.log(`mapStateToProps ownProps: ${JSON.stringify(ownProps)}`);
     return {
         quote: state.marketData.symbolData.get(ownProps.ticker)!.quote,
         ...ownProps
@@ -67,6 +69,7 @@ function mapStateToProps(state: StoreState, ownProps: StockDetailProps): StockDe
 }
 
 function mapDispatchToProps(dispatch: Dispatch<StoreState>, ownProps: StockDetailProps): StockDetailProps {
+    console.log(`mapDispatchToProps ownProps: ${JSON.stringify(ownProps)}`);
     return {
         dispatch,
         ...ownProps
