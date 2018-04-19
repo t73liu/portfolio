@@ -1,17 +1,7 @@
-import {StoreState} from "../types";
+import {Holding} from "../types";
 import {ActionTypes} from "../actionTypes";
 
-const initialState: StoreState = {
-    marketData: {
-        symbolData: new Map(),
-        isRefreshing: false,
-        lastUpdated: new Date()
-    },
-    portfolio: [],
-    watchlist: []
-};
-
-export function PortfolioReducer(state: StoreState = initialState, action: ActionTypes): StoreState {
+export function PortfolioReducer(state: Holding[] = [], action: ActionTypes): Holding[] {
     switch (action.type) {
         default:
             return state;
