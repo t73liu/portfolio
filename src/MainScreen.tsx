@@ -15,7 +15,7 @@ export default class MainScreen extends Component {
                     <Title>Portfolio Buddy</Title>
                     </Body>
                 </Header>
-                <Tabs initialPage={0} locked={true}>
+                <Tabs initialPage={0} locked>
                     <Tab heading="Watchlist">
                         <WatchlistScreen/>
                     </Tab>

@@ -18,7 +18,7 @@ class WatchlistScreen extends Component<WatchlistProps, object> {
         return (
             <Container>
                 {/*TODO if watchlist is 100, hide searchbar*/}
-                <Header searchBar={true}>
+                <Header searchBar>
                     <Item>
                         <Icon name="search"/>
                         <Input placeholder="Search Ticker"/>
