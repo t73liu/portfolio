@@ -13,6 +13,8 @@ export const initialState: StoreState = {
 };
 
 export function WatchlistReducer(state: StoreState = initialState, action: ActionTypes): StoreState {
+    console.log(`state: ${JSON.stringify(state)}`);
+    console.log(`action: ${JSON.stringify(action)}`);
     switch (action.type) {
         case ActionTypeKeys.ADD_WATCHLIST_TICKER:
             if (state.watchlist.indexOf(action.payload.ticker) == -1) {
@@ -24,8 +26,6 @@ export function WatchlistReducer(state: StoreState = initialState, action: Actio
                 return state;
             }
         case ActionTypeKeys.REMOVE_WATCHLIST_TICKER:
-            console.log(state);
-            console.log(action);
             const index = state.watchlist.indexOf(action.payload.ticker);
             if (index == -1) {
                 return state;
