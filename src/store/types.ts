@@ -1,29 +1,29 @@
 import NewsItem from '../news/NewsItem';
 
 export interface Quote {
-    // symbol: string,
-    // companyName: string,
-    // primaryExchange: string,
-    // sector: string,
-    // open: number,
-    // openTime: number, // millisecond timestamp to be formatted
-    // close: number,
-    // closeTime: number, // millisecond timestamp to be formatted
-    // high: number,
-    // low: number,
-    // latestPrice: number,
-    // latestUpdate: number, // millisecond timestamp to be formatted
-    // latestVolume: number,
-    // delayedPrice: number,
-    // delayedPriceTime: number, // millisecond timestamp to be formatted
-    // previousClose: number,
-    // change: number,
-    // changePercent: number,
-    // avgTotalVolume: number,
-    // marketCap: number,
-    // peRatio: number,
-    // week52High: number,
-    // week52Low: number,
+    symbol: string,
+    companyName: string,
+    primaryExchange: string,
+    sector: string,
+    open: number,
+    openTime: number, // millisecond timestamp to be formatted
+    close: number,
+    closeTime: number, // millisecond timestamp to be formatted
+    high: number,
+    low: number,
+    latestPrice: number,
+    latestUpdate: number, // millisecond timestamp to be formatted
+    latestVolume: number,
+    delayedPrice: number,
+    delayedPriceTime: number, // millisecond timestamp to be formatted
+    previousClose: number,
+    change: number,
+    changePercent: number,
+    avgTotalVolume: number,
+    marketCap: number,
+    peRatio: number,
+    week52High: number,
+    week52Low: number,
     ytdChange: number
 }
 
@@ -62,6 +62,11 @@ export interface SymbolData {
     news: NewsItem[]
 }
 
+export interface SymbolName {
+    symbol: string
+    name?: string
+}
+
 export interface MarketData {
     symbolData: Map<string, SymbolData>
     isRefreshing: boolean
@@ -76,6 +81,7 @@ export interface Holding {
 
 export interface StoreState {
     marketData: MarketData
+    supportedSymbols: SymbolName[]
     portfolio: Holding[]
     watchlist: string[]
 }
