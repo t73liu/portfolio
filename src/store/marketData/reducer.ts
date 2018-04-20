@@ -1,8 +1,8 @@
-import {MarketData} from "../types";
+import {MarketData, SymbolData} from "../types";
 import {ActionTypes} from "../actionTypes";
 
 const initialState: MarketData = {
-    symbolData: {},
+    symbolData: new Map<string, SymbolData>(),
     isRefreshing: false,
     lastUpdated: new Date()
 };

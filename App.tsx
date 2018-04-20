@@ -46,7 +46,8 @@ export default class App extends React.Component<object, State> {
         // AppState.addEventListener('change', this.updateStorage.bind(this));
 
         const store = await getPersistedStore();
-        console.log(`Updating Store State ${store.getState()}`);
+
+        console.log(`Updating Store State ${JSON.stringify(store.getState()).slice(0,100)} ....`);
         this.setState({
             store: store,
             loading: false
@@ -60,8 +61,9 @@ export default class App extends React.Component<object, State> {
             .catch(reason => console.log(`Failed update of store: ${reason}`));
     }
 
-    componentWillUnmount() {
+    async componentWillUnmount() {
         console.log(`Unmounting component and removing event listener`);
+        await AsyncStorage.clear();
         // AppState.removeEventListener('change', this.updateStorage.bind(this));
     }
 

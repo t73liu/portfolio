@@ -60,10 +60,10 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
 }
 
 function mapStateToProps(state: StoreState, ownProps: StockDetailProps): StockDetailProps {
-    return (typeof state.marketData.symbolData[ownProps.ticker]) === 'undefined' ?
+    return !state.marketData.symbolData.has(ownProps.ticker) ?
         ownProps :
         {
-            quote: state.marketData.symbolData[ownProps.ticker].quote,
+            quote: state.marketData.symbolData.get(ownProps.ticker)!.quote,
             ...ownProps
         };
 }

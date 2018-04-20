@@ -72,7 +72,7 @@ export interface Dictionary<T> {
 }
 
 export interface MarketData {
-    symbolData: Dictionary<SymbolData>
+    symbolData: Map<string, SymbolData>
     isRefreshing: boolean
     lastUpdated: Date
 }
