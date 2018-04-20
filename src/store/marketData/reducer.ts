@@ -2,7 +2,7 @@ import {MarketData} from "../types";
 import {ActionTypes} from "../actionTypes";
 
 const initialState: MarketData = {
-    symbolData: new Map(),
+    symbolData: {},
     isRefreshing: false,
     lastUpdated: new Date()
 };

@@ -67,8 +67,12 @@ export interface SymbolName {
     name?: string
 }
 
+export interface Dictionary<T> {
+    [key: string]: T;
+}
+
 export interface MarketData {
-    symbolData: Map<string, SymbolData>
+    symbolData: Dictionary<SymbolData>
     isRefreshing: boolean
     lastUpdated: Date
 }

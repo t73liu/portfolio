@@ -46,7 +46,7 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
                     </Body>) :
                     (<Body>
                     <Text>{this.props.ticker}</Text>
-                    <Text note>{this.props.quote!.ytdChange}</Text>
+                    <Text note>{(typeof this.props.quote === 'undefined') ? "Please Refresh" : this.props.quote!.ytdChange}</Text>
                     </Body>)
                 }
                 <Right>
@@ -60,16 +60,15 @@ class StockDetail extends Component<StockDetailProps, StockDetailState> {
 }
 
 function mapStateToProps(state: StoreState, ownProps: StockDetailProps): StockDetailProps {
-    console.log(`mapStateToProps state: ${JSON.stringify(state)}`);
-    console.log(`mapStateToProps ownProps: ${JSON.stringify(ownProps)}`);
-    return {
-        quote: state.marketData.symbolData.get(ownProps.ticker)!.quote,
-        ...ownProps
-    };
+    return (typeof state.marketData.symbolData[ownProps.ticker]) === 'undefined' ?
+        ownProps :
+        {
+            quote: state.marketData.symbolData[ownProps.ticker].quote,
+            ...ownProps
+        };
 }
 
 function mapDispatchToProps(dispatch: Dispatch<StoreState>, ownProps: StockDetailProps): StockDetailProps {
-    console.log(`mapDispatchToProps ownProps: ${JSON.stringify(ownProps)}`);
     return {
         dispatch,
         ...ownProps
