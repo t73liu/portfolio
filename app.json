@@ -3,12 +3,12 @@
     "name": "Portfolio Buddy",
     "description": "Track stocks, news, and portfolio changes. No accounts. State persisted.",
     "slug": "portfolio",
-    "icon": "./assets/logo.png",
+    "icon": "./assets/images/logo.png",
     "version": "1.0.0",
     "githubUrl": "https://github.com/t73liu/portfolio",
     "sdkVersion": "26.0.0",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/splash.png",
       "backgroundColor": "#CDC449"
     },
     "packagerOpts": {
