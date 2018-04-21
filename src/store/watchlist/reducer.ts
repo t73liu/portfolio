@@ -1,24 +1,16 @@
+import {List} from "immutable";
+
 import {ActionTypes} from '../actionTypes';
 import {ActionTypeKeys} from '../actionTypeKeys';
 
-export function WatchlistReducer(state: string[] = [], action: ActionTypes): string[] {
+export function WatchlistReducer(state: List<string> = List(), action: ActionTypes): List<string> {
     switch (action.type) {
         case ActionTypeKeys.ADD_WATCHLIST_TICKER:
-            if (state.indexOf(action.payload.ticker) == -1) {
-                return [...state, action.payload.ticker];
-            } else {
-                return state;
-            }
+            const addIndex = state.indexOf(action.payload.ticker);
+            return addIndex == -1 ? state.push(action.payload.ticker) : state;
         case ActionTypeKeys.REMOVE_WATCHLIST_TICKER:
-            const index = state.indexOf(action.payload.ticker);
-            if (index == -1) {
-                return state;
-            } else {
-                return [
-                    ...state.slice(0, index),
-                    ...state.slice(index + 1)
-                ];
-            }
+            const removeIndex = state.indexOf(action.payload.ticker);
+            return removeIndex == -1 ? state : state.remove(removeIndex);
         default:
             return state;
     }

@@ -1,8 +1,10 @@
+import {Map} from 'immutable';
+
 import {MarketData, SymbolData} from "../types";
 import {ActionTypes} from "../actionTypes";
 
 const initialState: MarketData = {
-    symbolData: new Map<string, SymbolData>(),
+    symbolData: Map<string, SymbolData>(),
     isRefreshing: false,
     lastUpdated: new Date()
 };

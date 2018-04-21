@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
-import {Content, List} from 'native-base'
+import {Content, List as ListComponent} from 'native-base'
 import {connect} from 'react-redux';
+import {List} from "immutable";
 
 import NewsDetail from './NewsDetail';
 import NewsItem from './NewsItem';
 import {StoreState} from '../store/types';
 
 interface NewsScreenProps {
-    news: NewsItem[]
+    news: List<NewsItem>
 }
 
 class NewsScreen extends Component<NewsScreenProps, object> {
@@ -19,11 +20,11 @@ class NewsScreen extends Component<NewsScreenProps, object> {
         const newsItems = this.props.news;
         return (
             <Content>
-                <List dataArray={newsItems}
-                      renderRow={(item: NewsItem) =>
+                <ListComponent dataArray={newsItems.toJS()}
+                               renderRow={(item: NewsItem) =>
                           <NewsDetail detail={item}/>
                       }>
-                </List>
+                </ListComponent>
             </Content>
         );
     }
@@ -31,7 +32,7 @@ class NewsScreen extends Component<NewsScreenProps, object> {
 
 function mapStateToProps(state: StoreState): NewsScreenProps {
     return ({
-        news: []
+        news: List()
     });
 }
 

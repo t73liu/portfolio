@@ -1,4 +1,35 @@
+import {List, Map} from 'immutable';
+
 import NewsItem from '../news/NewsItem';
+
+export interface StoreState {
+    supportedSymbols: List<SymbolName>
+    watchlist: List<string>
+    portfolio: List<Holding>
+    marketData: MarketData
+}
+
+export interface SymbolName {
+    symbol: string
+    name?: string
+}
+
+export interface Holding {
+    ticker: string
+    amount: number
+    buyPrice: number
+}
+
+export interface MarketData {
+    symbolData: Map<string, SymbolData>
+    isRefreshing: boolean
+    lastUpdated: Date
+}
+
+export interface SymbolData {
+    quote: Quote
+    news: List<NewsItem>
+}
 
 export interface Quote {
     symbol: string,
@@ -25,67 +56,4 @@ export interface Quote {
     week52High: number,
     week52Low: number,
     ytdChange: number
-}
-
-export interface SingleDayChart {
-    high: number,
-    low: number,
-    volume: number,
-    label: number,
-    changeOverTime: number,
-    date: string, // formatted date yyyy-MM-dd
-    open: number,
-    close: number,
-    unadjustedVolume: number,
-    change: number,
-    changePercent: number,
-    vwap: number
-}
-
-export interface MultiDayChart {
-    high: number,
-    low: number,
-    volume: number,
-    label: number,
-    changeOverTime: number,
-    date: string, // formatted date yyyy-MM-dd
-    open: number,
-    close: number,
-    unadjustedVolume: number,
-    change: number,
-    changePercent: number,
-    vwap: number
-}
-
-export interface SymbolData {
-    quote: Quote
-    news: NewsItem[]
-}
-
-export interface SymbolName {
-    symbol: string
-    name?: string
-}
-
-export interface Dictionary<T> {
-    [key: string]: T;
-}
-
-export interface MarketData {
-    symbolData: Map<string, SymbolData>
-    isRefreshing: boolean
-    lastUpdated: Date
-}
-
-export interface Holding {
-    ticker: string
-    amount: number
-    buyPrice: number
-}
-
-export interface StoreState {
-    marketData: MarketData
-    supportedSymbols: SymbolName[]
-    portfolio: Holding[]
-    watchlist: string[]
 }

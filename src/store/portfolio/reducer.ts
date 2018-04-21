@@ -1,7 +1,9 @@
+import {List} from "immutable";
+
 import {Holding} from "../types";
 import {ActionTypes} from "../actionTypes";
 
-export function PortfolioReducer(state: Holding[] = [], action: ActionTypes): Holding[] {
+export function PortfolioReducer(state: List<Holding> = List(), action: ActionTypes): List<Holding> {
     switch (action.type) {
         default:
             return state;

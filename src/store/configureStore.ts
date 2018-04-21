@@ -1,10 +1,11 @@
 import {AsyncStorage} from "react-native";
 import {createStore, Store} from "redux";
 import {rootReducer} from "./reducer";
+import {List} from "immutable";
 
 import {StoreState} from './types';
-import {symbolNames} from "./offline/symbolNames";
-import {symbolData} from "./offline/symbolData";
+import {symbolNames} from "../offline/symbolNames";
+import {symbolData} from "../offline/symbolData";
 
 export const initialState: StoreState = {
     marketData: {
@@ -13,7 +14,7 @@ export const initialState: StoreState = {
         lastUpdated: new Date()
     },
     supportedSymbols: symbolNames,
-    portfolio: [
+    portfolio: List([
         {
             ticker: "MSFT",
             amount: 1000,
@@ -24,8 +25,8 @@ export const initialState: StoreState = {
             amount: 1000,
             buyPrice: 10.11
         }
-    ],
-    watchlist: ["NFLX", "ATVI"]
+    ]),
+    watchlist: List(["NFLX", "ATVI"])
 };
 
 export async function getPersistedStore(): Promise<Store<StoreState>> {

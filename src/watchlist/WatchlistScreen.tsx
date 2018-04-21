@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
-import {Button, Container, Content, Header, Icon, Input, Item, List, Text} from 'native-base'
+import {Button, Container, Content, Header, Icon, Input, Item, List as ListComponent, Text} from 'native-base'
 import {connect} from 'react-redux';
+import {List} from "immutable";
 
 import StockDetail from './StockDetail';
 import {StoreState} from '../store/types';
 
 interface WatchlistProps {
-    tickers: string[]
+    tickers: List<string>
 }
 
 class WatchlistScreen extends Component<WatchlistProps, object> {
@@ -28,11 +29,11 @@ class WatchlistScreen extends Component<WatchlistProps, object> {
                     </Button>
                 </Header>
                 <Content>
-                    <List dataArray={this.props.tickers}
-                          renderRow={(ticker) =>
+                    <ListComponent dataArray={this.props.tickers.toJS()}
+                                   renderRow={(ticker) =>
                               <StockDetail key={ticker} ticker={ticker}/>
                           }>
-                    </List>
+                    </ListComponent>
                 </Content>
             </Container>
         );
