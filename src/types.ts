@@ -1,11 +1,4 @@
-import INewsItem from "../news/INewsItem";
-
-export interface IStoreState {
-  supportedSymbols: ISymbolName[];
-  watchlist: string[];
-  portfolio: IHolding[];
-  marketData: IMarketData;
-}
+import INewsItem from "./news/models/INewsItem";
 
 export interface ISymbolName {
   symbol: string;

@@ -1,4 +1,4 @@
-import { ISymbolData } from "../store/types";
+import { ISymbolData } from "../types";
 
 export const symbolData: Map<string, ISymbolData> = new Map<
   string,

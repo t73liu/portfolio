@@ -1,5 +1,5 @@
 import { AppLoading } from "expo";
-import React, { Component } from "react";
+import React from "react";
 import { StatusBar, StyleSheet, View, ViewStyle } from "react-native";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
@@ -17,16 +17,14 @@ const styles = StyleSheet.create<IRootStyle>({
   }
 });
 
-export default class RootContainer extends Component {
-  public render() {
-    return (
-      <Provider store={store}>
-        <PersistGate persistor={persistor} loading={<AppLoading />}>
-          <View style={styles.container}>
-            <MainScreen />
-          </View>
-        </PersistGate>
-      </Provider>
-    );
-  }
-}
+export const RootContainer: React.SFC = () => {
+  return (
+    <Provider store={store}>
+      <PersistGate persistor={persistor} loading={<AppLoading />}>
+        <View style={styles.container}>
+          <MainScreen />
+        </View>
+      </PersistGate>
+    </Provider>
+  );
+};

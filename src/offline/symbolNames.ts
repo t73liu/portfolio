@@ -1,4 +1,4 @@
-import { ISymbolName } from "../store/types";
+import { ISymbolName } from "../types";
 
 export const symbolNames: ISymbolName[] = [
   { symbol: "A", name: "Agilent Technologies Inc." },

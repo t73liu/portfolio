@@ -11,9 +11,9 @@ import {
 import React, { Component } from "react";
 
 import RefreshButton from "./common/RefreshButton";
-import NewsScreen from "./news/NewsScreen";
-import PortfolioScreen from "./portfolio/PortfolioScreen";
-import WatchlistScreen from "./watchlist/WatchlistScreen";
+import NewsScreenContainer from "./news/container/NewsScreenContainer";
+import PortfolioScreen from "./portfolio/component/PortfolioScreen";
+import WatchlistScreenContainer from "./watchlist/container/WatchlistScreenContainer";
 
 export default class MainScreen extends Component {
   public render() {
@@ -26,10 +26,10 @@ export default class MainScreen extends Component {
         </Header>
         <Tabs initialPage={0}>
           <Tab heading="Watchlist">
-            <WatchlistScreen />
+            <WatchlistScreenContainer />
           </Tab>
           <Tab heading="News">
-            <NewsScreen />
+            <NewsScreenContainer />
           </Tab>
           <Tab heading="Portfolio">
             <PortfolioScreen />

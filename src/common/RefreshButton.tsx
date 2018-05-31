@@ -2,7 +2,7 @@ import { Body, Button, Spinner, Text } from "native-base";
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
-import { IStoreState } from "../store/types";
+import { IRootState } from "../store";
 
 interface IRefreshButtonProps {
   isRefreshing: boolean;
@@ -29,7 +29,7 @@ class RefreshButton extends Component<IRefreshButtonProps> {
   }
 }
 
-function mapStateToProps(state: IStoreState): IRefreshButtonProps {
+function mapStateToProps(state: IRootState): IRefreshButtonProps {
   return {
     isRefreshing: false,
     lastUpdated: "2016-10-31 15:00:23"

@@ -1,6 +1,6 @@
 import * as Expo from "expo";
 import * as React from "react";
-import RootContainer from "./src/RootContainer";
+import { RootContainer } from "./src/RootContainer";
 
 interface IAppState {
   readonly loading: boolean;

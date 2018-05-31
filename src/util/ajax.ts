@@ -1,6 +1,6 @@
 import { Linking } from "react-native";
 
-import INewsItem from "../news/INewsItem";
+import INewsItem from "../news/models/INewsItem";
 
 export function openUrl(url: string): void {
   Linking.openURL(url).catch(err =>
