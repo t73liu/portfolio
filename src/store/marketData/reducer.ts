@@ -1,15 +1,18 @@
-import {MarketData} from "../types";
-import {ActionTypes} from "../actionTypes";
+import { ActionTypes } from "../actionTypes";
+import { IMarketData } from "../types";
 
-const initialState: MarketData = {
-    symbolData: new Map(),
-    isRefreshing: false,
-    lastUpdated: new Date()
+const initialState: IMarketData = {
+  symbolData: new Map(),
+  isRefreshing: false,
+  lastUpdated: new Date()
 };
 
-export function MarketDataReducer(state: MarketData = initialState, action: ActionTypes): MarketData {
-    switch (action.type) {
-        default:
-            return state;
-    }
+export function MarketDataReducer(
+  state: IMarketData = initialState,
+  action: ActionTypes
+): IMarketData {
+  switch (action.type) {
+    default:
+      return state;
+  }
 }

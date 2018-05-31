@@ -1,9 +1,12 @@
-import {Holding} from "../types";
-import {ActionTypes} from "../actionTypes";
+import { ActionTypes } from "../actionTypes";
+import { IHolding } from "../types";
 
-export function PortfolioReducer(state: Holding[] = [], action: ActionTypes): Holding[] {
-    switch (action.type) {
-        default:
-            return state;
-    }
+export function PortfolioReducer(
+  state: IHolding[] = [],
+  action: ActionTypes
+): IHolding[] {
+  switch (action.type) {
+    default:
+      return state;
+  }
 }

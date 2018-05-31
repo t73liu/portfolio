@@ -1,28 +1,23 @@
-import {Body, ListItem, Text} from 'native-base';
-import React, {Component} from 'react';
+import { Body, ListItem, Text } from "native-base";
+import React from "react";
 
-import NewsItem from './NewsItem';
-import {openUrl} from '../util/ajax';
+import { openUrl } from "../util/ajax";
+import INewsItem from "./INewsItem";
 
-interface NewsDetailProps {
-    detail: NewsItem
+interface INewsDetailProps {
+  detail: INewsItem;
 }
 
-export default class NewsDetail extends Component<NewsDetailProps, object> {
-    constructor(props: NewsDetailProps) {
-        super(props);
-    }
-
-    render() {
-        return (
-            <ListItem onPress={() => {
-                openUrl(this.props.detail.url)
-            }}>
-                <Body>
-                <Text>{this.props.detail.headline}</Text>
-                <Text note>{this.props.detail.source}</Text>
-                </Body>
-            </ListItem>
-        );
-    }
-}
+export const NewsDetail: React.SFC<INewsDetailProps> = props => {
+  const pressButton = () => {
+    openUrl(props.detail.url);
+  };
+  return (
+    <ListItem onPress={pressButton}>
+      <Body>
+        <Text>{props.detail.headline}</Text>
+        <Text note={true}>{props.detail.source}</Text>
+      </Body>
+    </ListItem>
+  );
+};

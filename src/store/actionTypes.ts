@@ -1,4 +1,6 @@
-import {AddWatchlistTicker, RemoveWatchlistTicker} from './watchlist/actionTypes';
+import {
+  IAddWatchlistTicker,
+  IRemoveWatchlistTicker
+} from "./watchlist/actionTypes";
 
-export type ActionTypes = AddWatchlistTicker
-    | RemoveWatchlistTicker;
+export type ActionTypes = IAddWatchlistTicker | IRemoveWatchlistTicker;

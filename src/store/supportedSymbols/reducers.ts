@@ -1,9 +1,12 @@
-import {SymbolName} from "../types";
-import {ActionTypes} from "../actionTypes";
+import { ActionTypes } from "../actionTypes";
+import { ISymbolName } from "../types";
 
-export function SupportedSymbolReducer(state: SymbolName[] = [], action: ActionTypes): SymbolName[] {
-    switch (action.type) {
-        default:
-            return state;
-    }
+export function SupportedSymbolReducer(
+  state: ISymbolName[] = [],
+  action: ActionTypes
+): ISymbolName[] {
+  switch (action.type) {
+    default:
+      return state;
+  }
 }

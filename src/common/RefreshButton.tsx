@@ -1,39 +1,39 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Body, Button, Spinner, Text} from 'native-base';
+import { Body, Button, Spinner, Text } from "native-base";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import {StoreState} from '../store/types';
+import { IStoreState } from "../store/types";
 
-interface RefreshButtonProps {
-    isRefreshing: boolean
-    lastUpdated: string
+interface IRefreshButtonProps {
+  isRefreshing: boolean;
+  lastUpdated: string;
 }
 
-class RefreshButton extends Component<RefreshButtonProps> {
-    constructor(props: RefreshButtonProps) {
-        super(props);
-    }
+class RefreshButton extends Component<IRefreshButtonProps> {
+  constructor(props: IRefreshButtonProps) {
+    super(props);
+  }
 
-    render() {
-        const time = this.props.lastUpdated;
-        return this.props.isRefreshing ?
-            (<Body><Spinner/></Body>) :
-            (<Button>
-                <Text>
-                    Refresh Data
-                </Text>
-                <Text note>
-                    {time}
-                </Text>
-            </Button>);
-    }
+  public render() {
+    const time = this.props.lastUpdated;
+    return this.props.isRefreshing ? (
+      <Body>
+        <Spinner />
+      </Body>
+    ) : (
+      <Button>
+        <Text>Refresh Data</Text>
+        <Text note={true}>{time}</Text>
+      </Button>
+    );
+  }
 }
 
-function mapStateToProps(state: StoreState): RefreshButtonProps {
-    return ({
-        isRefreshing: false,
-        lastUpdated: "2016-10-31 15:00:23"
-    });
+function mapStateToProps(state: IStoreState): IRefreshButtonProps {
+  return {
+    isRefreshing: false,
+    lastUpdated: "2016-10-31 15:00:23"
+  };
 }
 
 export default connect(mapStateToProps)(RefreshButton);

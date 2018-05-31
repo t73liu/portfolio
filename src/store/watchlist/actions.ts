@@ -1,18 +1,22 @@
-import {ActionCreator} from 'redux';
+import { ActionCreator } from "redux";
 
-import {AddWatchlistTicker, RemoveWatchlistTicker} from './actionTypes';
-import {ActionTypeKeys} from '../actionTypeKeys';
+import { ActionTypeKeys } from "../actionTypeKeys";
+import { IAddWatchlistTicker, IRemoveWatchlistTicker } from "./actionTypes";
 
-export const addWatchlistTicker: ActionCreator<AddWatchlistTicker> = (newTicker: string) => ({
-    type: ActionTypeKeys.ADD_WATCHLIST_TICKER,
-    payload: {
-        ticker: newTicker
-    }
+export const addWatchlistTicker: ActionCreator<IAddWatchlistTicker> = (
+  newTicker: string
+) => ({
+  type: ActionTypeKeys.ADD_WATCHLIST_TICKER,
+  payload: {
+    ticker: newTicker
+  }
 });
 
-export const removeWatchlistTicker: ActionCreator<RemoveWatchlistTicker> = (existingTicker: string) => ({
-    type: ActionTypeKeys.REMOVE_WATCHLIST_TICKER,
-    payload: {
-        ticker: existingTicker
-    }
+export const removeWatchlistTicker: ActionCreator<IRemoveWatchlistTicker> = (
+  existingTicker: string
+) => ({
+  type: ActionTypeKeys.REMOVE_WATCHLIST_TICKER,
+  payload: {
+    ticker: existingTicker
+  }
 });

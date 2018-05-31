@@ -1,38 +1,38 @@
-import React, {Component} from 'react'
-import {Content, List as ListComponent} from 'native-base'
-import {connect} from 'react-redux';
+import { Content, List } from "native-base";
+import React, { Component } from "react";
+import { connect } from "react-redux";
 
-import NewsDetail from './NewsDetail';
-import NewsItem from './NewsItem';
-import {StoreState} from '../store/types';
+import { IStoreState } from "../store/types";
+import INewsItem from "./INewsItem";
+import { NewsDetail } from "./NewsDetail";
 
-interface NewsScreenProps {
-    news: NewsItem[]
+interface INewsScreenProps {
+  news: INewsItem[];
 }
 
-class NewsScreen extends Component<NewsScreenProps, object> {
-    constructor(props: NewsScreenProps) {
-        super(props);
-    }
+class NewsScreen extends Component<INewsScreenProps, object> {
+  constructor(props: INewsScreenProps) {
+    super(props);
+  }
 
-    render() {
-        const newsItems = this.props.news;
-        return (
-            <Content>
-                <ListComponent dataArray={newsItems}
-                               renderRow={(item: NewsItem) =>
-                          <NewsDetail detail={item}/>
-                      }>
-                </ListComponent>
-            </Content>
-        );
-    }
+  public render() {
+    const newsItems = this.props.news;
+    return (
+      <Content>
+        <List>
+          {newsItems.map(item => (
+            <NewsDetail key={item.headline} detail={item} />
+          ))}
+        </List>
+      </Content>
+    );
+  }
 }
 
-function mapStateToProps(state: StoreState): NewsScreenProps {
-    return ({
-        news: []
-    });
+function mapStateToProps(state: IStoreState): INewsScreenProps {
+  return {
+    news: []
+  };
 }
 
 export default connect(mapStateToProps)(NewsScreen);
