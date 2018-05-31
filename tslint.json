@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "tslint:latest",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "rules": {
+    "no-console": false,
+    "no-implicit-dependencies": [
+      true,
+      "dev"
+    ],
+    "no-submodule-imports": false,
+    "no-object-literal-type-assertion": false
+  }
+}

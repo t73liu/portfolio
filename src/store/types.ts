@@ -1,11 +1,9 @@
-import {List, Map} from 'immutable';
-
 import NewsItem from '../news/NewsItem';
 
 export interface StoreState {
-    supportedSymbols: List<SymbolName>
-    watchlist: List<string>
-    portfolio: List<Holding>
+    supportedSymbols: SymbolName[]
+    watchlist: string[]
+    portfolio: Holding[]
     marketData: MarketData
 }
 
@@ -28,7 +26,7 @@ export interface MarketData {
 
 export interface SymbolData {
     quote: Quote
-    news: List<NewsItem>
+    news: NewsItem[]
 }
 
 export interface Quote {

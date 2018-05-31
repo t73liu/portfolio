@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
 import {Button, Container, Content, Header, Icon, Input, Item, List as ListComponent, Text} from 'native-base'
 import {connect} from 'react-redux';
-import {List} from "immutable";
 
 import StockDetail from './StockDetail';
 import {StoreState} from '../store/types';
 
 interface WatchlistProps {
-    tickers: List<string>
+    tickers: string[]
 }
 
 class WatchlistScreen extends Component<WatchlistProps, object> {
@@ -29,7 +28,7 @@ class WatchlistScreen extends Component<WatchlistProps, object> {
                     </Button>
                 </Header>
                 <Content>
-                    <ListComponent dataArray={this.props.tickers.toJS()}
+                    <ListComponent dataArray={this.props.tickers}
                                    renderRow={(ticker) =>
                               <StockDetail key={ticker} ticker={ticker}/>
                           }>
