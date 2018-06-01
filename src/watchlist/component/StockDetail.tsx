@@ -3,11 +3,21 @@ import React, { SFC } from "react";
 
 import { IQuote } from "../../types";
 
-export interface IStockDetailProps {
+export interface IStockDetailOwnProps {
   ticker: string;
+}
+
+interface IStockDetailStateProps {
   quote?: IQuote;
+}
+
+interface IStockDetailDispatchProps {
   deleteTicker: (ticker: string) => any;
 }
+
+type IStockDetailProps = IStockDetailOwnProps &
+  IStockDetailStateProps &
+  IStockDetailDispatchProps;
 
 export const StockDetail: SFC<IStockDetailProps> = props => {
   const handleButtonPress = () => {
