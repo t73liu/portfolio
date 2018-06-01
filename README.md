@@ -2,13 +2,13 @@
 
 ## Preview
 
-* [Expo](https://expo.io/@t73liu/portfolio)
+- [Expo](https://expo.io/@t73liu/portfolio)
 
 ## Features
 
-* Track stocks traded on IEX with a watchlist
-* Track news related to general market and watchlist stocks
-* Track portfolio changes
+- Track stocks traded on IEX with a watchlist
+- Track news related to general market and watchlist stocks
+- Track portfolio changes
 
 ## Setup
 
@@ -20,5 +20,5 @@
 
 ## Third Party Services
 
-* Data provided for free by [IEX](https://iextrading.com/developer/)
-  * [Terms of service](https://iextrading.com/api-exhibit-a/)
+- Data provided for free by [IEX](https://iextrading.com/developer/)
+  - [Terms of service](https://iextrading.com/api-exhibit-a/)
