@@ -686,16 +686,16 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-navigation@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.0.tgz#aa65f4600fae3f07bb4086704964dda9a31de997"
+"@types/react-navigation@^2.0.1":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.1.tgz#83b8938d1298c6e86d5db93239bfccafaa8f3979"
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
 
-"@types/react-redux@^6.0.0":
-  version "6.0.0"
-  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-6.0.0.tgz#31711592b13ed6d6d2fd4506e5447b00e1f0b484"
+"@types/react-redux@^6.0.1":
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/@types/react-redux/-/react-redux-6.0.1.tgz#bb8f6cc19d00a999f9d932ab796212ad3921994b"
   dependencies:
     "@types/react" "*"
     redux "^4.0.0"
@@ -5964,9 +5964,9 @@ preserve@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/preserve/-/preserve-0.2.0.tgz#815ed1f6ebc65926f865b310c0713bcb3315ce4b"
 
-prettier@1.13.3:
-  version "1.13.3"
-  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.3.tgz#e74c09a7df6519d472ca6febaa37cf7addb48a20"
+prettier@1.13.4:
+  version "1.13.4"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.13.4.tgz#31bbae6990f13b1093187c731766a14036fa72e6"
 
 pretty-format@^21.2.1:
   version "21.2.1"

@@ -23,7 +23,7 @@ export const RootContainer: React.SFC = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<AppLoading />}>
-        <Container>
+        <Container style={styles.container}>
           <MainScreen />
           <AdMobBanner
             bannerSize="smartBannerLandscape"
