@@ -1,7 +1,7 @@
 import { ActionType, getType } from "typesafe-actions";
 import * as watchlist from "./actions";
 
-type WatchlistActions = ActionType<typeof watchlist>;
+export type WatchlistActions = ActionType<typeof watchlist>;
 
 export default function watchlistReducer(
   state: string[] = [],

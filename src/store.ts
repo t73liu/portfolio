@@ -1,11 +1,12 @@
 import { AsyncStorage } from "react-native";
-import { combineReducers, createStore } from "redux";
+import { applyMiddleware, combineReducers, createStore } from "redux";
+import { combineEpics, createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
 import { StateType } from "typesafe-actions";
-import marketDataReducer from "./common/state/reducer";
-import watchlistReducer from "./watchlist/state/reducer";
+import marketDataReducer, { FetchActions } from "./common/state/reducer";
+import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
-export const rootReducer = combineReducers({
+const rootReducer = combineReducers({
   marketData: marketDataReducer,
   watchlist: watchlistReducer
 });
@@ -17,7 +18,16 @@ const persistConfig = {
   storage: AsyncStorage
 };
 
-const store = createStore(persistReducer(persistConfig, rootReducer as any));
+export type IRootAction = WatchlistActions | FetchActions;
+
+const rootEpic = combineEpics({});
+
+const epicMiddleware = createEpicMiddleware(rootEpic);
+
+const store = createStore(
+  persistReducer(persistConfig, rootReducer as any),
+  applyMiddleware(epicMiddleware)
+);
 
 export const persistor = persistStore(store);
 

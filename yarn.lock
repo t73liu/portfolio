@@ -6588,9 +6588,9 @@ redux-logger@^2.7.4:
   dependencies:
     deep-diff "0.3.4"
 
-redux-observable@^1.0.0-alpha.3:
-  version "1.0.0-alpha.3"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.0.0-alpha.3.tgz#05afb08b1dc6e7a373e506a366d1e5682e91cdab"
+redux-observable@^1.0.0-beta.0:
+  version "1.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.0.0-beta.0.tgz#71d7bbb616e379d8949b7ed86a0792837db76995"
 
 redux-persist@^5.9.1:
   version "5.9.1"
