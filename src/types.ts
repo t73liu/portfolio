@@ -11,8 +11,12 @@ export interface IHolding {
   buyPrice: number;
 }
 
+export interface IDictionary<T> {
+  [key: string]: T;
+}
+
 export interface IMarketData {
-  symbolData: Map<string, ISymbolData>;
+  symbolData: IDictionary<ISymbolData>;
   isRefreshing: boolean;
   lastUpdated: Date;
 }

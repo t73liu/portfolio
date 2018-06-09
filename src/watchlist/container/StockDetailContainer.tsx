@@ -5,10 +5,10 @@ import { IStockDetailOwnProps, StockDetail } from "../component/StockDetail";
 import { removeTicker } from "../state/actions";
 
 const mapStateToProps = (state: IRootState, ownProps: IStockDetailOwnProps) => {
-  return !state.marketData.symbolData.has(ownProps.ticker)
+  return state.marketData.symbolData[ownProps.ticker] === undefined
     ? ownProps
     : {
-        quote: state.marketData.symbolData.get(ownProps.ticker)!.quote,
+        quote: state.marketData.symbolData[ownProps.ticker].quote,
         ...ownProps
       };
 };

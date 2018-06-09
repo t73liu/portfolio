@@ -36,3 +36,12 @@ export async function getNews(
   );
   return request.json();
 }
+
+function objToStrMap(str: string) {
+  const strMap = new Map();
+  const obj = JSON.parse(str);
+  for (const k of Object.keys(obj)) {
+    strMap.set(k, obj[k]);
+  }
+  return strMap;
+}
