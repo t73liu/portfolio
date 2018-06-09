@@ -1,7 +1,10 @@
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import { IRootState } from "../../store";
-import { IStockDetailOwnProps, StockDetail } from "../component/StockDetail";
+import {
+  IStockDetailOwnProps,
+  WatchlistItem
+} from "../component/WatchlistItem";
 import { removeTicker } from "../state/actions";
 
 const mapStateToProps = (state: IRootState, ownProps: IStockDetailOwnProps) => {
@@ -24,4 +27,4 @@ const mapDispatchToProps = (dispatch: Dispatch) =>
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StockDetail);
+)(WatchlistItem);

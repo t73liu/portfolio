@@ -1,6 +1,7 @@
 import { Body, Button, Icon, ListItem, Right, Text } from "native-base";
 import React, { SFC } from "react";
 
+import { NavigationInjectedProps } from "react-navigation";
 import { IQuote } from "../../types";
 
 export interface IStockDetailOwnProps {
@@ -17,15 +18,21 @@ interface IStockDetailDispatchProps {
 
 type IStockDetailProps = IStockDetailOwnProps &
   IStockDetailStateProps &
-  IStockDetailDispatchProps;
+  IStockDetailDispatchProps &
+  NavigationInjectedProps;
 
-export const StockDetail: SFC<IStockDetailProps> = props => {
+export const WatchlistItem: SFC<IStockDetailProps> = props => {
   const handleButtonPress = () => {
     props.deleteTicker(props.ticker);
   };
+  const handleItemPress = () => {
+    props.navigation.navigate("StockDetail", {
+      ticker: props.ticker
+    });
+  };
 
   return (
-    <ListItem>
+    <ListItem onPress={handleItemPress}>
       <Body>
         <Text>{props.ticker}</Text>
         <Text note={true}>
@@ -35,7 +42,7 @@ export const StockDetail: SFC<IStockDetailProps> = props => {
         </Text>
       </Body>
       <Right>
-        <Button dark={true} transparent={true} onPress={handleButtonPress}>
+        <Button danger={true} transparent={true} onPress={handleButtonPress}>
           <Icon name="trash" />
         </Button>
       </Right>

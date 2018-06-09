@@ -11,33 +11,59 @@ import {
   Title
 } from "native-base";
 import React, { SFC } from "react";
-import StockDetailContainer from "../container/StockDetailContainer";
+import { NavigationInjectedProps } from "react-navigation";
+import WatchlistItemContainer from "../container/WatchlistItemContainer";
 
 export interface IWatchlistProps {
   tickers: string[];
 }
 
-export const WatchlistScreen: SFC<IWatchlistProps> = props => {
+const test = [
+  "a",
+  "b",
+  "c",
+  "d",
+  "e",
+  "f",
+  "g",
+  "h",
+  "i"
+];
+
+export const WatchlistScreen: SFC<
+  IWatchlistProps & NavigationInjectedProps
+> = props => {
+  const onPressAdd = () => {
+    props.navigation.navigate("WatchlistAdd");
+  };
+  const onPressRefresh = () => {
+    // TODO implement refresh functionality
+    console.log("SHOULD REFRESH DATA");
+  };
   return (
     <Container>
       <Header>
         <Left />
         <Body>
-          <Title>Watchlist</Title>
+          <Title>Watchlist!</Title>
         </Body>
         <Right>
-          <Button transparent={true}>
+          <Button transparent={true} onPress={onPressAdd}>
             <Icon name="add" />
           </Button>
-          <Button transparent={true}>
+          <Button transparent={true} onPress={onPressRefresh}>
             <Icon name="refresh" />
           </Button>
         </Right>
       </Header>
       <Content>
         <List>
-          {props.tickers.map(ticker => (
-            <StockDetailContainer key={ticker} ticker={ticker} />
+          {test.map(ticker => (
+            <WatchlistItemContainer
+              key={ticker}
+              ticker={ticker}
+              navigation={props.navigation}
+            />
           ))}
         </List>
       </Content>
