@@ -1,8 +1,7 @@
 {
   "expo": {
     "name": "Portfolio Buddy",
-    "description":
-      "Track stocks, news, and portfolio changes. No accounts. State persisted.",
+    "description": "Track stocks, news, and portfolio changes. No accounts.",
     "slug": "portfolio",
     "version": "1.0.0",
     "githubUrl": "https://github.com/t73liu/portfolio",
