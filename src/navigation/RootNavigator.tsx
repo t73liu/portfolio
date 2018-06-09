@@ -1,17 +1,18 @@
 import { Button, Footer, FooterTab, Text } from "native-base";
 import React from "react";
-import { createMaterialTopTabNavigator } from "react-navigation";
+import { createBottomTabNavigator } from "react-navigation";
 import NewsScreenContainer from "../news/container/NewsScreenContainer";
 import PortfolioScreen from "../portfolio/component/PortfolioScreen";
 import WatchlistScreenContainer from "../watchlist/container/WatchlistScreenContainer";
 
-export default createMaterialTopTabNavigator(
+export default createBottomTabNavigator(
   {
     Watchlist: WatchlistScreenContainer,
     News: NewsScreenContainer,
     Portfolio: PortfolioScreen
   },
   {
+    swipeEnabled: false,
     tabBarComponent: props => {
       const onPressWatchlist = () => {
         props.navigation.navigate("Watchlist");
