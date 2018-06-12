@@ -1,5 +1,9 @@
-import { createAction } from "typesafe-actions";
+import { createAsyncAction } from "typesafe-actions";
+import { IMarketData } from "../../types";
+import { IError } from "../../util/ajax";
 
-export const update = createAction("UPDATE_MARKET_DATA", resolve => {
-  return () => resolve();
-});
+export const refreshMarketData = createAsyncAction(
+  "REFRESH_MARKET_DATA_REQUEST",
+  "REFRESH_MARKET_DATA_SUCCESS",
+  "REFRESH_MARKET_DATA_FAILURE"
+)<void, IMarketData, IError>();

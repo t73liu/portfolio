@@ -1,3 +1,4 @@
+import {create} from 'apisauce'
 import { Linking } from "react-native";
 
 import INewsItem from "../news/models/INewsItem";
@@ -10,6 +11,17 @@ export function openUrl(url: string): void {
 
 export function openTickerUI(ticker: string): void {
   openUrl(`https://finance.yahoo.com/quote/${ticker}/`);
+}
+
+const api = create({
+  baseURL: 'https://api.iextrading.com/1.0',
+  headers: {'Accept': 'application/json'},
+  timeout: 10000
+});
+
+export interface IError {
+  problem: string;
+  explanation: string;
 }
 
 // https://iextrading.com/developer/docs/#batch-requests [Up to 10 types]

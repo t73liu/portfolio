@@ -1,9 +1,9 @@
 import { ActionType, getType } from "typesafe-actions";
 import { symbolData } from "../../offline/symbolData";
 import { IMarketData } from "../../types";
-import * as fetch from "./actions";
+import { refreshMarketData } from "./actions";
 
-export type FetchActions = ActionType<typeof fetch>;
+export type FetchActions = ActionType<typeof refreshMarketData>;
 
 const initialState: IMarketData = {
   symbolData,
@@ -16,7 +16,11 @@ export default function marketDataReducer(
   action: FetchActions
 ): IMarketData {
   switch (action.type) {
-    case getType(fetch.update):
+    case getType(refreshMarketData.request):
+      return state;
+    case getType(refreshMarketData.success):
+      return state;
+    case getType(refreshMarketData.failure):
       return state;
     default:
       return state;
