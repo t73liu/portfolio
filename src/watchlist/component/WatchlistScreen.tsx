@@ -18,17 +18,7 @@ export interface IWatchlistProps {
   tickers: string[];
 }
 
-const test = [
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i"
-];
+const test = ["a", "b", "c", "d", "e", "f", "g", "h", "i"];
 
 export const WatchlistScreen: SFC<
   IWatchlistProps & NavigationInjectedProps

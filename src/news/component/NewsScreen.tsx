@@ -1,4 +1,15 @@
-import { Body, Button, Container, Content, Header, Icon, Left, List, Right, Title } from "native-base";
+import {
+  Body,
+  Button,
+  Container,
+  Content,
+  Header,
+  Icon,
+  Left,
+  List,
+  Right,
+  Title
+} from "native-base";
 import React, { SFC } from "react";
 import INewsItem from "../models/INewsItem";
 import { NewsDetail } from "./NewsDetail";
@@ -17,7 +28,7 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
       <Header>
         <Left />
         <Body>
-        <Title>News</Title>
+          <Title>News</Title>
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressRefresh}>
@@ -25,13 +36,13 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
           </Button>
         </Right>
       </Header>
-    <Content>
-      <List>
-        {props.news.map(item => (
-          <NewsDetail key={item.headline} detail={item} />
-        ))}
-      </List>
-    </Content>
+      <Content>
+        <List>
+          {props.news.map(item => (
+            <NewsDetail key={item.headline} detail={item} />
+          ))}
+        </List>
+      </Content>
     </Container>
   );
 };

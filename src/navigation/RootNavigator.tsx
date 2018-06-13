@@ -2,7 +2,7 @@ import { Button, Footer, FooterTab, Text } from "native-base";
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation";
 import NewsScreenContainer from "../news/container/NewsScreenContainer";
-import {PortfolioScreen} from "../portfolio/component/PortfolioScreen";
+import { PortfolioScreen } from "../portfolio/component/PortfolioScreen";
 import WatchlistNavigator from "./WatchlistNavigator";
 
 export default createBottomTabNavigator(

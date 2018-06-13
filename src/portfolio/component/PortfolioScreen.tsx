@@ -1,9 +1,21 @@
-import { Body, Button, CardItem, Container, Content, Header, Icon, Left, Right, Text, Title } from "native-base";
+import {
+  Body,
+  Button,
+  CardItem,
+  Container,
+  Content,
+  Header,
+  Icon,
+  Left,
+  Right,
+  Text,
+  Title
+} from "native-base";
 import React, { SFC } from "react";
 import { IHolding } from "../../types";
 
 export interface IPortfolioScreenProps {
-  portfolio: IHolding[]
+  portfolio: IHolding[];
 }
 
 export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
@@ -16,7 +28,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
       <Header>
         <Left />
         <Body>
-        <Title>Portfolio</Title>
+          <Title>Portfolio</Title>
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressRefresh}>
@@ -27,7 +39,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
       <Content>
         <CardItem>
           <Body>
-          <Text>Portfolio Here</Text>
+            <Text>Portfolio Here</Text>
           </Body>
         </CardItem>
       </Content>
