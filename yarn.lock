@@ -648,9 +648,9 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
 
-"@types/expo@^27.0.0":
-  version "27.0.0"
-  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-27.0.0.tgz#466b2b702347dc50641aafa039d067e905e4fa06"
+"@types/expo@^27.0.1":
+  version "27.0.1"
+  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-27.0.1.tgz#353ba0cd24cfc78daf304282783632840ea1492c"
   dependencies:
     "@types/fbemitter" "*"
     "@types/react" "*"
@@ -686,9 +686,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-navigation@^2.0.4":
-  version "2.0.4"
-  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.4.tgz#9cbbb5baa65ff1b602c3d982c96fd20bbb0d248b"
+"@types/react-navigation@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.5.tgz#b771d6d1e489eb86797aee780779ae4467221c82"
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"

@@ -3,7 +3,9 @@ import { applyMiddleware, combineReducers, createStore } from "redux";
 import { createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
 import { StateType } from "typesafe-actions";
-import marketDataReducer, { FetchActions } from "./common/state/reducer";
+import marketDataReducer, {
+  RefreshMarketActions
+} from "./market/state/reducer";
 import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
 const rootReducer = combineReducers({
@@ -18,7 +20,7 @@ const persistConfig = {
   storage: AsyncStorage
 };
 
-export type IRootAction = WatchlistActions | FetchActions;
+export type IRootAction = WatchlistActions | RefreshMarketActions;
 
 // const rootEpic = combineEpics({});
 

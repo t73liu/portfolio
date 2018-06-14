@@ -3,7 +3,7 @@ import { symbolData } from "../../offline/symbolData";
 import { IMarketData } from "../../types";
 import { refreshMarketData } from "./actions";
 
-export type FetchActions = ActionType<typeof refreshMarketData>;
+export type RefreshMarketActions = ActionType<typeof refreshMarketData>;
 
 const initialState: IMarketData = {
   symbolData,
@@ -13,7 +13,7 @@ const initialState: IMarketData = {
 
 export default function marketDataReducer(
   state: IMarketData = initialState,
-  action: FetchActions
+  action: RefreshMarketActions
 ): IMarketData {
   switch (action.type) {
     case getType(refreshMarketData.request):
