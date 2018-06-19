@@ -648,9 +648,9 @@
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
 
-"@types/expo@^27.0.1":
-  version "27.0.1"
-  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-27.0.1.tgz#353ba0cd24cfc78daf304282783632840ea1492c"
+"@types/expo@^27.0.3":
+  version "27.0.3"
+  resolved "https://registry.yarnpkg.com/@types/expo/-/expo-27.0.3.tgz#f40f191073607e6c1963d23d92af2333ffbbde71"
   dependencies:
     "@types/fbemitter" "*"
     "@types/react" "*"
@@ -680,15 +680,15 @@
   version "7.0.60"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.60.tgz#5406c35961e4f9e2d5a1b9482daa14501754ecda"
 
-"@types/react-native@*", "@types/react-native@0.55.19":
-  version "0.55.19"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.19.tgz#dfda6367da2d7a73b68cc0851e0fe302125b96ee"
+"@types/react-native@*", "@types/react-native@0.55.22":
+  version "0.55.22"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.55.22.tgz#14193cc3b2e362e0408a54900855c0111c600caa"
   dependencies:
     "@types/react" "*"
 
-"@types/react-navigation@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.5.tgz#b771d6d1e489eb86797aee780779ae4467221c82"
+"@types/react-navigation@^2.0.6":
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/@types/react-navigation/-/react-navigation-2.0.6.tgz#16ef87a163aebb7e6d2b5223f2c1f692a9f03726"
   dependencies:
     "@types/react" "*"
     "@types/react-native" "*"
@@ -706,9 +706,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.3.17", "@types/react@^16.3.17":
-  version "16.3.17"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.17.tgz#d59d1a632570b0713946ed9c2949d994773633c5"
+"@types/react@*", "@types/react@16.3.18", "@types/react@^16.3.18":
+  version "16.3.18"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.18.tgz#bf195aed4d77dc86f06e4c9bb760214a3b822b8d"
   dependencies:
     csstype "^2.2.0"
 
@@ -5421,9 +5421,9 @@ native-base-shoutem-theme@0.2.2:
     lodash "^4.10.1"
     prop-types "^15.5.10"
 
-native-base@^2.5.1:
-  version "2.5.1"
-  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.5.1.tgz#31759f977b70abfcecaedeb81bad97512559803b"
+native-base@^2.5.2:
+  version "2.5.2"
+  resolved "https://registry.yarnpkg.com/native-base/-/native-base-2.5.2.tgz#62d2a0a8d4d1e0384bcc07f36845bdf256930a9f"
   dependencies:
     blueimp-md5 "^2.5.0"
     clamp "^1.0.1"
@@ -6562,9 +6562,9 @@ redux-logger@^2.7.4:
   dependencies:
     deep-diff "0.3.4"
 
-redux-observable@^1.0.0-beta.1:
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.0.0-beta.1.tgz#6b4b5d4bff69539b12c0f12cbbbaa6a6c28997b6"
+redux-observable@^1.0.0-beta.2:
+  version "1.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/redux-observable/-/redux-observable-1.0.0-beta.2.tgz#05d78e4b088f736db5d8805fecaedf607c4c3754"
 
 redux-persist@^5.10.0:
   version "5.10.0"
