@@ -1,5 +1,6 @@
 import { AsyncStorage } from "react-native";
 import { applyMiddleware, combineReducers, createStore } from "redux";
+import logger from "redux-logger";
 import { createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
 import { StateType } from "typesafe-actions";
@@ -28,8 +29,10 @@ const epicMiddleware = createEpicMiddleware();
 
 const store = createStore(
   persistReducer(persistConfig, rootReducer as any),
-  applyMiddleware(epicMiddleware)
+  applyMiddleware(epicMiddleware, logger)
 );
+
+// epicMiddleware.run(rootEpic);
 
 export const persistor = persistStore(store);
 
