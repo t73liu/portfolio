@@ -2,7 +2,7 @@ import { Body, Button, Icon, ListItem, Right, Text } from "native-base";
 import React, { SFC } from "react";
 
 import { NavigationInjectedProps } from "react-navigation";
-import { IQuote } from "../../types";
+import IQuote from "../../market/models/IQuote";
 
 export interface IStockDetailOwnProps {
   ticker: string;

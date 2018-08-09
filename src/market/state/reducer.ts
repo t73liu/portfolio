@@ -1,6 +1,8 @@
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/batch.json";
-import { IDictionary, IMarketData, ISymbolData } from "../../types";
+import IDictionary from "../../types";
+import IMarketData from "../models/IMarketData";
+import ISymbolData from "../models/ISymbolData";
 import { refreshMarketData } from "./actions";
 
 export type RefreshMarketActions = ActionType<typeof refreshMarketData>;

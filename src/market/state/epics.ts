@@ -2,8 +2,8 @@ import { Epic } from "redux-observable";
 import { filter, switchMap } from "rxjs/operators";
 import { isActionOf } from "typesafe-actions";
 import { IRootAction, IRootState } from "../../store";
-import { IMarketData } from "../../types";
 import { getMarketData, isError } from "../../util/ajax";
+import IMarketData from "../models/IMarketData";
 import { refreshMarketData } from "./actions";
 
 export const refreshMarketDataEpic: Epic<

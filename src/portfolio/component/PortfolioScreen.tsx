@@ -12,7 +12,7 @@ import {
   Title
 } from "native-base";
 import React, { SFC } from "react";
-import { IHolding } from "../../types";
+import IHolding from "../models/IHolding";
 
 export interface IPortfolioScreenProps {
   portfolio: IHolding[];
