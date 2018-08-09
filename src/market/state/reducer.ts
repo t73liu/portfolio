@@ -1,12 +1,12 @@
 import { ActionType, getType } from "typesafe-actions";
-import { symbolData } from "../../offline/symbolData";
-import { IMarketData } from "../../types";
+import data from "../../../assets/data/batch.json";
+import { IDictionary, IMarketData, ISymbolData } from "../../types";
 import { refreshMarketData } from "./actions";
 
 export type RefreshMarketActions = ActionType<typeof refreshMarketData>;
 
 const initialState: IMarketData = {
-  symbolData,
+  symbolData: data as IDictionary<ISymbolData>,
   isRefreshing: false,
   lastUpdated: new Date()
 };

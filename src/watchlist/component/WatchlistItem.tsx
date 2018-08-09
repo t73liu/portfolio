@@ -38,7 +38,7 @@ export const WatchlistItem: SFC<IStockDetailProps> = props => {
         <Text note={true}>
           {typeof props.quote === "undefined"
             ? "Please Refresh"
-            : props.quote!.ytdChange}
+            : props.quote!.latestPrice}
         </Text>
       </Body>
       <Right>

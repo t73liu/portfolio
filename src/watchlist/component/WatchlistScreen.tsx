@@ -18,8 +18,6 @@ export interface IWatchlistProps {
   tickers: string[];
 }
 
-const test = ["a", "b", "c", "d", "e", "f", "g", "h", "i"];
-
 export const WatchlistScreen: SFC<
   IWatchlistProps & NavigationInjectedProps
 > = props => {
@@ -48,7 +46,7 @@ export const WatchlistScreen: SFC<
       </Header>
       <Content>
         <List>
-          {test.map(ticker => (
+          {props.tickers.map(ticker => (
             <WatchlistItemContainer
               key={ticker}
               ticker={ticker}
