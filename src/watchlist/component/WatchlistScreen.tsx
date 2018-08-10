@@ -12,7 +12,7 @@ import {
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
-import WatchlistItemContainer from "../container/WatchlistItemContainer";
+import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 
 export interface IWatchlistProps {
   tickers: string[];
@@ -47,7 +47,7 @@ export const WatchlistScreen: SFC<
       <Content>
         <List>
           {props.tickers.map(ticker => (
-            <WatchlistItemContainer
+            <SymbolItemContainer
               key={ticker}
               ticker={ticker}
               navigation={props.navigation}

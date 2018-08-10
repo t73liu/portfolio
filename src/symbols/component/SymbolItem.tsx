@@ -3,28 +3,31 @@ import React, { SFC } from "react";
 
 import { NavigationInjectedProps } from "react-navigation";
 import IQuote from "../../market/models/IQuote";
+import { TickerText } from "./TickerText";
 
 export interface IStockDetailOwnProps {
   ticker: string;
 }
 
-interface IStockDetailStateProps {
+export interface IStockDetailStateProps {
   quote?: IQuote;
+  name: string;
 }
 
-interface IStockDetailDispatchProps {
+export interface IStockDetailDispatchProps {
   deleteTicker: (ticker: string) => any;
 }
 
-type IStockDetailProps = IStockDetailOwnProps &
+export type IStockDetailProps = IStockDetailOwnProps &
   IStockDetailStateProps &
   IStockDetailDispatchProps &
   NavigationInjectedProps;
 
-export const WatchlistItem: SFC<IStockDetailProps> = props => {
+export const SymbolItem: SFC<IStockDetailProps> = props => {
   const handleButtonPress = () => {
     props.deleteTicker(props.ticker);
   };
+
   const handleItemPress = () => {
     props.navigation.navigate("StockDetail", {
       ticker: props.ticker
@@ -34,16 +37,17 @@ export const WatchlistItem: SFC<IStockDetailProps> = props => {
   return (
     <ListItem onPress={handleItemPress}>
       <Body>
-        <Text>{props.ticker}</Text>
-        <Text note={true}>
-          {typeof props.quote === "undefined"
-            ? "Please Refresh"
-            : props.quote!.latestPrice}
-        </Text>
+        <TickerText {...props} />
+        <Text note={true}>{props.name}</Text>
       </Body>
       <Right>
         <Button danger={true} transparent={true} onPress={handleButtonPress}>
-          <Icon name="trash" />
+          <Icon name="eye" />
+        </Button>
+      </Right>
+      <Right>
+        <Button danger={true} transparent={true} onPress={handleButtonPress}>
+          <Icon name="cash" />
         </Button>
       </Right>
     </ListItem>
