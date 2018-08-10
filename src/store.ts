@@ -4,11 +4,11 @@ import { createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
 import { StateType } from "typesafe-actions";
 import marketDataReducer, { RefreshMarketActions } from "./market/state/reducer";
-import symbolDataReducer from "./symbols/state/reducer";
+import symbolNameReducer from "./symbols/state/reducer";
 import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
 const rootReducer = combineReducers({
-  symbolData: symbolDataReducer,
+  symbolName: symbolNameReducer,
   marketData: marketDataReducer,
   watchlist: watchlistReducer
 });

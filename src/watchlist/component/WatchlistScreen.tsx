@@ -22,7 +22,7 @@ export const WatchlistScreen: SFC<
   IWatchlistProps & NavigationInjectedProps
 > = props => {
   const onPressAdd = () => {
-    props.navigation.navigate("WatchlistAdd");
+    props.navigation.navigate("SymbolLookup");
   };
   const onPressRefresh = () => {
     // TODO implement refresh functionality
@@ -33,11 +33,11 @@ export const WatchlistScreen: SFC<
       <Header>
         <Left />
         <Body>
-          <Title>Watchlist!</Title>
+          <Title>Watchlist</Title>
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressAdd}>
-            <Icon name="add" />
+            <Icon name="search" />
           </Button>
           <Button transparent={true} onPress={onPressRefresh}>
             <Icon name="refresh" />
