@@ -1,7 +1,7 @@
 import { Text } from "native-base";
 import React, { SFC } from "react";
 import { StyleSheet, TextStyle } from "react-native";
-import { IStockDetailProps } from "./SymbolItem";
+import { ISymbolItemProps } from "./SymbolItem";
 
 interface ITickerStyle {
   readonly profit: TextStyle;
@@ -17,7 +17,7 @@ const styles = StyleSheet.create<ITickerStyle>({
   }
 });
 
-export const SymbolText: SFC<IStockDetailProps> = props => {
+export const SymbolText: SFC<ISymbolItemProps> = props => {
   if (typeof props.quote === "undefined") {
     return <Text>{props.ticker}</Text>;
   } else if (props.quote.change < 0) {

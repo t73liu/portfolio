@@ -6,28 +6,28 @@ import IQuote from "../../market/models/IQuote";
 import { SymbolButton } from "./SymbolButton";
 import { SymbolText } from "./SymbolText";
 
-export interface IStockDetailOwnProps {
+export interface ISymbolItemOwnProps {
   ticker: string;
 }
 
-export interface IStockDetailStateProps {
+export interface ISymbolItemStateProps {
   quote?: IQuote;
   name: string;
   isWatched: boolean;
   isHeld: boolean;
 }
 
-export interface IStockDetailDispatchProps {
+export interface ISymbolItemDispatchProps {
   addTicker: (ticker: string) => any;
   deleteTicker: (ticker: string) => any;
 }
 
-export type IStockDetailProps = IStockDetailOwnProps &
-  IStockDetailStateProps &
-  IStockDetailDispatchProps &
+export type ISymbolItemProps = ISymbolItemOwnProps &
+  ISymbolItemStateProps &
+  ISymbolItemDispatchProps &
   NavigationInjectedProps;
 
-export const SymbolItem: SFC<IStockDetailProps> = props => {
+export const SymbolItem: SFC<ISymbolItemProps> = props => {
   const handleItemPress = () => {
     props.navigation.navigate("StockDetail", {
       ticker: props.ticker

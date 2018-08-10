@@ -1,23 +1,28 @@
 import {
   Body,
   Button,
-  Card,
   Container,
-  Content,
   Header,
   Icon,
   Left,
   Title
 } from "native-base";
 import React, { SFC } from "react";
-import { NavigationScreenProps } from "react-navigation";
+import { NavigationInjectedProps } from "react-navigation";
+import ISymbolData from "../../market/models/ISymbolData";
+import { StockDetailBody } from "./StockDetailBody";
 
-interface IStockDetailOwnProps {
+export interface IStockDetailOwnProps extends NavigationInjectedProps {
   ticker: string;
 }
 
-export const StockDetailScreen: SFC<NavigationScreenProps<IStockDetailOwnProps>
-> = props => {
+export interface IStockDetailStateProps {
+  symbolData?: ISymbolData;
+}
+
+type IStockDetailProps = IStockDetailOwnProps & IStockDetailStateProps;
+
+export const StockDetailScreen: SFC<IStockDetailProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
   const onPressBack = () => {
     props.navigation.goBack();
@@ -34,9 +39,7 @@ export const StockDetailScreen: SFC<NavigationScreenProps<IStockDetailOwnProps>
           <Title>Stock: {ticker}</Title>
         </Body>
       </Header>
-      <Content>
-        <Card />
-      </Content>
+      <StockDetailBody symbolData={props.symbolData}/>
     </Container>
   );
 };

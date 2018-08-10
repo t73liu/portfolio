@@ -4,16 +4,16 @@ import IQuote from "../../market/models/IQuote";
 import { IRootState } from "../../store";
 import { addTicker, removeTicker } from "../../watchlist/state/actions";
 import {
-  IStockDetailDispatchProps,
-  IStockDetailOwnProps,
-  IStockDetailStateProps,
+  ISymbolItemDispatchProps,
+  ISymbolItemOwnProps,
+  ISymbolItemStateProps,
   SymbolItem
 } from "../component/SymbolItem";
 
 const mapStateToProps = (
   state: IRootState,
-  ownProps: IStockDetailOwnProps
-): IStockDetailStateProps => {
+  ownProps: ISymbolItemOwnProps
+): ISymbolItemStateProps => {
   return {
     name: getName(state, ownProps.ticker),
     quote: getQuote(state, ownProps.ticker),
@@ -36,7 +36,7 @@ function getQuote(state: IRootState, ticker: string): IQuote | undefined {
     : state.marketData.symbolData[ticker].quote;
 }
 
-const mapDispatchToProps = (dispatch: Dispatch): IStockDetailDispatchProps =>
+const mapDispatchToProps = (dispatch: Dispatch): ISymbolItemDispatchProps =>
   bindActionCreators(
     {
       addTicker,
