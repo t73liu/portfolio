@@ -13,10 +13,15 @@ import {
 } from "native-base";
 import React, { SFC } from "react";
 import INewsItem from "../models/INewsItem";
-import { NewsDetail } from "./NewsDetail";
+import { NewsList } from "./NewsList";
+
+export interface ITickerNews {
+  ticker: string;
+  news: INewsItem[];
+}
 
 export interface INewsScreenProps {
-  news: INewsItem[];
+  tickerNewsList: ITickerNews[];
 }
 
 export const NewsScreen: SFC<INewsScreenProps> = props => {
@@ -41,11 +46,9 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
         </Right>
       </Header>
       <Content>
-        <List>
-          {props.news.map(item => (
-            <NewsDetail key={item.headline} detail={item} />
-          ))}
-        </List>
+        {props.tickerNewsList.map(item => (
+          <NewsList tickerNews={item}/>
+        ))}
       </Content>
     </Container>
   );

@@ -8,7 +8,7 @@ interface INewsDetailProps {
   detail: INewsItem;
 }
 
-export const NewsDetail: React.SFC<INewsDetailProps> = props => {
+export const NewsItem: React.SFC<INewsDetailProps> = props => {
   const pressButton = () => {
     openUrl(props.detail.url);
   };
