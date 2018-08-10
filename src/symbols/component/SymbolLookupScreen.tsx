@@ -9,11 +9,13 @@ import {
   Input,
   Item,
   Left,
+  List,
   Title
 } from "native-base";
 import React from "react";
 import { StyleSheet, ViewStyle } from "react-native";
 import { NavigationInjectedProps } from "react-navigation";
+import SymbolItemContainer from "../container/SymbolItemContainer";
 import ISymbolName from "../models/ISymbolName";
 
 interface IInputStyle {
@@ -26,16 +28,28 @@ const styles = StyleSheet.create<IInputStyle>({
   }
 });
 
-interface ISymbolLookupState {
-  inputValue: string;
+interface ISymbolLookupStateProps {
   searchResult: ISymbolName[];
 }
 
-export default class SymbolLookupScreen extends React.Component<NavigationInjectedProps,
-  ISymbolLookupState> {
+interface ISymbolLookupDispatchProps {
+  search: (query: string) => any;
+}
+
+type ISymbolLookupProps = ISymbolLookupStateProps &
+  ISymbolLookupDispatchProps &
+  NavigationInjectedProps;
+
+interface ISymbolLookupState {
+  inputValue: string;
+}
+
+export default class SymbolLookupScreen extends React.Component<
+  ISymbolLookupProps,
+  ISymbolLookupState
+> {
   public readonly state: ISymbolLookupState = {
-    inputValue: "",
-    searchResult: []
+    inputValue: ""
   };
 
   public render() {
@@ -46,23 +60,31 @@ export default class SymbolLookupScreen extends React.Component<NavigationInject
         <Header searchBar={true}>
           <Left>
             <Button transparent={true} onPress={this.onPressBack}>
-              <Icon name="arrow-back"/>
+              <Icon name="arrow-back" />
             </Button>
           </Left>
           <Body>
-          <Title>Ticker Lookup Screen</Title>
+            <Title>Ticker Lookup</Title>
           </Body>
         </Header>
         <Item rounded={true} style={styles.input}>
           <Input
-            placeholder="Add To Do"
+            placeholder="Search Ticker"
             value={inputValue}
             onChangeText={this.handleChange}
             onSubmitEditing={this.handleSearch}
           />
         </Item>
         <Content>
-          <Card/>
+          <List>
+            {this.props.searchResult.map(name => (
+              <SymbolItemContainer
+                key={name.symbol}
+                ticker={name.symbol}
+                navigation={this.props.navigation}
+              />
+            ))}
+          </List>
         </Content>
       </Container>
     );
@@ -79,9 +101,9 @@ export default class SymbolLookupScreen extends React.Component<NavigationInject
   };
 
   private handleSearch = () => {
+    this.props.search(this.state.inputValue.toUpperCase());
     this.setState({
-      // searchResult: this.props.search(this.state.inputValue);
-      ...this.state
+      inputValue: ""
     });
   };
 }

@@ -1,23 +1,45 @@
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/symbols.json";
 import ISymbolName from "../models/ISymbolName";
-import { refreshSymbolName } from "./actions";
+import * as symbolNameActions from "./actions";
 
-export type RefreshSymbolNameActions = ActionType<typeof refreshSymbolName>;
+export type SymbolNameActions = ActionType<typeof symbolNameActions>;
 
-const initialState: ISymbolName[] = data as ISymbolName[];
+interface ISymbolNames {
+  all: ISymbolName[];
+  filtered: ISymbolName[];
+}
+
+const initialState: ISymbolNames = {
+  all: data as ISymbolName[],
+  filtered: []
+};
 
 export default function symbolNameReducer(
-  state: ISymbolName[] = initialState,
-  action: RefreshSymbolNameActions
-): ISymbolName[] {
+  state: ISymbolNames = initialState,
+  action: SymbolNameActions
+): ISymbolNames {
   switch (action.type) {
-    case getType(refreshSymbolName.request):
+    case getType(symbolNameActions.refreshSymbolName.request):
       return state;
-    case getType(refreshSymbolName.success):
+    case getType(symbolNameActions.refreshSymbolName.success):
       return state;
-    case getType(refreshSymbolName.failure):
+    case getType(symbolNameActions.refreshSymbolName.failure):
       return state;
+    case getType(symbolNameActions.searchSymbol):
+      if (typeof action.payload === "undefined" || action.payload === "") {
+        return {
+          ...state,
+          filtered: []
+        };
+      } else {
+        return {
+          ...state,
+          filtered: state.all
+            .filter(name => name.symbol.includes(action.payload))
+            .slice(0, 20)
+        };
+      }
     default:
       return state;
   }
