@@ -1,5 +1,5 @@
 import { AdMobBanner, AppLoading } from "expo";
-import { Container } from "native-base";
+import { Container, Root } from "native-base";
 import React from "react";
 import { StatusBar, StyleSheet, ViewStyle } from "react-native";
 import { Provider } from "react-redux";
@@ -26,14 +26,16 @@ export const RootContainer: React.SFC = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<AppLoading />}>
-        <Container style={styles.container}>
-          <RootNavigator />
-          <AdMobBanner
-            bannerSize="smartBannerLandscape"
-            adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
-            testDeviceID="EMULATOR"
-          />
-        </Container>
+        <Root>
+          <Container style={styles.container}>
+            <RootNavigator/>
+            <AdMobBanner
+              bannerSize="smartBannerLandscape"
+              adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
+              testDeviceID="EMULATOR"
+            />
+          </Container>
+        </Root>
       </PersistGate>
     </Provider>
   );
