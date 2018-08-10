@@ -8,26 +8,31 @@ import {
   Left,
   List,
   Right,
-  Title
+  Title,
+  Toast
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 
-export interface IWatchlistProps {
+export interface IWatchlistStateProps {
   tickers: string[];
 }
 
-export const WatchlistScreen: SFC<
-  IWatchlistProps & NavigationInjectedProps
-> = props => {
+type IWatchlistProps = IWatchlistStateProps & NavigationInjectedProps;
+
+export const WatchlistScreen: SFC<IWatchlistProps> = props => {
   const onPressAdd = () => {
     props.navigation.navigate("SymbolLookup");
   };
+
   const onPressRefresh = () => {
-    // TODO implement refresh functionality
-    console.log("SHOULD REFRESH DATA");
+    Toast.show({
+      text: "Disabled Refresh",
+      buttonText: "Dismiss"
+    });
   };
+
   return (
     <Container>
       <Header>

@@ -3,7 +3,12 @@ import { bindActionCreators, Dispatch } from "redux";
 import IQuote from "../../market/models/IQuote";
 import { IRootState } from "../../store";
 import { addTicker, removeTicker } from "../../watchlist/state/actions";
-import { IStockDetailDispatchProps, IStockDetailOwnProps, IStockDetailStateProps, SymbolItem } from "../component/SymbolItem";
+import {
+  IStockDetailDispatchProps,
+  IStockDetailOwnProps,
+  IStockDetailStateProps,
+  SymbolItem
+} from "../component/SymbolItem";
 
 const mapStateToProps = (
   state: IRootState,

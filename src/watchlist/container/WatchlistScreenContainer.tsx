@@ -1,8 +1,11 @@
 import { connect } from "react-redux";
 import { IRootState } from "../../store";
-import { IWatchlistProps, WatchlistScreen } from "../component/WatchlistScreen";
+import {
+  IWatchlistStateProps,
+  WatchlistScreen
+} from "../component/WatchlistScreen";
 
-function mapStateToProps(state: IRootState): IWatchlistProps {
+function mapStateToProps(state: IRootState): IWatchlistStateProps {
   return {
     tickers: state.watchlist
   };

@@ -8,7 +8,8 @@ import {
   Left,
   List,
   Right,
-  Title
+  Title,
+  Toast
 } from "native-base";
 import React, { SFC } from "react";
 import INewsItem from "../models/INewsItem";
@@ -20,9 +21,12 @@ export interface INewsScreenProps {
 
 export const NewsScreen: SFC<INewsScreenProps> = props => {
   const onPressRefresh = () => {
-    // TODO implement refresh functionality
-    console.log("SHOULD REFRESH DATA");
+    Toast.show({
+      text: "Disabled Refresh",
+      buttonText: "Dismiss"
+    });
   };
+
   return (
     <Container>
       <Header>

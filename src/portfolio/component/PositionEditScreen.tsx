@@ -1,4 +1,14 @@
-import { Body, Button, Card, Container, Content, Header, Icon, Left, Title } from "native-base";
+import {
+  Body,
+  Button,
+  Card,
+  Container,
+  Content,
+  Header,
+  Icon,
+  Left,
+  Title
+} from "native-base";
 import React, { SFC } from "react";
 import { NavigationScreenProps } from "react-navigation";
 

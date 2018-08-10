@@ -9,7 +9,8 @@ import {
   Left,
   Right,
   Text,
-  Title
+  Title,
+  Toast
 } from "native-base";
 import React, { SFC } from "react";
 import IHolding from "../models/IHolding";
@@ -20,9 +21,12 @@ export interface IPortfolioScreenProps {
 
 export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
   const onPressRefresh = () => {
-    // TODO implement refresh functionality
-    console.log("SHOULD REFRESH DATA");
+    Toast.show({
+      text: "Disabled Refresh",
+      buttonText: "Dismiss"
+    });
   };
+
   return (
     <Container>
       <Header>

@@ -12,12 +12,11 @@ import {
 import React, { SFC } from "react";
 import { NavigationScreenProps } from "react-navigation";
 
-interface IStockDetailProps {
+interface IStockDetailOwnProps {
   ticker: string;
 }
 
-export const StockDetailScreen: SFC<
-  NavigationScreenProps<IStockDetailProps>
+export const StockDetailScreen: SFC<NavigationScreenProps<IStockDetailOwnProps>
 > = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
   const onPressBack = () => {
