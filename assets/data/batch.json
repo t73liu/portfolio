@@ -1,4 +1,68 @@
 {
+  "EA": {
+    "quote": {
+      "symbol": "EA",
+      "companyName": "Electronic Arts Inc.",
+      "primaryExchange": "Nasdaq Global Select",
+      "sector": "Technology",
+      "calculationPrice": "close",
+      "open": 128.5,
+      "openTime": 1533821400668,
+      "close": 127.82,
+      "closeTime": 1533844800320,
+      "high": 128.9,
+      "low": 127.42,
+      "latestPrice": 127.82,
+      "latestSource": "Close",
+      "latestTime": "August 9, 2018",
+      "latestUpdate": 1533844800320,
+      "latestVolume": 4140941,
+      "iexRealtimePrice": 127.83,
+      "iexRealtimeSize": 100,
+      "iexLastUpdated": 1533844795639,
+      "delayedPrice": 127.82,
+      "delayedPriceTime": 1533844800320,
+      "extendedPrice": 127.71,
+      "extendedChange": -0.11,
+      "extendedChangePercent": -0.00086,
+      "extendedPriceTime": 1533848335697,
+      "previousClose": 128.41,
+      "change": -0.59,
+      "changePercent": -0.00459,
+      "iexMarketPercent": 0.034,
+      "iexVolume": 140792,
+      "avgTotalVolume": 3408938,
+      "iexBidPrice": 0,
+      "iexBidSize": 0,
+      "iexAskPrice": 0,
+      "iexAskSize": 0,
+      "marketCap": 39127228554,
+      "peRatio": 32.86,
+      "week52High": 151.2581,
+      "week52Low": 99.63,
+      "ytdChange": 0.1632491959798994
+    },
+    "news": [
+      {
+        "datetime": "2018-08-06T13:51:00-04:00",
+        "headline": "Tech stocks make up too much of the S&P 500, so the index has big move planned for Google, Facebook",
+        "source": "CNBC",
+        "url": "https://api.iextrading.com/1.0/stock/ea/article/8392105703418010",
+        "summary": "No summary available.",
+        "related": "AAPL,AMZN,ATVI,CBS,CMCSA,DIS,EA,FB,GOOGL,MSFT,NFLX,TTWO,TWTR",
+        "image": "https://api.iextrading.com/1.0/stock/ea/news-image/8392105703418010"
+      },
+      {
+        "datetime": "2018-08-06T09:01:00-04:00",
+        "headline": "Electronic Arts And NFL Connect Esports to Millions With the New Madden NFL 19 Championship Series",
+        "source": "Business Wire",
+        "url": "https://api.iextrading.com/1.0/stock/ea/article/6101390484689015",
+        "summary": "      The Largest Competition in Madden NFL History Kicks Off Tomorrow; ESPN to Telecast Madden NFL 19 Championship Series Tournaments; All 32 NFL Teams Represented in the Madden NFL 19 Club Championship       Today,  Electronic Arts Inc. , (NASDAQ: EA) the National Football League (NFL) and ESPN…",
+        "related": "APPSOFTW,Broadcasting - Radio,Broadcasting - TV,CALIFORN,CANADA01,CASINENT,CASINTRA,CENTAMER,Computer,EA,ELE31165130,Electronics,Entertainment,GERMANY1,History,Internet,Media,NASDAQ01,NEWMEXIC,SAMERICA,SPORTS,Computing and Information Technology",
+        "image": "https://api.iextrading.com/1.0/stock/ea/news-image/6101390484689015"
+      }
+    ]
+  },
   "MSFT": {
     "quote": {
       "symbol": "MSFT",
@@ -40,7 +104,7 @@
       "peRatio": 31.25,
       "week52High": 111.15,
       "week52Low": 71.28,
-      "ytdChange": 0.28705072330034387
+      "ytdChange": 0.2891639202150765
     },
     "news": [
       {
@@ -104,7 +168,7 @@
       "peRatio": 159.53,
       "week52High": 423.2056,
       "week52Low": 164.23,
-      "ytdChange": 0.7338309151041926
+      "ytdChange": 0.7425343517183072
     },
     "news": [
       {
@@ -154,152 +218,6 @@
       }
     ]
   },
-  "GOOG": {
-    "quote": {
-      "symbol": "GOOG",
-      "companyName": "Alphabet Inc.",
-      "primaryExchange": "Nasdaq Global Select",
-      "sector": "Technology",
-      "calculationPrice": "close",
-      "open": 1250,
-      "openTime": 1533821400052,
-      "close": 1249.1,
-      "closeTime": 1533844800342,
-      "high": 1255.542,
-      "low": 1246.01,
-      "latestPrice": 1249.1,
-      "latestSource": "Close",
-      "latestTime": "August 9, 2018",
-      "latestUpdate": 1533844800342,
-      "latestVolume": 792356,
-      "iexRealtimePrice": 1249.07,
-      "iexRealtimeSize": 100,
-      "iexLastUpdated": 1533844799676,
-      "delayedPrice": 1249.1,
-      "delayedPriceTime": 1533844800342,
-      "extendedPrice": 1249,
-      "extendedChange": -0.1,
-      "extendedChangePercent": -0.00008,
-      "extendedPriceTime": 1533848060976,
-      "previousClose": 1245.61,
-      "change": 3.49,
-      "changePercent": 0.0028,
-      "iexMarketPercent": 0.02852,
-      "iexVolume": 22598,
-      "avgTotalVolume": 1488080,
-      "iexBidPrice": 0,
-      "iexBidSize": 0,
-      "iexAskPrice": 0,
-      "iexAskSize": 0,
-      "marketCap": 868971106254,
-      "peRatio": 39.97,
-      "week52High": 1273.89,
-      "week52Low": 903.4,
-      "ytdChange": 0.1723868544600938
-    },
-    "news": [
-      {
-        "datetime": "2018-08-09T16:19:24-04:00",
-        "headline": "undefined",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/goog/article/5243714516412503",
-        "summary": "   As  Verizon Communications  ( VZ ) approaches the annual dividend hike in September, the temptation is  to encourage the company to make a big hike. After all, tax reform boosted profits and cash flows this year beyond the normal level.  My recommendation  though is for the wireless giant to f…",
-        "related": "AMZN,CON102,DISH,Cash Or Stock Dividend,FB,GOOG,GOOGL,NASDAQ01,RET10217,S,SPECRTIL,T,TMUS,VZ",
-        "image": "https://api.iextrading.com/1.0/stock/goog/news-image/5243714516412503"
-      },
-      {
-        "datetime": "2018-08-09T15:11:29-04:00",
-        "headline": "Apple Gets Its Samsung Preview",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/goog/article/7903426225010860",
-        "summary": "     As Apple ( AAPL ) shares continue to hit new highs above a trillion-dollar valuation after delivering another  impressive set of quarterly results , investors are eagerly anticipating the company's usual September smartphone refresh. With expectations for three new high-end devices swirling,…",
-        "related": "AAPL,GOOG,GOOGL,INT31168144,NASDAQ01,ONL31168,OTCBULLB,SSNLF,Computing and Information Technology,Telecommunications,WOMPOLIX",
-        "image": "https://api.iextrading.com/1.0/stock/goog/news-image/7903426225010860"
-      },
-      {
-        "datetime": "2018-08-09T14:50:08-04:00",
-        "headline": "Big Changes With New Communications Services Sector",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/goog/article/5730203094822913",
-        "summary": "   Next month the Global Industrial Classification System (GICS) will launch a new sector: Communications Services. That sector will include the stocks formerly of the Telecom Sector [notably Verizon ( VZ ) and AT&amp;T ( T )], but also numerous stocks pulled out of the Information Technology and…",
-        "related": "FB,GOOG,GOOGL,INT31168144,NASDAQ01,NFLX,ONL31168,T,Computing and Information Technology,Telecommunications,VZ,XLC,XLK,XLY",
-        "image": "https://api.iextrading.com/1.0/stock/goog/news-image/5730203094822913"
-      },
-      {
-        "datetime": "2018-08-09T14:10:23-04:00",
-        "headline": "Markets On Pause, Corporate Buybacks To The Rescue?",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/goog/article/7227746036703064",
-        "summary": "   What now for the equity markets? The S&amp;P 500 has been contained in a range between 2,550 and 2,875 since late 2017, with the markets not possessing the necessary conviction to send the index out of either side of the range. We have been fed a deluge of macroeconomic news of late - both pos…",
-        "related": "AAPL,AMZN,Computer Hardware,CON31167138,FB,GOOG,GOOGL,NASDAQ01,NFLX,QQQ,Computing and Information Technology",
-        "image": "https://api.iextrading.com/1.0/stock/goog/news-image/7227746036703064"
-      },
-      {
-        "datetime": "2018-08-09T11:06:17-04:00",
-        "headline": "Alphabet: Monthly Breakout Confirmed",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/goog/article/5581334346643563",
-        "summary": "   While Amazon ( AMZN ), Netflix ( NFLX ) and Apple ( AAPL ) have been busy making all of the headlines this year, Alphabet ( GOOG ) spent its time under the radar putting in a nice saucer shaped base. The stock charged higher through the top of that base after its earnings report, and is now si…",
-        "related": "GOOG,GOOGL,INT31168144,NASDAQ01,ONL31168,Computing and Information Technology",
-        "image": "https://api.iextrading.com/1.0/stock/goog/news-image/5581334346643563"
-      }
-    ]
-  },
-  "ATVI": {
-    "quote": {
-      "symbol": "ATVI",
-      "companyName": "Activision Blizzard Inc",
-      "primaryExchange": "Nasdaq Global Select",
-      "sector": "Technology",
-      "calculationPrice": "close",
-      "open": 70.02,
-      "openTime": 1533821400287,
-      "close": 70.5,
-      "closeTime": 1533844800345,
-      "high": 70.97,
-      "low": 69.56,
-      "latestPrice": 70.5,
-      "latestSource": "Close",
-      "latestTime": "August 9, 2018",
-      "latestUpdate": 1533844800345,
-      "latestVolume": 7470369,
-      "iexRealtimePrice": 70.52,
-      "iexRealtimeSize": 100,
-      "iexLastUpdated": 1533844799677,
-      "delayedPrice": 70.5,
-      "delayedPriceTime": 1533844800345,
-      "extendedPrice": 70.5,
-      "extendedChange": 0,
-      "extendedChangePercent": 0,
-      "extendedPriceTime": 1533848344927,
-      "previousClose": 70.01,
-      "change": 0.49,
-      "changePercent": 0.007,
-      "iexMarketPercent": 0.02386,
-      "iexVolume": 178243,
-      "avgTotalVolume": 5736720,
-      "iexBidPrice": 0,
-      "iexBidSize": 0,
-      "iexAskPrice": 0,
-      "iexAskSize": 0,
-      "marketCap": 53749805384,
-      "peRatio": 31.9,
-      "week52High": 81.64,
-      "week52Low": 57.29,
-      "ytdChange": 0.10124478197942491
-    },
-    "news": [
-      {
-        "datetime": "2018-08-08T11:31:58-04:00",
-        "headline": "Activision Blizzard: Buy Gaming Stock Giant On Q2 Pullback",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/atvi/article/4809901189206150",
-        "summary": "   Video game giant Activision Blizzard (NASDAQ: ATVI ) is swimming in a sector that top 10 analyst  Colin Sebastian  at Baird calls any investors must own.   Sebastian sized up ATVI, Electronic Arts (NASDAQ: EA ) and Take-Two (NASDAQ: TTWO ), telling investors to …",
-        "related": "APPSOFTW,ATVI,ELE31165130,Video and Online Gaming,NASDAQ01,Computing and Information Technology",
-        "image": "https://api.iextrading.com/1.0/stock/atvi/news-image/4809901189206150"
-      }
-    ]
-  },
   "AMZN": {
     "quote": {
       "symbol": "AMZN",
@@ -341,53 +259,17 @@
       "peRatio": 172.28,
       "week52High": 1898.52,
       "week52Low": 931.75,
-      "ytdChange": 0.5929908946098015
+      "ytdChange": 0.6030833244463882
     },
     "news": [
       {
-        "datetime": "2018-08-09T16:19:24-04:00",
-        "headline": "undefined",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/amzn/article/5243714516412503",
-        "summary": "   As  Verizon Communications  ( VZ ) approaches the annual dividend hike in September, the temptation is  to encourage the company to make a big hike. After all, tax reform boosted profits and cash flows this year beyond the normal level.  My recommendation  though is for the wireless giant to f…",
-        "related": "AMZN,CON102,DISH,Cash Or Stock Dividend,FB,GOOG,GOOGL,NASDAQ01,RET10217,S,SPECRTIL,T,TMUS,VZ",
-        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/5243714516412503"
-      },
-      {
-        "datetime": "2018-08-09T14:44:05-04:00",
-        "headline": "Only The Paranoid Survive: My Personal Grey Swans 'Risk-List'",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/amzn/article/6703320990323412",
-        "summary": "   It's August. It's beach time. Why coming with such a boring article?   Long time ago, an elementary school teacher gave me a summer assignment.     Take a 30-minute reflection period, every day.      As you can imagine there were no cell phones! That task was easier to complete then, but still…",
-        "related": "AMZN,EEM,EWJ,NASDAQ01,QQQ,SPY,TSLA,USO",
-        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/6703320990323412"
-      },
-      {
-        "datetime": "2018-08-09T14:17:04-04:00",
-        "headline": "Microsoft: Winning The Cloud Wars And Becoming A Trillion Dollar Company",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/amzn/article/7178421508383197",
-        "summary": "   First and foremost, I believe that Microsoft will soon become a $1 trillion dollar company. The revenue growth that is required for this to happen will come from the Intelligent Cloud product group, which focuses on allowing users to store information and increase business efficiency using the…",
-        "related": "AMZN,Computer Software,CON102,MSFT,NASDAQ01,RET10217,Software,SPECRTIL",
-        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/7178421508383197"
-      },
-      {
-        "datetime": "2018-08-09T14:10:23-04:00",
-        "headline": "Markets On Pause, Corporate Buybacks To The Rescue?",
-        "source": "SeekingAlpha",
-        "url": "https://api.iextrading.com/1.0/stock/amzn/article/7227746036703064",
-        "summary": "   What now for the equity markets? The S&amp;P 500 has been contained in a range between 2,550 and 2,875 since late 2017, with the markets not possessing the necessary conviction to send the index out of either side of the range. We have been fed a deluge of macroeconomic news of late - both pos…",
-        "related": "AAPL,AMZN,Computer Hardware,CON31167138,FB,GOOG,GOOGL,NASDAQ01,NFLX,QQQ,Computing and Information Technology",
-        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/7227746036703064"
-      },
-      {
-        "datetime": "2018-08-09T13:24:00-04:00",
-        "headline": "Retail stocks just hit record highs, but one market watcher says the rally is at a crossroads",
-        "source": "CNBC",
-        "url": "https://api.iextrading.com/1.0/stock/amzn/article/6673333639708159",
-        "summary": "No summary available.",
-        "related": "AMZN,DDS,KORS,KSS,TJX",
-        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/6673333639708159"
+        "datetime": "2018-08-09T20:10:00-04:00",
+        "headline": "AWS Announces General Availability of Amazon Aurora Serverless",
+        "source": "Business Wire",
+        "url": "https://api.iextrading.com/1.0/stock/amzn/article/8203555031725730",
+        "summary": "      Amazon Aurora Serverless makes it easy and cost-effective to run applications with intermittent or cyclical usage by auto-scaling database capacity with per-second billing      Thousands of customers, including NTT DOCOMO, Cognizant, Pagely, CB Insights, California Polytechnic State Univers…",
+        "related": "AMZN,ASIA0001,Asia Pacific,AUSTRALI,Big Data,BRAZIL01,CALIFORN,CANADA01,CHINA001,Computer Software,CON102,Data Warehousing,Education,Europe,FIRES001,FRANCE01,GERMANY1,INDIA001,Internet,IRELAND1,JAPAN001,KOREA001,NASDAQ01,OHIOOHIO,OREGON01,RET10217,Wholesale and Retail,SAMERICA,SINGAPOR,Software,SPECRTIL,Computing and Information Technology,TOKYO001,VIRGINIA,WESTEURO",
+        "image": "https://api.iextrading.com/1.0/stock/amzn/news-image/8203555031725730"
       }
     ]
   }

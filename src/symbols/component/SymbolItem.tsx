@@ -1,9 +1,10 @@
-import { Body, Button, Icon, ListItem, Right, Text } from "native-base";
+import { Body, ListItem, Right, Text } from "native-base";
 import React, { SFC } from "react";
 
 import { NavigationInjectedProps } from "react-navigation";
 import IQuote from "../../market/models/IQuote";
-import { TickerText } from "./TickerText";
+import { SymbolButton } from "./SymbolButton";
+import { SymbolText } from "./SymbolText";
 
 export interface IStockDetailOwnProps {
   ticker: string;
@@ -12,9 +13,12 @@ export interface IStockDetailOwnProps {
 export interface IStockDetailStateProps {
   quote?: IQuote;
   name: string;
+  isWatched: boolean;
+  isHeld: boolean;
 }
 
 export interface IStockDetailDispatchProps {
+  addTicker: (ticker: string) => any;
   deleteTicker: (ticker: string) => any;
 }
 
@@ -24,12 +28,22 @@ export type IStockDetailProps = IStockDetailOwnProps &
   NavigationInjectedProps;
 
 export const SymbolItem: SFC<IStockDetailProps> = props => {
-  const handleButtonPress = () => {
-    props.deleteTicker(props.ticker);
-  };
-
   const handleItemPress = () => {
     props.navigation.navigate("StockDetail", {
+      ticker: props.ticker
+    });
+  };
+
+  const handleWatchlistButtonPress = () => {
+    if (props.isWatched) {
+      props.deleteTicker(props.ticker);
+    } else {
+      props.addTicker(props.ticker);
+    }
+  };
+
+  const handlePortfolioButtonPress = () => {
+    props.navigation.navigate("PositionEdit", {
       ticker: props.ticker
     });
   };
@@ -37,18 +51,22 @@ export const SymbolItem: SFC<IStockDetailProps> = props => {
   return (
     <ListItem onPress={handleItemPress}>
       <Body>
-        <TickerText {...props} />
+      <SymbolText {...props} />
         <Text note={true}>{props.name}</Text>
       </Body>
       <Right>
-        <Button danger={true} transparent={true} onPress={handleButtonPress}>
-          <Icon name="eye" />
-        </Button>
+        <SymbolButton
+          nestedIcon="eye"
+          isActive={props.isWatched}
+          handlePress={handleWatchlistButtonPress}
+        />
       </Right>
       <Right>
-        <Button danger={true} transparent={true} onPress={handleButtonPress}>
-          <Icon name="cash" />
-        </Button>
+        <SymbolButton
+          nestedIcon="cash"
+          isActive={props.isHeld}
+          handlePress={handlePortfolioButtonPress}
+        />
       </Right>
     </ListItem>
   );

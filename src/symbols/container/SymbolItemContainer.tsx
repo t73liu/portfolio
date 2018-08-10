@@ -2,13 +2,8 @@ import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import IQuote from "../../market/models/IQuote";
 import { IRootState } from "../../store";
-import { removeTicker } from "../../watchlist/state/actions";
-import {
-  IStockDetailDispatchProps,
-  IStockDetailOwnProps,
-  IStockDetailStateProps,
-  SymbolItem
-} from "../component/SymbolItem";
+import { addTicker, removeTicker } from "../../watchlist/state/actions";
+import { IStockDetailDispatchProps, IStockDetailOwnProps, IStockDetailStateProps, SymbolItem } from "../component/SymbolItem";
 
 const mapStateToProps = (
   state: IRootState,
@@ -16,7 +11,9 @@ const mapStateToProps = (
 ): IStockDetailStateProps => {
   return {
     name: getName(state, ownProps.ticker),
-    quote: getQuote(state, ownProps.ticker)
+    quote: getQuote(state, ownProps.ticker),
+    isHeld: false,
+    isWatched: state.watchlist.includes(ownProps.ticker)
   };
 };
 
@@ -37,6 +34,7 @@ function getQuote(state: IRootState, ticker: string): IQuote | undefined {
 const mapDispatchToProps = (dispatch: Dispatch): IStockDetailDispatchProps =>
   bindActionCreators(
     {
+      addTicker,
       deleteTicker: removeTicker
     },
     dispatch

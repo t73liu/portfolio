@@ -17,7 +17,7 @@ const styles = StyleSheet.create<ITickerStyle>({
   }
 });
 
-export const TickerText: SFC<IStockDetailProps> = props => {
+export const SymbolText: SFC<IStockDetailProps> = props => {
   if (typeof props.quote === "undefined") {
     return <Text>{props.ticker}</Text>;
   } else if (props.quote.change < 0) {
