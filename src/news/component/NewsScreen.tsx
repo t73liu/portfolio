@@ -47,7 +47,7 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
       </Header>
       <Content>
         {props.tickerNewsList.map(item => (
-          <NewsList tickerNews={item}/>
+          <NewsList key={item.ticker} tickerNews={item}/>
         ))}
       </Content>
     </Container>
