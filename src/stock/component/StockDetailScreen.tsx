@@ -48,11 +48,11 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressExternal}>
-            <Icon name="md-link"/>
+            <Icon name="md-link" />
           </Button>
         </Right>
       </Header>
-      <StockDetailBody symbolData={props.symbolData}/>
+      <StockDetailBody symbolData={props.symbolData} />
     </Container>
   );
 };

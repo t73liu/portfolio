@@ -17,6 +17,7 @@ import React, { SFC } from "react";
 import { Dimensions } from "react-native";
 import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
+import { CodeButton } from "../../common/CodeButton";
 import { randomColor } from "../../util/functions";
 import IHolding from "../models/IHolding";
 
@@ -52,13 +53,15 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
   return (
     <Container>
       <Header>
-        <Left />
+        <Left>
+          <CodeButton />
+        </Left>
         <Body>
           <Title>Portfolio</Title>
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressSearch}>
-            <Icon name="search"/>
+            <Icon name="search" />
           </Button>
           <Button transparent={true} onPress={onPressRefresh}>
             <Icon name="refresh" />
@@ -78,10 +81,10 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
         {props.portfolio.map(holding => (
           <CardItem key={holding.id}>
             <Body>
-            <H3>{holding.ticker}</H3>
-            <Text>Buy Price: {holding.buyPrice}</Text>
-            <Text>Shares: {holding.amount}</Text>
-            <Text>Current Price: {127.82}</Text>
+              <H3>{holding.ticker}</H3>
+              <Text>Buy Price: {holding.buyPrice}</Text>
+              <Text>Shares: {holding.amount}</Text>
+              <Text>Current Price: {127.82}</Text>
             </Body>
           </CardItem>
         ))}

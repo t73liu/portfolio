@@ -12,6 +12,7 @@ import {
   Toast
 } from "native-base";
 import React, { SFC } from "react";
+import { CodeButton } from "../../common/CodeButton";
 import INewsItem from "../models/INewsItem";
 import { NewsList } from "./NewsList";
 
@@ -35,7 +36,9 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
   return (
     <Container>
       <Header>
-        <Left />
+        <Left>
+          <CodeButton />
+        </Left>
         <Body>
           <Title>News</Title>
         </Body>
@@ -47,7 +50,7 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
       </Header>
       <Content>
         {props.tickerNewsList.map(item => (
-          <NewsList key={item.ticker} tickerNews={item}/>
+          <NewsList key={item.ticker} tickerNews={item} />
         ))}
       </Content>
     </Container>

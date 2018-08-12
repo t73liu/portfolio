@@ -13,6 +13,7 @@ import {
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
+import { CodeButton } from "../../common/CodeButton";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 
 export interface IWatchlistStateProps {
@@ -36,7 +37,9 @@ export const WatchlistScreen: SFC<IWatchlistProps> = props => {
   return (
     <Container>
       <Header>
-        <Left />
+        <Left>
+          <CodeButton />
+        </Left>
         <Body>
           <Title>Watchlist</Title>
         </Body>

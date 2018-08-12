@@ -51,7 +51,7 @@ export const SymbolItem: SFC<ISymbolItemProps> = props => {
   return (
     <ListItem onPress={handleItemPress}>
       <Body>
-      <SymbolText {...props} />
+        <SymbolText {...props} />
         <Text note={true}>{props.name}</Text>
       </Body>
       <Right>

@@ -14,7 +14,7 @@ export const NewsList: React.SFC<INewsListProps> = props => {
         <Text>{props.tickerNews.ticker}</Text>
       </ListItem>
       {props.tickerNews.news.map(item => (
-        <NewsItem key={item.url} detail={item}/>
+        <NewsItem key={item.url} detail={item} />
       ))}
     </List>
   );

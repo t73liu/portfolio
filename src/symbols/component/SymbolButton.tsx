@@ -11,13 +11,13 @@ export const SymbolButton: SFC<ISymbolButtonProps> = props => {
   if (props.isActive) {
     return (
       <Button info={true} transparent={true} onPress={props.handlePress}>
-        <Icon name={props.nestedIcon}/>
+        <Icon name={props.nestedIcon} />
       </Button>
     );
   }
   return (
     <Button dark={true} transparent={true} onPress={props.handlePress}>
-      <Icon name={props.nestedIcon}/>
+      <Icon name={props.nestedIcon} />
     </Button>
   );
 };
