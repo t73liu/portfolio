@@ -6,8 +6,8 @@ import {
 } from "apisauce";
 import { Linking } from "react-native";
 
-import IMarketData from "../market/models/IMarketData";
 import INewsItem from "../news/models/INewsItem";
+import IMarketData from "../stock/models/IMarketData";
 
 export function openUrl(url: string): void {
   Linking.openURL(url).catch(err =>

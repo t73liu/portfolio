@@ -1,4 +1,4 @@
-import IDictionary from "../../types";
+import IDictionary from "../../common/types";
 import ISymbolData from "./ISymbolData";
 
 export default interface IMarketData {

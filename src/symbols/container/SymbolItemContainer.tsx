@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
-import IQuote from "../../market/models/IQuote";
+import IQuote from "../../stock/models/IQuote";
 import { IRootState } from "../../store";
 import { addTicker, removeTicker } from "../../watchlist/state/actions";
 import {

@@ -10,8 +10,8 @@ import {
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
-import ISymbolData from "../../market/models/ISymbolData";
 import { openUrl } from "../../util/ajax";
+import ISymbolData from "../models/ISymbolData";
 import { StockDetailBody } from "./StockDetailBody";
 
 export interface IStockDetailOwnProps extends NavigationInjectedProps {

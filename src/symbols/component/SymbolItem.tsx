@@ -2,7 +2,7 @@ import { Body, ListItem, Right, Text } from "native-base";
 import React, { SFC } from "react";
 
 import { NavigationInjectedProps } from "react-navigation";
-import IQuote from "../../market/models/IQuote";
+import IQuote from "../../stock/models/IQuote";
 import { SymbolButton } from "./SymbolButton";
 import { SymbolText } from "./SymbolText";
 
