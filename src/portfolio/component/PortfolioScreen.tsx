@@ -1,6 +1,7 @@
 import {
   Body,
   Button,
+  Card,
   CardItem,
   Container,
   Content,
@@ -29,6 +30,24 @@ type IPortfolioScreenProps = IPortfolioScreenStateProps &
   NavigationInjectedProps;
 
 export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
+  const pieData: PieChartData[] = props.portfolio.map(position => {
+    const value = position.buyPrice * position.amount;
+    return {
+      key: position.id,
+      value,
+      svg: {
+        fill: randomColor(),
+        onPress: () => {
+          Toast.show({
+            text: `${position.ticker}: ${value}`,
+            buttonText: "Dismiss",
+            type: "success"
+          });
+        }
+      }
+    };
+  });
+
   const onPressSearch = () => {
     props.navigation.navigate("SymbolLookup");
   };
@@ -39,16 +58,6 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
       buttonText: "Dismiss"
     });
   };
-
-  const pieData: PieChartData[] = props.portfolio.map(position => {
-    return {
-      key: position.id,
-      value: position.buyPrice * position.amount,
-      svg: {
-        fill: randomColor()
-      }
-    };
-  });
 
   return (
     <Container>
@@ -69,25 +78,28 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
         </Right>
       </Header>
       <Content>
-        <CardItem key={"piechart"}>
-          <PieChart
-            style={{
-              height: Dimensions.get("window").width * 0.7,
-              width: Dimensions.get("window").width * 0.7
-            }}
-            data={pieData}
-          />
-        </CardItem>
-        {props.portfolio.map(holding => (
-          <CardItem key={holding.id}>
-            <Body>
-              <H3>{holding.ticker}</H3>
-              <Text>Buy Price: {holding.buyPrice}</Text>
-              <Text>Shares: {holding.amount}</Text>
-              <Text>Current Price: {127.82}</Text>
-            </Body>
+        <Card>
+          <CardItem key={"piechart"} bordered={true}>
+            <PieChart
+              style={{
+                height: Dimensions.get("window").width * 0.7,
+                width: Dimensions.get("window").width * 0.7,
+                flex: 1
+              }}
+              data={pieData}
+            />
           </CardItem>
-        ))}
+          {props.portfolio.map(holding => (
+            <CardItem key={holding.id} bordered={true}>
+              <Body>
+                <H3>{holding.ticker}</H3>
+                <Text>Buy Price: {holding.buyPrice}</Text>
+                <Text>Shares: {holding.amount}</Text>
+                <Text>Current Price: {127.82}</Text>
+              </Body>
+            </CardItem>
+          ))}
+        </Card>
       </Content>
     </Container>
   );
