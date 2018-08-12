@@ -10,13 +10,15 @@ import {
   Title
 } from "native-base";
 import React, { SFC } from "react";
-import { NavigationScreenProps } from "react-navigation";
+import { NavigationInjectedProps } from "react-navigation";
 
-interface IPositionEditProps {
+interface IPositionEditOwnProps {
   ticker: string;
 }
 
-export const PositionEditScreen: SFC<NavigationScreenProps<IPositionEditProps>> = props => {
+type IPositionEditProps = IPositionEditOwnProps & NavigationInjectedProps;
+
+export const PositionEditScreen: SFC<IPositionEditProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
   const onPressBack = () => {
     props.navigation.goBack();

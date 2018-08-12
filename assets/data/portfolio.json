@@ -1,0 +1,20 @@
+[
+  {
+    "id": "1",
+    "ticker": "EA",
+    "buyPrice": 123.41,
+    "amount": 40
+  },
+  {
+    "id": "2",
+    "ticker": "AMZN",
+    "buyPrice": 2000,
+    "amount": 5
+  },
+  {
+    "id": "3",
+    "ticker": "PDD",
+    "buyPrice": 20,
+    "amount": 200
+  }
+]

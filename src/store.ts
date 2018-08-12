@@ -6,12 +6,14 @@ import { StateType } from "typesafe-actions";
 import marketDataReducer, {
   RefreshMarketActions
 } from "./market/state/reducer";
+import portfolioReducer, { PortfolioActions } from "./portfolio/state/reducer";
 import symbolNameReducer, { SymbolNameActions } from "./symbols/state/reducer";
 import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
 const rootReducer = combineReducers({
   symbolName: symbolNameReducer,
   marketData: marketDataReducer,
+  portfolio: portfolioReducer,
   watchlist: watchlistReducer
 });
 
@@ -25,7 +27,8 @@ const persistConfig = {
 export type IRootAction =
   | WatchlistActions
   | RefreshMarketActions
-  | SymbolNameActions;
+  | SymbolNameActions
+  | PortfolioActions;
 
 // const rootEpic = combineEpics({});
 
