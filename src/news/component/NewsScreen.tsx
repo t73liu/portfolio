@@ -29,7 +29,8 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
   const onPressRefresh = () => {
     Toast.show({
       text: "Disabled Refresh",
-      buttonText: "Dismiss"
+      buttonText: "Dismiss",
+      type: "danger"
     });
   };
 

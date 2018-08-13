@@ -1,4 +1,4 @@
-import { Body, ListItem, Right, Text } from "native-base";
+import { ListItem, Right } from "native-base";
 import React, { SFC } from "react";
 
 import { NavigationInjectedProps } from "react-navigation";
@@ -50,10 +50,7 @@ export const SymbolItem: SFC<ISymbolItemProps> = props => {
 
   return (
     <ListItem onPress={handleItemPress}>
-      <Body>
-        <SymbolText {...props} />
-        <Text note={true}>{props.name}</Text>
-      </Body>
+      <SymbolText {...props} />
       <Right>
         <SymbolButton
           nestedIcon="eye"

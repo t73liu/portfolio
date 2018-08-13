@@ -19,7 +19,7 @@ import { Dimensions } from "react-native";
 import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
 import { CodeButton } from "../../common/CodeButton";
-import { randomColor } from "../../util/functions";
+import { formatCurrency, randomColor } from "../../util/functions";
 import IHolding from "../models/IHolding";
 
 export interface IPortfolioScreenStateProps {
@@ -39,7 +39,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
         fill: randomColor(),
         onPress: () => {
           Toast.show({
-            text: `${position.ticker}: ${value}`,
+            text: `${position.ticker}: ${formatCurrency(value)}`,
             buttonText: "Dismiss",
             type: "success"
           });
@@ -55,7 +55,8 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
   const onPressRefresh = () => {
     Toast.show({
       text: "Disabled Refresh",
-      buttonText: "Dismiss"
+      buttonText: "Dismiss",
+      type: "danger"
     });
   };
 

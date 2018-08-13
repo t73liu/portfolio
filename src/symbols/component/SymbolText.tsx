@@ -1,6 +1,7 @@
-import { Text } from "native-base";
+import { Body, Text } from "native-base";
 import React, { SFC } from "react";
 import { StyleSheet, TextStyle } from "react-native";
+import { formatCurrency } from "../../util/functions";
 import { ISymbolItemProps } from "./SymbolItem";
 
 interface ITickerStyle {
@@ -18,19 +19,30 @@ const styles = StyleSheet.create<ITickerStyle>({
 });
 
 export const SymbolText: SFC<ISymbolItemProps> = props => {
+  const renderNotFound = () => {
+    return (
+      <Body>
+        <Text>{props.ticker}</Text>
+        <Text note={true}>{props.name}</Text>
+      </Body>
+    );
+  };
+
+  const renderFound = () => {
+    return (
+      <Body>
+        <Text style={props.quote!.change < 0 ? styles.loss : styles.profit}>
+          {props.ticker}: {formatCurrency(props.quote!.latestPrice)}
+        </Text>
+        <Text note={true}>Change: {formatCurrency(props.quote!.change)}</Text>
+        <Text note={true}>{props.name}</Text>
+      </Body>
+    );
+  };
+
   if (typeof props.quote === "undefined") {
-    return <Text>{props.ticker}</Text>;
-  } else if (props.quote.change < 0) {
-    return (
-      <Text style={styles.loss}>
-        {props.ticker}: {props.quote.latestPrice} [{props.quote.change}]
-      </Text>
-    );
+    return renderNotFound();
   } else {
-    return (
-      <Text style={styles.profit}>
-        {props.ticker}: {props.quote.latestPrice} [{props.quote.change}]
-      </Text>
-    );
+    return renderFound();
   }
 };
