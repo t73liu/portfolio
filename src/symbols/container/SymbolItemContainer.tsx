@@ -17,7 +17,7 @@ const mapStateToProps = (
   return {
     name: getName(state, ownProps.ticker),
     quote: getQuote(state, ownProps.ticker),
-    isHeld: false,
+    isHeld: isHeld(state, ownProps.ticker),
     isWatched: state.watchlist.includes(ownProps.ticker)
   };
 };
@@ -34,6 +34,11 @@ function getQuote(state: IRootState, ticker: string): IQuote | undefined {
   return state.marketData.symbolData[ticker] === undefined
     ? undefined
     : state.marketData.symbolData[ticker].quote;
+}
+
+function isHeld(state: IRootState, ticker: string): boolean {
+  const match = state.portfolio.filter(holding => holding.ticker === ticker);
+  return match.length !== 0;
 }
 
 const mapDispatchToProps = (dispatch: Dispatch): ISymbolItemDispatchProps =>
