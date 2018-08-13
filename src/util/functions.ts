@@ -9,3 +9,7 @@ export const formatCurrency = format({
   padRight: 2,
   round: 2
 });
+
+export const formatShares = format({
+  round: 0
+});

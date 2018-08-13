@@ -5,12 +5,10 @@ import {
   CardItem,
   Container,
   Content,
-  H3,
   Header,
   Icon,
   Left,
   Right,
-  Text,
   Title,
   Toast
 } from "native-base";
@@ -20,6 +18,7 @@ import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
 import { CodeButton } from "../../common/CodeButton";
 import { formatCurrency, randomColor } from "../../util/functions";
+import PortfolioItemContainer from "../container/PortfolioItemContainer";
 import IHolding from "../models/IHolding";
 
 export interface IPortfolioScreenStateProps {
@@ -91,14 +90,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
             />
           </CardItem>
           {props.portfolio.map(holding => (
-            <CardItem key={holding.id} bordered={true}>
-              <Body>
-                <H3>{holding.ticker}</H3>
-                <Text>Buy Price: {holding.buyPrice}</Text>
-                <Text>Shares: {holding.amount}</Text>
-                <Text>Current Price: {127.82}</Text>
-              </Body>
-            </CardItem>
+            <PortfolioItemContainer key={holding.id} position={holding} />
           ))}
         </Card>
       </Content>
