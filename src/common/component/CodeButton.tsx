@@ -1,6 +1,6 @@
 import { Button, Icon } from "native-base";
 import React, { SFC } from "react";
-import { openUrl } from "../util/ajax";
+import { openUrl } from "../../util/ajax";
 
 export const CodeButton: SFC = () => {
   const handlePress = () => {

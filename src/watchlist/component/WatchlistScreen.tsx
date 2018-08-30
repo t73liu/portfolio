@@ -13,7 +13,7 @@ import {
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
-import { CodeButton } from "../../common/CodeButton";
+import { CodeButton } from "../../common/component/CodeButton";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 
 export interface IWatchlistStateProps {

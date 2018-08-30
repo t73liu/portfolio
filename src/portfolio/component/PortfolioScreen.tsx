@@ -16,7 +16,7 @@ import React, { SFC } from "react";
 import { Dimensions } from "react-native";
 import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
-import { CodeButton } from "../../common/CodeButton";
+import { CodeButton } from "../../common/component/CodeButton";
 import { formatCurrency, randomColor } from "../../util/functions";
 import PortfolioItemContainer from "../container/PortfolioItemContainer";
 import IHolding from "../models/IHolding";

@@ -6,13 +6,12 @@ import {
   Header,
   Icon,
   Left,
-  List,
   Right,
   Title,
   Toast
 } from "native-base";
 import React, { SFC } from "react";
-import { CodeButton } from "../../common/CodeButton";
+import { CodeButton } from "../../common/component/CodeButton";
 import INewsItem from "../models/INewsItem";
 import { NewsList } from "./NewsList";
 
