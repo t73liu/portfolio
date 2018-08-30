@@ -1,24 +1,21 @@
+import R from "rambda";
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/symbols.json";
 import ISymbolName from "../models/ISymbolName";
+import ISymbolState from "../models/ISymbolState";
 import * as symbolNameActions from "./actions";
 
 export type SymbolNameActions = ActionType<typeof symbolNameActions>;
 
-interface ISymbolNames {
-  all: ISymbolName[];
-  filtered: ISymbolName[];
-}
-
-const initialState: ISymbolNames = {
+const initialState: ISymbolState = {
   all: data as ISymbolName[],
   filtered: []
 };
 
 export default function symbolNameReducer(
-  state: ISymbolNames = initialState,
+  state: ISymbolState = initialState,
   action: SymbolNameActions
-): ISymbolNames {
+): ISymbolState {
   switch (action.type) {
     case getType(symbolNameActions.refreshSymbolName.request):
       return state;
@@ -28,17 +25,19 @@ export default function symbolNameReducer(
       return state;
     case getType(symbolNameActions.searchSymbol):
       if (typeof action.payload === "undefined" || action.payload === "") {
-        return {
-          ...state,
-          filtered: []
-        };
+        return R.assoc("filtered", [], state);
       } else {
-        return {
-          ...state,
-          filtered: state.all
-            .filter(name => name.symbol.includes(action.payload))
-            .slice(0, 20)
-        };
+        return R.assoc(
+          "filtered",
+          R.take(
+            20,
+            R.sort(
+              (a, b) => a.symbol.length - b.symbol.length,
+              R.filter(name => name.symbol.includes(action.payload), state.all)
+            )
+          ),
+          state
+        );
       }
     default:
       return state;
