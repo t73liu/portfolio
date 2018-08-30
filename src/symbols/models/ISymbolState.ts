@@ -1,6 +1,7 @@
+import IDictionary from "../../common/models/IDictionary";
 import ISymbolName from "./ISymbolName";
 
 export default interface ISymbolState {
-  all: ISymbolName[];
-  filtered: ISymbolName[];
+  all: IDictionary<ISymbolName>;
+  filtered: string[];
 }

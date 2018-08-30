@@ -9,5 +9,5 @@ export const refreshSymbolName = createAsyncAction(
 )<void, ISymbolName[], IError>();
 
 export const searchSymbol = createAction("SYMBOL_SEARCH", resolve => {
-  return (query?: string) => resolve(query);
+  return (query: string) => resolve(query);
 });

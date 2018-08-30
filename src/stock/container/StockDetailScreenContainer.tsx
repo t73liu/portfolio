@@ -1,3 +1,4 @@
+import * as R from "rambda";
 import { connect } from "react-redux";
 import { IRootState } from "../../store";
 import {
@@ -12,10 +13,7 @@ function mapStateToProps(
 ): IStockDetailStateProps {
   const ticker = ownProps.navigation.getParam("ticker", "No Ticker Provided");
   return {
-    symbolData:
-      state.marketData.symbolData[ticker] === undefined
-        ? undefined
-        : state.marketData.symbolData[ticker]
+    symbolData: R.prop(ticker, state.marketData.symbolData)
   };
 }
 

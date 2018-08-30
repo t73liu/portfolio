@@ -1,7 +1,6 @@
 import {
   Body,
   Button,
-  Card,
   Container,
   Content,
   Header,
@@ -16,7 +15,6 @@ import React from "react";
 import { StyleSheet, ViewStyle } from "react-native";
 import { NavigationInjectedProps } from "react-navigation";
 import SymbolItemContainer from "../container/SymbolItemContainer";
-import ISymbolName from "../models/ISymbolName";
 
 interface IInputStyle {
   readonly input: ViewStyle;
@@ -28,11 +26,11 @@ const styles = StyleSheet.create<IInputStyle>({
   }
 });
 
-interface ISymbolLookupStateProps {
-  searchResult: ISymbolName[];
+export interface ISymbolLookupStateProps {
+  searchResult: string[];
 }
 
-interface ISymbolLookupDispatchProps {
+export interface ISymbolLookupDispatchProps {
   search: (query: string) => any;
 }
 
@@ -77,10 +75,10 @@ export default class SymbolLookupScreen extends React.Component<
         </Item>
         <Content>
           <List>
-            {this.props.searchResult.map(name => (
+            {this.props.searchResult.map(symbol => (
               <SymbolItemContainer
-                key={name.symbol}
-                ticker={name.symbol}
+                key={symbol}
+                ticker={symbol}
                 navigation={this.props.navigation}
               />
             ))}
@@ -101,7 +99,7 @@ export default class SymbolLookupScreen extends React.Component<
   };
 
   private handleSearch = () => {
-    this.props.search(this.state.inputValue.toUpperCase());
+    this.props.search(this.state.inputValue);
     this.setState({
       inputValue: ""
     });
