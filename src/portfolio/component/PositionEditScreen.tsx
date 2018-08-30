@@ -28,15 +28,15 @@ export const PositionEditScreen: SFC<IPositionEditProps> = props => {
       <Header>
         <Left>
           <Button transparent={true} onPress={onPressBack}>
-            <Icon name="arrow-back"/>
+            <Icon name="arrow-back" />
           </Button>
         </Left>
         <Body>
-        <Title>Position: {ticker}</Title>
+          <Title>Position: {ticker}</Title>
         </Body>
       </Header>
       <Content>
-        <Card/>
+        <Card />
       </Content>
     </Container>
   );
