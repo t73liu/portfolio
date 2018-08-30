@@ -5,18 +5,14 @@ import {
   DEFAULT_HEADERS
 } from "apisauce";
 import { Linking } from "react-native";
-
+import IDictionary from "../common/models/IDictionary";
 import INewsItem from "../news/models/INewsItem";
-import IMarketData from "../stock/models/IMarketData";
+import ISymbolData from "../stock/models/ISymbolData";
 
 export function openUrl(url: string): void {
   Linking.openURL(url).catch(err =>
     console.error(`Unable to open url: ${url}`, err)
   );
-}
-
-export function openTickerUI(ticker: string): void {
-  openUrl(`https://finance.yahoo.com/quote/${ticker}/`);
 }
 
 const api = create({
@@ -33,19 +29,19 @@ export interface IError {
 // https://iextrading.com/developer/docs/#batch-requests [Up to 10 types]
 export async function getMarketData(
   tickers: string[]
-): Promise<IMarketData | IError> {
+): Promise<IDictionary<ISymbolData> | IError> {
   if (tickers.length < 1 || tickers.length > 100) {
     throw new Error("Number of tickers need to be between 1 to 100");
   }
   return api
-    .get<IMarketData>(
+    .get<IDictionary<ISymbolData>>(
       `/stock/market/batch?symbols=${tickers.join()}&types=quote,news&last=15`
     )
     .then(
-      (value: ApiResponse<IMarketData>) =>
-        isApiErrorResponse<IMarketData>(value)
+      (value: ApiResponse<IDictionary<ISymbolData>>) =>
+        isApiErrorResponse<IDictionary<ISymbolData>>(value)
           ? getUnhandledError(value.problem)
-          : (value!.data as IMarketData),
+          : (value!.data as IDictionary<ISymbolData>),
       reason => getUnhandledError(reason)
     );
 }
@@ -80,13 +76,4 @@ export async function getNews(
     `https://api.iextrading.com/1.0/stock/${ticker}/news/last/${count}`
   );
   return request.json();
-}
-
-function objToStrMap(str: string) {
-  const strMap = new Map();
-  const obj = JSON.parse(str);
-  for (const k of Object.keys(obj)) {
-    strMap.set(k, obj[k]);
-  }
-  return strMap;
 }

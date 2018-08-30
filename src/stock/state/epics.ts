@@ -1,9 +1,10 @@
 import { Epic } from "redux-observable";
 import { filter, switchMap } from "rxjs/operators";
 import { isActionOf } from "typesafe-actions";
+import IDictionary from "../../common/models/IDictionary";
 import { IRootAction, IRootState } from "../../store";
 import { getMarketData, isError } from "../../util/ajax";
-import IMarketData from "../models/IMarketData";
+import ISymbolData from "../models/ISymbolData";
 import { refreshMarketData } from "./actions";
 
 export const refreshMarketDataEpic: Epic<
@@ -13,13 +14,12 @@ export const refreshMarketDataEpic: Epic<
 > = (action$, state$) => {
   return action$.pipe(
     filter(isActionOf(refreshMarketData.request)),
-    switchMap(action =>
-      getMarketData(state$.value.watchlist).then(
-        value =>
-          isError<IMarketData>(value)
-            ? refreshMarketData.failure(value)
-            : refreshMarketData.success(value)
-      )
-    )
+    switchMap(() => {
+      return getMarketData(state$.value.watchlist).then(value => {
+        return isError<IDictionary<ISymbolData>>(value)
+          ? refreshMarketData.failure(value)
+          : refreshMarketData.success(value);
+      });
+    })
   );
 };

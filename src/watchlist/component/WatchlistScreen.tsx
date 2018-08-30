@@ -8,12 +8,12 @@ import {
   Left,
   List,
   Right,
-  Title,
-  Toast
+  Title
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
 import { CodeButton } from "../../common/component/CodeButton";
+import RefreshAllButtonContainer from "../../stock/container/RefreshAllButtonContainer";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 
 export interface IWatchlistStateProps {
@@ -25,14 +25,6 @@ type IWatchlistProps = IWatchlistStateProps & NavigationInjectedProps;
 export const WatchlistScreen: SFC<IWatchlistProps> = props => {
   const onPressAdd = () => {
     props.navigation.navigate("SymbolLookup");
-  };
-
-  const onPressRefresh = () => {
-    Toast.show({
-      text: "Disabled Refresh",
-      buttonText: "Dismiss",
-      type: "danger"
-    });
   };
 
   return (
@@ -48,9 +40,7 @@ export const WatchlistScreen: SFC<IWatchlistProps> = props => {
           <Button transparent={true} onPress={onPressAdd}>
             <Icon name="search" />
           </Button>
-          <Button transparent={true} onPress={onPressRefresh}>
-            <Icon name="refresh" />
-          </Button>
+          <RefreshAllButtonContainer />
         </Right>
       </Header>
       <Content>

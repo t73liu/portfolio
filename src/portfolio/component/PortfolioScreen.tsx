@@ -17,6 +17,7 @@ import { Dimensions } from "react-native";
 import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
 import { CodeButton } from "../../common/component/CodeButton";
+import RefreshAllButtonContainer from "../../stock/container/RefreshAllButtonContainer";
 import { formatCurrency, randomColor } from "../../util/functions";
 import PortfolioItemContainer from "../container/PortfolioItemContainer";
 import IHolding from "../models/IHolding";
@@ -51,14 +52,6 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
     props.navigation.navigate("SymbolLookup");
   };
 
-  const onPressRefresh = () => {
-    Toast.show({
-      text: "Disabled Refresh",
-      buttonText: "Dismiss",
-      type: "danger"
-    });
-  };
-
   return (
     <Container>
       <Header>
@@ -72,9 +65,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
           <Button transparent={true} onPress={onPressSearch}>
             <Icon name="search" />
           </Button>
-          <Button transparent={true} onPress={onPressRefresh}>
-            <Icon name="refresh" />
-          </Button>
+          <RefreshAllButtonContainer />
         </Right>
       </Header>
       <Content>

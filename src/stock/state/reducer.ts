@@ -1,3 +1,4 @@
+import * as R from "rambda";
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/batch.json";
 import IDictionary from "../../common/models/IDictionary";
@@ -21,7 +22,7 @@ export default function marketDataReducer(
     case getType(refreshMarketData.request):
       return state;
     case getType(refreshMarketData.success):
-      return state;
+      return R.assoc("symbolData", action.payload, state);
     case getType(refreshMarketData.failure):
       return state;
     default:

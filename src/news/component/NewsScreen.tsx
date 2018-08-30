@@ -1,17 +1,15 @@
 import {
   Body,
-  Button,
   Container,
   Content,
   Header,
-  Icon,
   Left,
   Right,
-  Title,
-  Toast
+  Title
 } from "native-base";
 import React, { SFC } from "react";
 import { CodeButton } from "../../common/component/CodeButton";
+import RefreshAllButtonContainer from "../../stock/container/RefreshAllButtonContainer";
 import INewsItem from "../models/INewsItem";
 import { NewsList } from "./NewsList";
 
@@ -25,14 +23,6 @@ export interface INewsScreenProps {
 }
 
 export const NewsScreen: SFC<INewsScreenProps> = props => {
-  const onPressRefresh = () => {
-    Toast.show({
-      text: "Disabled Refresh",
-      buttonText: "Dismiss",
-      type: "danger"
-    });
-  };
-
   return (
     <Container>
       <Header>
@@ -43,9 +33,7 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
           <Title>News</Title>
         </Body>
         <Right>
-          <Button transparent={true} onPress={onPressRefresh}>
-            <Icon name="refresh" />
-          </Button>
+          <RefreshAllButtonContainer />
         </Right>
       </Header>
       <Content>
