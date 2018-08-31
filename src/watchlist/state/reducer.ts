@@ -1,3 +1,4 @@
+import * as R from "rambda";
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/watchlist.json";
 import * as watchlist from "./actions";
@@ -12,9 +13,9 @@ export default function watchlistReducer(
 ): string[] {
   switch (action.type) {
     case getType(watchlist.addTicker):
-      return [...state, action.payload];
+      return R.prepend(action.payload, state);
     case getType(watchlist.removeTicker):
-      return state.filter(ticker => ticker !== action.payload);
+      return R.filter(ticker => ticker !== action.payload, state);
     default:
       return state;
   }

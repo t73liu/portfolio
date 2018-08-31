@@ -24,6 +24,7 @@ export default function marketDataReducer(
     case getType(refreshMarketData.success):
       return R.assoc("symbolData", action.payload, state);
     case getType(refreshMarketData.failure):
+      // TODO expose notification for failed requests
       return state;
     default:
       return state;

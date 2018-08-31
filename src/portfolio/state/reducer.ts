@@ -12,6 +12,7 @@ export default function portfolioReducer(
   action: PortfolioActions
 ): IHolding[] {
   switch (action.type) {
+    // TODO implement add/delete/edit functionality
     case getType(portfolioActions.addPosition):
       return state;
     case getType(portfolioActions.editPosition):
