@@ -16,6 +16,15 @@ export const formatShares = format({
   round: 0
 });
 
+export const formatPercent = format({
+  suffix: "%",
+  round: 2
+});
+
+export function decimalToPercent(decimal: number) {
+  return formatPercent(decimal * 100);
+}
+
 export function arrayToIDictionary<T>(
   arr: T[],
   getKey: (x: T) => string
