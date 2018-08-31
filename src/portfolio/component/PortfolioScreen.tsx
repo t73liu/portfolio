@@ -39,7 +39,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
         fill: randomColor(),
         onPress: () => {
           Toast.show({
-            text: `${position.ticker}: ${formatCurrency(value)}`,
+            text: `Book Value: ${position.ticker} = ${formatCurrency(value)}`,
             buttonText: "Dismiss",
             type: "success"
           });
