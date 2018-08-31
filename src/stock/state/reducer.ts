@@ -30,7 +30,11 @@ export default function marketDataReducer(
       return state;
     case getType(marketActions.downloadTickerData.success):
       const symbol = action.payload.quote.symbol;
-      return R.assoc(`symbolData.${symbol}`, action.payload, state);
+      return R.assoc(
+        "symbolData",
+        R.assoc(symbol, action.payload, state.symbolData),
+        state
+      );
     case getType(marketActions.downloadTickerData.failure):
       // TODO expose notification for failed requests
       return state;
