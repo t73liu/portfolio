@@ -53,7 +53,7 @@ export async function getMarketData(
   }
   return api
     .get<IDictionary<ISymbolData>>(
-      `/stock/market/batch?symbols=${tickers.join()}&types=quote,news&last=15`
+      `/stock/market/batch?symbols=${tickers.join()}&types=peers,stats,financials,quote,news&last=10&period=annual`
     )
     .then(
       (value: ApiResponse<IDictionary<ISymbolData>>) =>

@@ -11,7 +11,7 @@ export type RefreshMarketActions = ActionType<typeof refreshMarketData>;
 const initialState: IMarketData = {
   symbolData: data as IDictionary<ISymbolData>,
   isRefreshing: false,
-  lastUpdated: new Date()
+  lastUpdated: new Date(1535659200477)
 };
 
 export default function marketDataReducer(
