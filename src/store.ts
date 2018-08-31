@@ -6,10 +6,7 @@ import { StateType } from "typesafe-actions";
 import portfolioReducer, { PortfolioActions } from "./portfolio/state/reducer";
 import { refreshMarketDataEpic } from "./stock/state/epics";
 import marketDataReducer, { RefreshMarketActions } from "./stock/state/reducer";
-import {
-  dailyRequestSymbolNameEpic,
-  refreshSymbolNamesEpic
-} from "./symbols/state/epics";
+import { refreshSymbolNamesEpic } from "./symbols/state/epics";
 import symbolNameReducer, { SymbolNameActions } from "./symbols/state/reducer";
 import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
@@ -33,11 +30,7 @@ export type IRootAction =
   | SymbolNameActions
   | PortfolioActions;
 
-const rootEpic = combineEpics(
-  refreshMarketDataEpic,
-  dailyRequestSymbolNameEpic,
-  refreshSymbolNamesEpic
-);
+const rootEpic = combineEpics(refreshMarketDataEpic, refreshSymbolNamesEpic);
 
 const epicMiddleware = createEpicMiddleware<
   IRootAction,

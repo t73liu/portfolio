@@ -5,7 +5,7 @@ import SymbolLookupScreen, {
   ISymbolLookupDispatchProps,
   ISymbolLookupStateProps
 } from "../component/SymbolLookupScreen";
-import { searchSymbol } from "../state/actions";
+import { refreshSymbolName, searchSymbol } from "../state/actions";
 
 const mapStateToProps = (state: IRootState): ISymbolLookupStateProps => {
   return {
@@ -16,7 +16,8 @@ const mapStateToProps = (state: IRootState): ISymbolLookupStateProps => {
 const mapDispatchToProps = (dispatch: Dispatch): ISymbolLookupDispatchProps =>
   bindActionCreators(
     {
-      search: searchSymbol
+      search: searchSymbol,
+      downloadTickers: refreshSymbolName.request
     },
     dispatch
   );

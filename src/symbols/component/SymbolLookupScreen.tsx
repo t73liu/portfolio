@@ -9,7 +9,9 @@ import {
   Item,
   Left,
   List,
-  Title
+  Right,
+  Title,
+  Toast
 } from "native-base";
 import React from "react";
 import { StyleSheet, ViewStyle } from "react-native";
@@ -32,6 +34,7 @@ export interface ISymbolLookupStateProps {
 
 export interface ISymbolLookupDispatchProps {
   search: (query: string) => any;
+  downloadTickers: () => any;
 }
 
 type ISymbolLookupProps = ISymbolLookupStateProps &
@@ -64,6 +67,15 @@ export default class SymbolLookupScreen extends React.Component<
           <Body>
             <Title>Ticker Lookup</Title>
           </Body>
+          <Right>
+            <Button
+              transparent={true}
+              onPress={this.onPressDownload}
+              onLongPress={this.onLongPress}
+            >
+              <Icon name="download" />
+            </Button>
+          </Right>
         </Header>
         <Item rounded={true} style={styles.input}>
           <Input
@@ -90,6 +102,22 @@ export default class SymbolLookupScreen extends React.Component<
 
   private onPressBack = () => {
     this.props.navigation.goBack();
+  };
+
+  private onPressDownload = () => {
+    Toast.show({
+      text: "Downloading Ticker Metadata",
+      buttonText: "Dismiss",
+      type: "success"
+    });
+    this.props.downloadTickers();
+  };
+
+  private onLongPress = () => {
+    Toast.show({
+      text: "Updates Tickers Metadata",
+      buttonText: "Dismiss"
+    });
   };
 
   private handleChange = (text: string) => {
