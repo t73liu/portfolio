@@ -8,13 +8,11 @@ import * as symbolNameActions from "./actions";
 
 export type SymbolNameActions = ActionType<typeof symbolNameActions>;
 
-const allSymbolDictionary = arrayToIDictionary<ISymbolName>(
-  data,
-  el => el.symbol
-);
+const formatSymbolNames = (symbols: ISymbolName[]) =>
+  arrayToIDictionary<ISymbolName>(symbols, el => el.symbol);
 
 const initialState: ISymbolState = {
-  all: allSymbolDictionary,
+  all: formatSymbolNames(data),
   filtered: []
 };
 
@@ -26,8 +24,12 @@ export default function symbolNameReducer(
     case getType(symbolNameActions.refreshSymbolName.request):
       return state;
     case getType(symbolNameActions.refreshSymbolName.success):
-      return state;
+      return {
+        all: formatSymbolNames(action.payload),
+        filtered: []
+      };
     case getType(symbolNameActions.refreshSymbolName.failure):
+      // TODO display failure notification
       return state;
     case getType(symbolNameActions.searchSymbol):
       return R.assoc(

@@ -6,8 +6,8 @@ import {
 } from "apisauce";
 import { Linking } from "react-native";
 import IDictionary from "../common/models/IDictionary";
-import INewsItem from "../news/models/INewsItem";
 import ISymbolData from "../stock/models/ISymbolData";
+import ISymbolName from "../symbols/models/ISymbolName";
 
 export function openUrl(url: string): void {
   Linking.openURL(url).catch(err =>
@@ -24,6 +24,24 @@ const api = create({
 export interface IError {
   problem: string;
   explanation: string;
+}
+
+export function isError<T>(value: T | IError): value is IError {
+  const error = value as IError;
+  return error.problem !== undefined && error.explanation !== undefined;
+}
+
+// https://api.iextrading.com/1.0/ref-data/symbols?filter=symbol,name [updated daily at 7:45 a.m. ET]
+export async function getSymbolNames(): Promise<ISymbolName[] | IError> {
+  return api
+    .get<ISymbolName[]>("/ref-data/symbols?filter=symbol,name")
+    .then(
+      value =>
+        isApiErrorResponse<ISymbolName[]>(value)
+          ? getUnhandledError(value.problem)
+          : (value!.data as ISymbolName[]),
+      reason => getUnhandledError(reason)
+    );
 }
 
 // https://iextrading.com/developer/docs/#batch-requests [Up to 10 types]
@@ -52,28 +70,9 @@ function isApiErrorResponse<T>(
   return response.problem !== null;
 }
 
-export function isError<T>(value: T | IError): value is IError {
-  const error = value as IError;
-  return error.problem !== undefined && error.explanation !== undefined;
-}
-
 function getUnhandledError(reason: any): IError {
   return {
     problem: reason.toString(),
     explanation: reason.toString()
   };
-}
-
-export async function getNews(
-  ticker: string,
-  amount: string = "5"
-): Promise<INewsItem[]> {
-  const count = parseInt(amount, 10);
-  if (count < 1 || count > 50) {
-    throw new Error("Amount needs to be between 1 to 50");
-  }
-  const request = await fetch(
-    `https://api.iextrading.com/1.0/stock/${ticker}/news/last/${count}`
-  );
-  return request.json();
 }
