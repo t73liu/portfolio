@@ -4,17 +4,7 @@ import { formatCurrency } from "../../util/functions";
 import { IStockDetailStateProps } from "./StockDetailScreen";
 
 export const StockDetailBody: SFC<IStockDetailStateProps> = props => {
-  if (typeof props.symbolData === "undefined") {
-    return (
-      <Content>
-        <List>
-          <ListItem key="NO INFO AVAILABLE">
-            <H3>NO INFO AVAILABLE!</H3>
-          </ListItem>
-        </List>
-      </Content>
-    );
-  } else {
+  const renderFound = () => {
     const quote = props.symbolData!.quote;
     return (
       <Content>
@@ -43,5 +33,22 @@ export const StockDetailBody: SFC<IStockDetailStateProps> = props => {
         </List>
       </Content>
     );
+  };
+
+  const renderNotFound = () => {
+    return (
+      <Content>
+        <List>
+          <ListItem key="NO INFO AVAILABLE">
+            <H3>NO INFO AVAILABLE!</H3>
+          </ListItem>
+        </List>
+      </Content>
+    );
+  };
+
+  if (props.symbolData) {
+    return renderFound();
   }
+  return renderNotFound();
 };
