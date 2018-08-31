@@ -6,7 +6,8 @@ import {
   Icon,
   Left,
   Right,
-  Title
+  Title,
+  Toast
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
@@ -22,7 +23,13 @@ export interface IStockDetailStateProps {
   symbolData?: ISymbolData;
 }
 
-type IStockDetailProps = IStockDetailOwnProps & IStockDetailStateProps;
+export interface IStockDetailDispatchProps {
+  downloadTicker: (ticker: string) => void;
+}
+
+type IStockDetailProps = IStockDetailOwnProps &
+  IStockDetailStateProps &
+  IStockDetailDispatchProps;
 
 export const StockDetailScreen: SFC<IStockDetailProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
@@ -33,6 +40,15 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
 
   const onPressExternal = () => {
     openUrl(`https://finance.yahoo.com/quote/${ticker}`);
+  };
+
+  const onPressDownload = () => {
+    Toast.show({
+      text: "Downloading Ticker market data",
+      buttonText: "Dismiss",
+      type: "success"
+    });
+    props.downloadTicker(ticker);
   };
 
   return (
@@ -49,6 +65,9 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
         <Right>
           <Button transparent={true} onPress={onPressExternal}>
             <Icon name="md-link" />
+          </Button>
+          <Button transparent={true} onPress={onPressDownload}>
+            <Icon name="download" />
           </Button>
         </Right>
       </Header>

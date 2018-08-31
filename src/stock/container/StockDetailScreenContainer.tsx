@@ -1,11 +1,14 @@
 import * as R from "rambda";
 import { connect } from "react-redux";
+import { bindActionCreators, Dispatch } from "redux";
 import { IRootState } from "../../store";
 import {
+  IStockDetailDispatchProps,
   IStockDetailOwnProps,
   IStockDetailStateProps,
   StockDetailScreen
 } from "../component/StockDetailScreen";
+import { downloadTickerData } from "../state/actions";
 
 function mapStateToProps(
   state: IRootState,
@@ -17,4 +20,15 @@ function mapStateToProps(
   };
 }
 
-export default connect(mapStateToProps)(StockDetailScreen);
+const mapDispatchToProps = (dispatch: Dispatch): IStockDetailDispatchProps =>
+  bindActionCreators(
+    {
+      downloadTicker: downloadTickerData.request
+    },
+    dispatch
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StockDetailScreen);

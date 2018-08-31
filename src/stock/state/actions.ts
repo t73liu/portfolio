@@ -8,3 +8,9 @@ export const refreshMarketData = createAsyncAction(
   "REFRESH_MARKET_DATA_SUCCESS",
   "REFRESH_MARKET_DATA_FAILURE"
 )<void, IDictionary<ISymbolData>, IError>();
+
+export const downloadTickerData = createAsyncAction(
+  "DOWNLOAD_TICKER_DATA_REQUEST",
+  "DOWNLOAD_TICKER_DATA_SUCCESS",
+  "DOWNLOAD_TICKER_DATA_FAILURE"
+)<string, ISymbolData, IError>();

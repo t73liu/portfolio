@@ -40,12 +40,6 @@ export const StockDetailBody: SFC<IStockDetailStateProps> = props => {
           <ListItem key="Close">
             <Text>Close: {formatCurrency(quote.close)}</Text>
           </ListItem>
-          <ListItem key="High">
-            <Text>High: {formatCurrency(quote.high)}</Text>
-          </ListItem>
-          <ListItem key="Low">
-            <Text>Low: {formatCurrency(quote.low)}</Text>
-          </ListItem>
         </List>
       </Content>
     );

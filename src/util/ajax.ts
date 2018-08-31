@@ -64,6 +64,22 @@ export async function getMarketData(
     );
 }
 
+export async function getTickerData(
+  ticker: string
+): Promise<ISymbolData | IError> {
+  return api
+    .get<ISymbolData>(
+      `/stock/${ticker}/batch?types=peers,stats,financials,quote,news&last=10&period=annual`
+    )
+    .then(
+      (value: ApiResponse<ISymbolData>) =>
+        isApiErrorResponse<ISymbolData>(value)
+          ? getUnhandledError(value.problem)
+          : (value!.data as ISymbolData),
+      reason => getUnhandledError(reason)
+    );
+}
+
 function isApiErrorResponse<T>(
   response: ApiResponse<T>
 ): response is ApiErrorResponse<T> {

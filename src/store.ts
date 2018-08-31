@@ -4,7 +4,10 @@ import { combineEpics, createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
 import { StateType } from "typesafe-actions";
 import portfolioReducer, { PortfolioActions } from "./portfolio/state/reducer";
-import { refreshMarketDataEpic } from "./stock/state/epics";
+import {
+  downloadTickerDataEpic,
+  refreshMarketDataEpic
+} from "./stock/state/epics";
 import marketDataReducer, { RefreshMarketActions } from "./stock/state/reducer";
 import { refreshSymbolNamesEpic } from "./symbols/state/epics";
 import symbolNameReducer, { SymbolNameActions } from "./symbols/state/reducer";
@@ -30,7 +33,11 @@ export type IRootAction =
   | SymbolNameActions
   | PortfolioActions;
 
-const rootEpic = combineEpics(refreshMarketDataEpic, refreshSymbolNamesEpic);
+const rootEpic = combineEpics(
+  refreshMarketDataEpic,
+  downloadTickerDataEpic,
+  refreshSymbolNamesEpic
+);
 
 const epicMiddleware = createEpicMiddleware<
   IRootAction,
