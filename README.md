@@ -6,9 +6,9 @@
 
 ## Features
 
-- Track stocks traded on IEX with a watchlist
-- Track news related to general market and watchlist stocks
-- Track portfolio changes
+- [x] Track stocks with ratio analysis
+- [x] Track portfolio changes
+- [ ] Track news related to watchlist with sentiment analysis
 
 ## Setup
 
