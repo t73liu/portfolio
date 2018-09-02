@@ -2,6 +2,7 @@ import * as R from "rambda";
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/batch.json";
 import IDictionary from "../../common/models/IDictionary";
+import { formatIErrorToString } from "../../util/ajax";
 import IMarketData from "../models/IMarketData";
 import ISymbolData from "../models/ISymbolData";
 import * as marketActions from "./actions";
@@ -30,7 +31,11 @@ export default function marketDataReducer(
         errorMsg: null
       };
     case getType(marketActions.refreshMarketData.failure):
-      return R.assoc("isLoading", false, state);
+      return {
+        ...state,
+        isLoading: false,
+        errorMsg: formatIErrorToString(action.payload)
+      };
     case getType(marketActions.downloadTickerData.request):
       return R.assoc("isLoading", true, state);
     case getType(marketActions.downloadTickerData.success):
@@ -42,7 +47,11 @@ export default function marketDataReducer(
         errorMsg: null
       };
     case getType(marketActions.downloadTickerData.failure):
-      return R.assoc("isLoading", false, state);
+      return {
+        ...state,
+        isLoading: false,
+        errorMsg: formatIErrorToString(action.payload)
+      };
     case getType(marketActions.dismissMarketDataError):
       return R.assoc("errorMsg", null, state);
     default:

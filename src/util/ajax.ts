@@ -2,7 +2,8 @@ import {
   ApiErrorResponse,
   ApiResponse,
   create,
-  DEFAULT_HEADERS
+  DEFAULT_HEADERS,
+  PROBLEM_CODE
 } from "apisauce";
 import { Linking } from "react-native";
 import IDictionary from "../common/models/IDictionary";
@@ -39,8 +40,7 @@ export async function getSymbolNames(): Promise<ISymbolName[] | IError> {
       value =>
         isApiErrorResponse<ISymbolName[]>(value)
           ? getUnhandledError(value.problem)
-          : (value!.data as ISymbolName[]),
-      reason => getUnhandledError(reason)
+          : (value!.data as ISymbolName[])
     );
 }
 
@@ -59,8 +59,7 @@ export async function getMarketData(
       (value: ApiResponse<IDictionary<ISymbolData>>) =>
         isApiErrorResponse<IDictionary<ISymbolData>>(value)
           ? getUnhandledError(value.problem)
-          : (value!.data as IDictionary<ISymbolData>),
-      reason => getUnhandledError(reason)
+          : (value!.data as IDictionary<ISymbolData>)
     );
 }
 
@@ -75,8 +74,7 @@ export async function getTickerData(
       (value: ApiResponse<ISymbolData>) =>
         isApiErrorResponse<ISymbolData>(value)
           ? getUnhandledError(value.problem)
-          : (value!.data as ISymbolData),
-      reason => getUnhandledError(reason)
+          : (value!.data as ISymbolData)
     );
 }
 
@@ -86,9 +84,23 @@ function isApiErrorResponse<T>(
   return response.problem !== null;
 }
 
-function getUnhandledError(reason: any): IError {
+const errorMap = {
+  CLIENT_ERROR: "Client request issue [HTTP 400s].",
+  SERVER_ERROR: "Internal server issue [HTTP 500s].",
+  TIMEOUT_ERROR: "Server didn't respond in time.",
+  CONNECTION_ERROR: "Server not available, bad DNS.",
+  NETWORK_ERROR: "Network not available.",
+  UNKNOWN_ERROR: "Unknown underlying issue.",
+  CANCEL_ERROR: "Request has been cancelled."
+};
+
+function getUnhandledError(reason: PROBLEM_CODE): IError {
   return {
-    problem: reason.toString(),
-    explanation: reason.toString()
+    problem: reason,
+    explanation: errorMap[reason]
   };
+}
+
+export function formatIErrorToString(error: IError): string {
+  return `${error.problem}: ${error.explanation}`;
 }

@@ -1,6 +1,7 @@
 import R from "rambda";
 import { ActionType, getType } from "typesafe-actions";
 import data from "../../../assets/data/symbols.json";
+import { formatIErrorToString } from "../../util/ajax";
 import { arrayToIDictionary } from "../../util/functions";
 import ISymbolName from "../models/ISymbolName";
 import ISymbolState from "../models/ISymbolState";
@@ -33,12 +34,10 @@ export default function symbolNameReducer(
         errorMsg: null
       };
     case getType(symbolNameActions.refreshSymbolName.failure):
-      // TODO replace placeholder error with user-friendly msg
-      const error = JSON.stringify(action.payload);
       return {
         ...state,
         isLoading: false,
-        errorMsg: error
+        errorMsg: formatIErrorToString(action.payload)
       };
     case getType(symbolNameActions.searchSymbol):
       return R.assoc(
