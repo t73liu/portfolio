@@ -10,8 +10,9 @@ export type RefreshMarketActions = ActionType<typeof marketActions>;
 
 const initialState: IMarketData = {
   symbolData: data as IDictionary<ISymbolData>,
-  isRefreshing: false,
-  lastUpdated: new Date(1535659200477)
+  isLoading: false,
+  lastUpdated: new Date(1535659200477),
+  errorMsg: null
 };
 
 export default function marketDataReducer(
@@ -20,24 +21,30 @@ export default function marketDataReducer(
 ): IMarketData {
   switch (action.type) {
     case getType(marketActions.refreshMarketData.request):
-      return state;
+      return R.assoc("isLoading", true, state);
     case getType(marketActions.refreshMarketData.success):
-      return R.assoc("symbolData", action.payload, state);
+      return {
+        symbolData: action.payload,
+        isLoading: false,
+        lastUpdated: new Date(),
+        errorMsg: null
+      };
     case getType(marketActions.refreshMarketData.failure):
-      // TODO expose notification for failed requests
-      return state;
+      return R.assoc("isLoading", false, state);
     case getType(marketActions.downloadTickerData.request):
-      return state;
+      return R.assoc("isLoading", true, state);
     case getType(marketActions.downloadTickerData.success):
       const symbol = action.payload.quote.symbol;
-      return R.assoc(
-        "symbolData",
-        R.assoc(symbol, action.payload, state.symbolData),
-        state
-      );
+      return {
+        isLoading: false,
+        symbolData: R.assoc(symbol, action.payload, state.symbolData),
+        lastUpdated: state.lastUpdated,
+        errorMsg: null
+      };
     case getType(marketActions.downloadTickerData.failure):
-      // TODO expose notification for failed requests
-      return state;
+      return R.assoc("isLoading", false, state);
+    case getType(marketActions.dismissMarketDataError):
+      return R.assoc("errorMsg", null, state);
     default:
       return state;
   }

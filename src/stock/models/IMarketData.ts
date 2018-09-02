@@ -3,6 +3,7 @@ import ISymbolData from "./ISymbolData";
 
 export default interface IMarketData {
   symbolData: IDictionary<ISymbolData>;
-  isRefreshing: boolean;
+  isLoading: boolean;
   lastUpdated: Date;
+  errorMsg: string | null;
 }

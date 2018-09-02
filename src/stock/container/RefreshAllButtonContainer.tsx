@@ -1,22 +1,31 @@
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
-import {
+import { IRootState } from "../../store";
+import RefreshAllButton, {
   IRefreshAllButtonDispatchProps,
-  RefreshAllButton
+  IRefreshAllButtonStateProps
 } from "../component/RefreshAllButton";
-import { refreshMarketData } from "../state/actions";
+import { dismissMarketDataError, refreshMarketData } from "../state/actions";
+
+const mapStateToProps = (state: IRootState): IRefreshAllButtonStateProps => {
+  return {
+    isLoading: state.marketData.isLoading,
+    errorMsg: state.marketData.errorMsg
+  };
+};
 
 const mapDispatchToProps = (
   dispatch: Dispatch
 ): IRefreshAllButtonDispatchProps =>
   bindActionCreators(
     {
-      handleRefresh: refreshMarketData.request
+      handleRefresh: refreshMarketData.request,
+      dismissError: dismissMarketDataError
     },
     dispatch
   );
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(RefreshAllButton);
