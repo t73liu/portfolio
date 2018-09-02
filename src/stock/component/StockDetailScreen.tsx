@@ -15,11 +15,8 @@ import { openUrl } from "../../util/ajax";
 import ISymbolData from "../models/ISymbolData";
 import { StockDetailBody } from "./StockDetailBody";
 
-export interface IStockDetailOwnProps {
-  ticker: string;
-}
-
 export interface IStockDetailStateProps {
+  ticker: string;
   symbolData?: ISymbolData;
   isLoading: boolean;
   errorMsg: string | null;
@@ -30,24 +27,21 @@ export interface IStockDetailDispatchProps {
   dismissError: () => void;
 }
 
-export type IStockDetailProps = IStockDetailOwnProps &
+export type IStockDetailProps = NavigationInjectedProps &
   IStockDetailStateProps &
-  IStockDetailDispatchProps &
-  NavigationInjectedProps;
+  IStockDetailDispatchProps;
 
 export const StockDetailScreen: SFC<IStockDetailProps> = props => {
-  const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
-
   const onPressBack = () => {
     props.navigation.pop();
   };
 
   const onPressExternal = () => {
-    openUrl(`https://finance.yahoo.com/quote/${ticker}`);
+    openUrl(`https://finance.yahoo.com/quote/${props.ticker}`);
   };
 
   const onPressDownload = () => {
-    props.downloadTicker(ticker);
+    props.downloadTicker(props.ticker);
   };
 
   return (
@@ -59,7 +53,7 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
           </Button>
         </Left>
         <Body>
-          <Title>Stock: {ticker}</Title>
+          <Title>Stock: {props.ticker}</Title>
         </Body>
         <Right>
           <Button transparent={true} onPress={onPressExternal}>
@@ -71,7 +65,7 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
             errorMsg={props.errorMsg}
             handlePress={onPressDownload}
             handleToast={props.dismissError}
-            explanation={`Downloading ${ticker} market data`}
+            explanation={`Downloading ${props.ticker} market data`}
           />
         </Right>
       </Header>
