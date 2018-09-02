@@ -1,11 +1,12 @@
 import { createAction } from "typesafe-actions";
+import IHolding from "../models/IHolding";
 
 export const addPosition = createAction("POSITION_ADD", resolve => {
-  return (ticker: string, amount: number, price: number) => resolve(ticker);
+  return (ticker: string) => resolve(ticker);
 });
 
 export const editPosition = createAction("POSITION_EDIT", resolve => {
-  return (id: string, amount: number, price: number) => resolve(id);
+  return (position: IHolding) => resolve(position);
 });
 
 export const deletePosition = createAction("POSITION_REMOVE", resolve => {

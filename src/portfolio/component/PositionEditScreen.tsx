@@ -6,6 +6,7 @@ import {
   Header,
   Icon,
   Left,
+  Right,
   Text,
   Title
 } from "native-base";
@@ -18,11 +19,21 @@ export interface IPositionEditStateProps {
   positions: IHolding[];
 }
 
-type IPositionEditProps = IPositionEditStateProps & NavigationInjectedProps;
+export interface IPositionEditDispatchProps {
+  addPosition: (ticker: string) => void;
+}
+
+type IPositionEditProps = IPositionEditStateProps &
+  IPositionEditDispatchProps &
+  NavigationInjectedProps;
 
 export const PositionEditScreen: SFC<IPositionEditProps> = props => {
   const onPressBack = () => {
     props.navigation.pop();
+  };
+
+  const onPressAdd = () => {
+    props.addPosition(props.ticker);
   };
 
   return (
@@ -36,7 +47,13 @@ export const PositionEditScreen: SFC<IPositionEditProps> = props => {
         <Body>
           <Title>Position: {props.ticker}</Title>
         </Body>
+        <Right>
+          <Button transparent={true} onPress={onPressAdd}>
+            <Icon name="add" />
+          </Button>
+        </Right>
       </Header>
+      {/*TODO numeric keyboard*/}
       <Content>
         {props.positions.map(position => (
           <Text key={position.id}>{JSON.stringify(position)}</Text>
