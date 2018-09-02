@@ -80,7 +80,11 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
             />
           </CardItem>
           {props.portfolio.map(holding => (
-            <PortfolioItemContainer key={holding.id} position={holding} />
+            <PortfolioItemContainer
+              key={holding.id}
+              position={holding}
+              navigation={props.navigation}
+            />
           ))}
         </Card>
       </Content>

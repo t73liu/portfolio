@@ -1,12 +1,9 @@
 import { Body, CardItem, Text } from "native-base";
 import React, { SFC } from "react";
+import { NavigationInjectedProps } from "react-navigation";
 import { profitLossStyle } from "../../common/models/IProfitLossStyle";
 import IQuote from "../../stock/models/IQuote";
-import {
-  decimalToPercent,
-  formatCurrency,
-  formatShares
-} from "../../util/functions";
+import { decimalToPercent, formatCurrency, formatShares } from "../../util/functions";
 import IHolding from "../models/IHolding";
 
 export interface IPortfolioItemOwnProps {
@@ -17,10 +14,18 @@ export interface IPortfolioItemStateProps {
   quote?: IQuote;
 }
 
-type IPortfolioItemProps = IPortfolioItemOwnProps & IPortfolioItemStateProps;
+type IPortfolioItemProps = IPortfolioItemOwnProps &
+  IPortfolioItemStateProps &
+  NavigationInjectedProps;
 
 export const PortfolioItem: SFC<IPortfolioItemProps> = props => {
   const bookValue = props.position.buyPrice * props.position.amount;
+
+  const handleItemPress = () => {
+    props.navigation.push("StockDetail", {
+      ticker: props.position.ticker
+    });
+  };
 
   const renderFound = () => {
     const quote = props.quote!;
@@ -28,7 +33,7 @@ export const PortfolioItem: SFC<IPortfolioItemProps> = props => {
     const pnl = marketValue - bookValue;
     const pnlPercent = pnl / bookValue;
     return (
-      <CardItem bordered={true}>
+      <CardItem bordered={true} onPress={handleItemPress}>
         <Body>
           <Text style={pnl < 0 ? profitLossStyle.loss : profitLossStyle.profit}>
             {props.position.ticker}: {formatCurrency(marketValue)}
@@ -50,7 +55,7 @@ export const PortfolioItem: SFC<IPortfolioItemProps> = props => {
 
   const renderNotFound = () => {
     return (
-      <CardItem bordered={true}>
+      <CardItem bordered={true} onPress={handleItemPress}>
         <Body>
           <Text>{props.position.ticker} [UNKNOWN]</Text>
           <Text note={true}>

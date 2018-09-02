@@ -15,7 +15,7 @@ import { openUrl } from "../../util/ajax";
 import ISymbolData from "../models/ISymbolData";
 import { StockDetailBody } from "./StockDetailBody";
 
-export interface IStockDetailOwnProps extends NavigationInjectedProps {
+export interface IStockDetailOwnProps {
   ticker: string;
 }
 
@@ -32,7 +32,8 @@ export interface IStockDetailDispatchProps {
 
 export type IStockDetailProps = IStockDetailOwnProps &
   IStockDetailStateProps &
-  IStockDetailDispatchProps;
+  IStockDetailDispatchProps &
+  NavigationInjectedProps;
 
 export const StockDetailScreen: SFC<IStockDetailProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
