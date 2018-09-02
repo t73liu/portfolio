@@ -27,7 +27,7 @@ export interface IStockDetailDispatchProps {
   downloadTicker: (ticker: string) => void;
 }
 
-type IStockDetailProps = IStockDetailOwnProps &
+export type IStockDetailProps = IStockDetailOwnProps &
   IStockDetailStateProps &
   IStockDetailDispatchProps;
 
@@ -35,7 +35,7 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
 
   const onPressBack = () => {
-    props.navigation.goBack();
+    props.navigation.pop();
   };
 
   const onPressExternal = () => {
@@ -71,7 +71,7 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
           </Button>
         </Right>
       </Header>
-      <StockDetailBody symbolData={props.symbolData} />
+      <StockDetailBody {...props} />
     </Container>
   );
 };

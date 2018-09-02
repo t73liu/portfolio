@@ -1,9 +1,11 @@
 import { Content, H3, List, ListItem, Text } from "native-base";
 import React, { SFC } from "react";
+import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 import { formatCurrency } from "../../util/functions";
-import { IStockDetailStateProps } from "./StockDetailScreen";
+import { IStockDetailProps } from "./StockDetailScreen";
 
-export const StockDetailBody: SFC<IStockDetailStateProps> = props => {
+export const StockDetailBody: SFC<IStockDetailProps> = props => {
+  // TODO add more content (f-score, m-score, etc) + explanation toasts
   const renderFound = () => {
     const quote = props.symbolData!.quote;
     return (
@@ -30,6 +32,18 @@ export const StockDetailBody: SFC<IStockDetailStateProps> = props => {
           <ListItem key="Close">
             <Text>Close: {formatCurrency(quote.close)}</Text>
           </ListItem>
+        </List>
+        <List>
+          <ListItem itemDivider={true} key="PEERS">
+            <H3>PEERS</H3>
+          </ListItem>
+          {props.symbolData!.peers.map(ticker => (
+            <SymbolItemContainer
+              key={ticker}
+              ticker={ticker}
+              navigation={props.navigation}
+            />
+          ))}
         </List>
       </Content>
     );

@@ -101,7 +101,7 @@ export default class SymbolLookupScreen extends React.Component<
   }
 
   private onPressBack = () => {
-    this.props.navigation.goBack();
+    this.props.navigation.pop();
   };
 
   private onPressDownload = () => {

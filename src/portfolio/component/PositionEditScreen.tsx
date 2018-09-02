@@ -20,9 +20,11 @@ type IPositionEditProps = IPositionEditOwnProps & NavigationInjectedProps;
 
 export const PositionEditScreen: SFC<IPositionEditProps> = props => {
   const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
+
   const onPressBack = () => {
-    props.navigation.goBack();
+    props.navigation.pop();
   };
+
   return (
     <Container>
       <Header>

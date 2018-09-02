@@ -13,19 +13,7 @@ import { refreshSymbolNamesEpic } from "./symbols/state/epics";
 import symbolNameReducer, { SymbolNameActions } from "./symbols/state/reducer";
 import watchlistReducer, { WatchlistActions } from "./watchlist/state/reducer";
 
-const rootReducer = combineReducers({
-  symbolName: symbolNameReducer,
-  marketData: marketDataReducer,
-  portfolio: portfolioReducer,
-  watchlist: watchlistReducer
-});
-
 export type IRootState = StateType<typeof rootReducer>;
-
-const persistConfig = {
-  key: "root",
-  storage: AsyncStorage
-};
 
 export type IRootAction =
   | WatchlistActions
@@ -33,11 +21,17 @@ export type IRootAction =
   | SymbolNameActions
   | PortfolioActions;
 
-const rootEpic = combineEpics(
-  refreshMarketDataEpic,
-  downloadTickerDataEpic,
-  refreshSymbolNamesEpic
-);
+const persistConfig = {
+  key: "root",
+  storage: AsyncStorage
+};
+
+const rootReducer = combineReducers({
+  symbolName: symbolNameReducer,
+  marketData: marketDataReducer,
+  portfolio: portfolioReducer,
+  watchlist: watchlistReducer
+});
 
 const epicMiddleware = createEpicMiddleware<
   IRootAction,
@@ -50,11 +44,17 @@ const store = createStore(
   applyMiddleware(epicMiddleware)
 );
 
+const rootEpic = combineEpics(
+  refreshMarketDataEpic,
+  downloadTickerDataEpic,
+  refreshSymbolNamesEpic
+);
+
 epicMiddleware.run(rootEpic);
 
 export const persistor = persistStore(store);
 
 // Used to reset store
-// persistor.purge();
+persistor.purge();
 
 export default store;

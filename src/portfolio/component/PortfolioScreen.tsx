@@ -49,7 +49,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
   });
 
   const onPressSearch = () => {
-    props.navigation.navigate("SymbolLookup");
+    props.navigation.push("SymbolLookup");
   };
 
   return (

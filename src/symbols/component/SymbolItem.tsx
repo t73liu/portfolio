@@ -29,7 +29,7 @@ export type ISymbolItemProps = ISymbolItemOwnProps &
 
 export const SymbolItem: SFC<ISymbolItemProps> = props => {
   const handleItemPress = () => {
-    props.navigation.navigate("StockDetail", {
+    props.navigation.push("StockDetail", {
       ticker: props.ticker
     });
   };
@@ -43,7 +43,7 @@ export const SymbolItem: SFC<ISymbolItemProps> = props => {
   };
 
   const handlePortfolioButtonPress = () => {
-    props.navigation.navigate("PositionEdit", {
+    props.navigation.push("PositionEdit", {
       ticker: props.ticker
     });
   };

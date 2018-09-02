@@ -24,7 +24,7 @@ type IWatchlistProps = IWatchlistStateProps & NavigationInjectedProps;
 
 export const WatchlistScreen: SFC<IWatchlistProps> = props => {
   const onPressAdd = () => {
-    props.navigation.navigate("SymbolLookup");
+    props.navigation.push("SymbolLookup");
   };
 
   return (
