@@ -8,6 +8,7 @@ import {
   Header,
   Icon,
   Left,
+  List,
   Right,
   Title,
   Toast
@@ -79,6 +80,8 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
               data={pieData}
             />
           </CardItem>
+        </Card>
+        <List>
           {props.portfolio.map(holding => (
             <PortfolioItemContainer
               key={holding.id}
@@ -87,7 +90,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
               navigation={props.navigation}
             />
           ))}
-        </Card>
+        </List>
       </Content>
     </Container>
   );

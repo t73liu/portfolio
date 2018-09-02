@@ -55,6 +55,6 @@ epicMiddleware.run(rootEpic);
 export const persistor = persistStore(store);
 
 // Used to reset store
-persistor.purge();
+// persistor.purge();
 
 export default store;

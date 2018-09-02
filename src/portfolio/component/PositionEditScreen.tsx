@@ -7,11 +7,11 @@ import {
   Icon,
   Left,
   Right,
-  Text,
   Title
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
+import PositionEditFormContainer from "../container/PositionEditFormContainer";
 import IHolding from "../models/IHolding";
 
 export interface IPositionEditStateProps {
@@ -53,10 +53,9 @@ export const PositionEditScreen: SFC<IPositionEditProps> = props => {
           </Button>
         </Right>
       </Header>
-      {/*TODO numeric keyboard*/}
       <Content>
         {props.positions.map(position => (
-          <Text key={position.id}>{JSON.stringify(position)}</Text>
+          <PositionEditFormContainer key={position.id} position={position} />
         ))}
       </Content>
     </Container>

@@ -1,4 +1,5 @@
 import format from "format-number";
+import isNumber from "is-number";
 import * as R from "rambda";
 import IDictionary from "../common/models/IDictionary";
 
@@ -38,4 +39,12 @@ export function arrayToIDictionary<T>(
     {},
     arr
   );
+}
+
+export function validatePositiveInteger(num: string): boolean {
+  return isNumber(num) && parseInt(num, 10) >= 0;
+}
+
+export function validatePositiveFloat(num: string): boolean {
+  return isNumber(num) && parseFloat(num) >= 0;
 }
