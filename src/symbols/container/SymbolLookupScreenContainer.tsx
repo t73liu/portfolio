@@ -5,11 +5,17 @@ import SymbolLookupScreen, {
   ISymbolLookupDispatchProps,
   ISymbolLookupStateProps
 } from "../component/SymbolLookupScreen";
-import { refreshSymbolName, searchSymbol } from "../state/actions";
+import {
+  dismissSymbolDataError,
+  refreshSymbolName,
+  searchSymbol
+} from "../state/actions";
 
 const mapStateToProps = (state: IRootState): ISymbolLookupStateProps => {
   return {
-    searchResult: state.symbolName.filtered
+    searchResult: state.symbolName.filtered,
+    isLoading: state.symbolName.isLoading,
+    errorMsg: state.symbolName.errorMsg
   };
 };
 
@@ -17,7 +23,8 @@ const mapDispatchToProps = (dispatch: Dispatch): ISymbolLookupDispatchProps =>
   bindActionCreators(
     {
       search: searchSymbol,
-      downloadTickers: refreshSymbolName.request
+      downloadTickers: refreshSymbolName.request,
+      dismissError: dismissSymbolDataError
     },
     dispatch
   );

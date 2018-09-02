@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import { bindActionCreators, Dispatch } from "redux";
 import { IRootState } from "../../store";
-import RefreshAllButton, {
+import {
   IRefreshAllButtonDispatchProps,
-  IRefreshAllButtonStateProps
+  IRefreshAllButtonStateProps,
+  RefreshAllButton
 } from "../component/RefreshAllButton";
 import { dismissMarketDataError, refreshMarketData } from "../state/actions";
 

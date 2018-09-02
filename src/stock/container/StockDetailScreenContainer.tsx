@@ -8,7 +8,7 @@ import {
   IStockDetailStateProps,
   StockDetailScreen
 } from "../component/StockDetailScreen";
-import { downloadTickerData } from "../state/actions";
+import { dismissMarketDataError, downloadTickerData } from "../state/actions";
 
 function mapStateToProps(
   state: IRootState,
@@ -16,14 +16,17 @@ function mapStateToProps(
 ): IStockDetailStateProps {
   const ticker = ownProps.navigation.getParam("ticker", "No Ticker Provided");
   return {
-    symbolData: R.prop(ticker, state.marketData.symbolData)
+    symbolData: R.prop(ticker, state.marketData.symbolData),
+    isLoading: state.marketData.isLoading,
+    errorMsg: state.marketData.errorMsg
   };
 }
 
 const mapDispatchToProps = (dispatch: Dispatch): IStockDetailDispatchProps =>
   bindActionCreators(
     {
-      downloadTicker: downloadTickerData.request
+      downloadTicker: downloadTickerData.request,
+      dismissError: dismissMarketDataError
     },
     dispatch
   );

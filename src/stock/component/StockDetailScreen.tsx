@@ -6,11 +6,11 @@ import {
   Icon,
   Left,
   Right,
-  Title,
-  Toast
+  Title
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
+import DownloadButton from "../../common/component/DownloadButton";
 import { openUrl } from "../../util/ajax";
 import ISymbolData from "../models/ISymbolData";
 import { StockDetailBody } from "./StockDetailBody";
@@ -21,10 +21,13 @@ export interface IStockDetailOwnProps extends NavigationInjectedProps {
 
 export interface IStockDetailStateProps {
   symbolData?: ISymbolData;
+  isLoading: boolean;
+  errorMsg: string | null;
 }
 
 export interface IStockDetailDispatchProps {
   downloadTicker: (ticker: string) => void;
+  dismissError: () => void;
 }
 
 export type IStockDetailProps = IStockDetailOwnProps &
@@ -43,9 +46,6 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
   };
 
   const onPressDownload = () => {
-    Toast.show({
-      text: `Downloading ${ticker} market data`
-    });
     props.downloadTicker(ticker);
   };
 
@@ -64,9 +64,14 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
           <Button transparent={true} onPress={onPressExternal}>
             <Icon name="md-link" />
           </Button>
-          <Button transparent={true} onPress={onPressDownload}>
-            <Icon name="download" />
-          </Button>
+          <DownloadButton
+            iconType={"download"}
+            isLoading={props.isLoading}
+            errorMsg={props.errorMsg}
+            handlePress={onPressDownload}
+            handleToast={props.dismissError}
+            explanation={`Downloading ${ticker} market data`}
+          />
         </Right>
       </Header>
       <StockDetailBody {...props} />

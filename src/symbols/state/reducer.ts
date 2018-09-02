@@ -13,7 +13,9 @@ const formatSymbolNames = (symbols: ISymbolName[]) =>
 
 const initialState: ISymbolState = {
   all: formatSymbolNames(data),
-  filtered: []
+  filtered: [],
+  isLoading: false,
+  errorMsg: null
 };
 
 export default function symbolNameReducer(
@@ -22,15 +24,22 @@ export default function symbolNameReducer(
 ): ISymbolState {
   switch (action.type) {
     case getType(symbolNameActions.refreshSymbolName.request):
-      return state;
+      return R.assoc("isLoading", true, state);
     case getType(symbolNameActions.refreshSymbolName.success):
       return {
         all: formatSymbolNames(action.payload),
-        filtered: []
+        filtered: [],
+        isLoading: false,
+        errorMsg: null
       };
     case getType(symbolNameActions.refreshSymbolName.failure):
-      // TODO display failure notification
-      return state;
+      // TODO replace placeholder error with user-friendly msg
+      const error = JSON.stringify(action.payload);
+      return {
+        ...state,
+        isLoading: false,
+        errorMsg: error
+      };
     case getType(symbolNameActions.searchSymbol):
       return R.assoc(
         "filtered",
@@ -39,6 +48,8 @@ export default function symbolNameReducer(
         ) as string[]),
         state
       );
+    case getType(symbolNameActions.dismissSymbolDataError):
+      return R.assoc("errorMsg", null, state);
     default:
       return state;
   }

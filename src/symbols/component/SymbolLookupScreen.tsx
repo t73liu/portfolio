@@ -10,12 +10,12 @@ import {
   Left,
   List,
   Right,
-  Title,
-  Toast
+  Title
 } from "native-base";
 import React from "react";
 import { StyleSheet, ViewStyle } from "react-native";
 import { NavigationInjectedProps } from "react-navigation";
+import DownloadButton from "../../common/component/DownloadButton";
 import SymbolItemContainer from "../container/SymbolItemContainer";
 
 interface IInputStyle {
@@ -30,11 +30,14 @@ const styles = StyleSheet.create<IInputStyle>({
 
 export interface ISymbolLookupStateProps {
   searchResult: string[];
+  isLoading: boolean;
+  errorMsg: string | null;
 }
 
 export interface ISymbolLookupDispatchProps {
   search: (query: string) => any;
   downloadTickers: () => any;
+  dismissError: () => any;
 }
 
 type ISymbolLookupProps = ISymbolLookupStateProps &
@@ -68,13 +71,14 @@ export default class SymbolLookupScreen extends React.Component<
             <Title>Ticker Lookup</Title>
           </Body>
           <Right>
-            <Button
-              transparent={true}
-              onPress={this.onPressDownload}
-              onLongPress={this.onLongPress}
-            >
-              <Icon name="download" />
-            </Button>
+            <DownloadButton
+              iconType={"download"}
+              isLoading={this.props.isLoading}
+              errorMsg={this.props.errorMsg}
+              handlePress={this.props.downloadTickers}
+              handleToast={this.props.dismissError}
+              explanation={"Downloading Ticker List"}
+            />
           </Right>
         </Header>
         <Item rounded={true} style={styles.input}>
@@ -102,16 +106,6 @@ export default class SymbolLookupScreen extends React.Component<
 
   private onPressBack = () => {
     this.props.navigation.pop();
-  };
-
-  private onPressDownload = () => {
-    this.props.downloadTickers();
-  };
-
-  private onLongPress = () => {
-    Toast.show({
-      text: "Downloading Ticker List"
-    });
   };
 
   private handleChange = (text: string) => {

@@ -11,3 +11,10 @@ export const refreshSymbolName = createAsyncAction(
 export const searchSymbol = createAction("SYMBOL_SEARCH", resolve => {
   return (query: string) => resolve(query);
 });
+
+export const dismissSymbolDataError = createAction(
+  "DISMISS_SYMBOL_DATA_ERROR",
+  resolve => {
+    return () => resolve();
+  }
+);
