@@ -1,37 +1,50 @@
-import { Content, H3, List, ListItem, Text } from "native-base";
+import { Content, H3, List, ListItem } from "native-base";
 import React, { SFC } from "react";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 import { formatCurrency } from "../../util/functions";
+import { StockDetailInfo } from "./StockDetailInfo";
 import { IStockDetailProps } from "./StockDetailScreen";
 
 export const StockDetailBody: SFC<IStockDetailProps> = props => {
-  // TODO add more content (f-score, m-score, etc) + explanation toasts
+  // TODO add more content (f-score, m-score, etc)
   const renderFound = () => {
     const quote = props.symbolData!.quote;
+
     return (
       <Content>
         <List>
           <ListItem itemDivider={true} key="INFO">
             <H3>INFO</H3>
           </ListItem>
-          <ListItem key="Name">
-            <Text>Name: {quote.companyName}</Text>
-          </ListItem>
-          <ListItem key="Sector">
-            <Text>Sector: {quote.sector}</Text>
-          </ListItem>
-          <ListItem key="Exchange">
-            <Text>Exchange: {quote.primaryExchange}</Text>
-          </ListItem>
+          <StockDetailInfo
+            key={"Name"}
+            title={"Name"}
+            value={quote.companyName}
+          />
+          <StockDetailInfo
+            key={"Sector"}
+            title={"Sector"}
+            value={quote.sector}
+          />
+          <StockDetailInfo
+            key={"Exchange"}
+            title={"Exchange"}
+            value={quote.primaryExchange}
+            explanation={"Stock's Primary Listing Exchange"}
+          />
           <ListItem itemDivider={true} key="QUOTE">
             <H3>QUOTE</H3>
           </ListItem>
-          <ListItem key="Open">
-            <Text>Open: {formatCurrency(quote.open)}</Text>
-          </ListItem>
-          <ListItem key="Close">
-            <Text>Close: {formatCurrency(quote.close)}</Text>
-          </ListItem>
+          <StockDetailInfo
+            key={"Open"}
+            title={"Open"}
+            value={formatCurrency(quote.open)}
+          />
+          <StockDetailInfo
+            key={"Close"}
+            title={"Close"}
+            value={formatCurrency(quote.close)}
+          />
         </List>
         <List>
           <ListItem itemDivider={true} key="PEERS">
