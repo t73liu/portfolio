@@ -83,6 +83,7 @@ export default class SymbolLookupScreen extends React.Component<
         </Header>
         <Item rounded={true} style={styles.input}>
           <Input
+            autoCapitalize={"characters"}
             placeholder="Search Ticker"
             value={inputValue}
             onChangeText={this.handleChange}
