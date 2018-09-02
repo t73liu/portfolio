@@ -40,7 +40,6 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
         onPress: () => {
           Toast.show({
             text: `Book Value: ${position.ticker} = ${formatCurrency(value)}`,
-            buttonText: "Dismiss",
             type: "success"
           });
         }

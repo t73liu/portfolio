@@ -105,18 +105,12 @@ export default class SymbolLookupScreen extends React.Component<
   };
 
   private onPressDownload = () => {
-    Toast.show({
-      text: "Downloading Ticker Metadata",
-      buttonText: "Dismiss",
-      type: "success"
-    });
     this.props.downloadTickers();
   };
 
   private onLongPress = () => {
     Toast.show({
-      text: "Updates Tickers Metadata",
-      buttonText: "Dismiss"
+      text: "Downloading Ticker List"
     });
   };
 

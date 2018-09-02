@@ -13,9 +13,7 @@ export const StockDetailInfo: SFC<IStockDetailInfoProps> = props => {
   const onPressButton = () => {
     if (props.explanation) {
       Toast.show({
-        text: `Info: ${props.explanation}`,
-        buttonText: "Dismiss",
-        type: "success"
+        text: `${props.explanation}`
       });
     }
   };

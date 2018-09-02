@@ -44,9 +44,7 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
 
   const onPressDownload = () => {
     Toast.show({
-      text: "Downloading Ticker market data",
-      buttonText: "Dismiss",
-      type: "success"
+      text: `Downloading ${ticker} market data`
     });
     props.downloadTicker(ticker);
   };
