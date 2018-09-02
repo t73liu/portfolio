@@ -1,26 +1,26 @@
 import {
   Body,
   Button,
-  Card,
   Container,
   Content,
   Header,
   Icon,
   Left,
+  Text,
   Title
 } from "native-base";
 import React, { SFC } from "react";
 import { NavigationInjectedProps } from "react-navigation";
+import IHolding from "../models/IHolding";
 
-interface IPositionEditOwnProps {
+export interface IPositionEditStateProps {
   ticker: string;
+  positions: IHolding[];
 }
 
-type IPositionEditProps = IPositionEditOwnProps & NavigationInjectedProps;
+type IPositionEditProps = IPositionEditStateProps & NavigationInjectedProps;
 
 export const PositionEditScreen: SFC<IPositionEditProps> = props => {
-  const ticker = props.navigation.getParam("ticker", "No Ticker Provided");
-
   const onPressBack = () => {
     props.navigation.pop();
   };
@@ -34,11 +34,13 @@ export const PositionEditScreen: SFC<IPositionEditProps> = props => {
           </Button>
         </Left>
         <Body>
-          <Title>Position: {ticker}</Title>
+          <Title>Position: {props.ticker}</Title>
         </Body>
       </Header>
       <Content>
-        <Card />
+        {props.positions.map(position => (
+          <Text key={position.id}>{JSON.stringify(position)}</Text>
+        ))}
       </Content>
     </Container>
   );
