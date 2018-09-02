@@ -10,7 +10,7 @@ const mapStateToProps = (
   state: IRootState,
   ownProps: IPortfolioItemOwnProps
 ): IPortfolioItemStateProps => {
-  const ticker = ownProps.position.ticker;
+  const ticker = ownProps.ticker;
   if (state.marketData.symbolData[ticker]) {
     return {
       quote: state.marketData.symbolData[ticker].quote

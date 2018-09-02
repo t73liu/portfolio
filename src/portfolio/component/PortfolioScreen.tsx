@@ -83,6 +83,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
             <PortfolioItemContainer
               key={holding.id}
               position={holding}
+              ticker={holding.ticker}
               navigation={props.navigation}
             />
           ))}
