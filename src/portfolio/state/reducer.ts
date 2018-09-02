@@ -19,8 +19,7 @@ export default function portfolioReducer(
         id: uuid(),
         ticker: action.payload,
         amount: 0,
-        buyPrice: 0,
-        buyDate: new Date()
+        buyPrice: 0
       };
       return R.prepend(newPosition, state);
     case getType(portfolioActions.editPosition):
