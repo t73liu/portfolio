@@ -19,7 +19,9 @@
       "bundleIdentifier": "io.github.t73liu.portfolio"
     },
     "android": {
-      "package": "io.github.t73liu.portfolio"
+      "package": "io.github.t73liu.portfolio",
+      "permissions": [],
+      "versionCode": 2
     }
   }
 }
