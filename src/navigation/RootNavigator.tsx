@@ -1,14 +1,14 @@
 import { Button, Footer, FooterTab, Text } from "native-base";
 import React from "react";
 import { createBottomTabNavigator } from "react-navigation";
-import NewsScreenContainer from "../news/container/NewsScreenContainer";
+import NewsNavigator from "./NewsNavigator";
 import PortfolioNavigator from "./PortfolioNavigator";
 import WatchlistNavigator from "./WatchlistNavigator";
 
 export default createBottomTabNavigator(
   {
     Watchlist: WatchlistNavigator,
-    News: NewsScreenContainer,
+    News: NewsNavigator,
     Portfolio: PortfolioNavigator
   },
   {
