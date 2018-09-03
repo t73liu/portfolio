@@ -1,3 +1,4 @@
+import * as R from "rambda";
 import { Epic } from "redux-observable";
 import { filter, switchMap } from "rxjs/operators";
 import { isActionOf } from "typesafe-actions";
@@ -15,7 +16,13 @@ export const refreshMarketDataEpic: Epic<
   return action$.pipe(
     filter(isActionOf(refreshMarketData.request)),
     switchMap(() => {
-      return getMarketData(state$.value.watchlist).then(value => {
+      const allTickers = R.uniq(
+        R.concat(
+          state$.value.watchlist,
+          R.map(x => x.ticker, state$.value.portfolio)
+        )
+      );
+      return getMarketData(allTickers).then(value => {
         return isError<IDictionary<ISymbolData>>(value)
           ? refreshMarketData.failure(value)
           : refreshMarketData.success(value);
