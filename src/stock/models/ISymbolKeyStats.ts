@@ -1,4 +1,7 @@
 export default interface ISymbolKeyStats {
+  priceToSales: number;
+  dividendYield: number;
+  shortRatio: number;
   returnOnAssets: number;
   returnOnEquity: number;
   month1ChangePercent: number;
