@@ -1,8 +1,9 @@
-# [Stock Portfolio](https://expo.io/@t73liu/portfolio)
+# [Stock Portfolio](https://play.google.com/store/apps/details?id=io.github.t73liu.portfolio)
 
 ## Preview
 
 - [Expo](https://expo.io/@t73liu/portfolio)
+- [Play Store](https://play.google.com/store/apps/details?id=io.github.t73liu.portfolio)
 
 ## Features
 
