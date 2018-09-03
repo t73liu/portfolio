@@ -8,7 +8,7 @@
 
 - [x] Track stocks with ratio analysis
 - [x] Track portfolio changes
-- [ ] Track news related to watchlist with sentiment analysis
+- [x] Track news related to watchlist
 
 ## Setup
 

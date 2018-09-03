@@ -22,6 +22,10 @@ export const formatPercent = format({
   round: 2
 });
 
+export const formatDecimal = format({
+  round: 6
+});
+
 export function decimalToPercent(decimal: number) {
   return formatPercent(decimal * 100);
 }
