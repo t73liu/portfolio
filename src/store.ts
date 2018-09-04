@@ -1,7 +1,7 @@
-import { AsyncStorage } from "react-native";
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
 import { persistReducer, persistStore } from "redux-persist";
+import ExpoStorage from "redux-persist-expo-filesystem";
 import { StateType } from "typesafe-actions";
 import portfolioReducer, { PortfolioActions } from "./portfolio/state/reducer";
 import {
@@ -23,7 +23,7 @@ export type IRootAction =
 
 const persistConfig = {
   key: "root",
-  storage: AsyncStorage
+  storage: ExpoStorage
 };
 
 const rootReducer = combineReducers({
