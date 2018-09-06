@@ -6,31 +6,43 @@ import {
   formatCurrency,
   formatDecimal
 } from "../../util/functions";
+import ISymbolData from "../models/ISymbolData";
 import { StockDetailInfo } from "./StockDetailInfo";
 import { IStockDetailProps } from "./StockDetailScreen";
 
+function calcRevenueGrowth(data: ISymbolData): number | null {
+  const financials = data.financials.financials;
+  return financials && financials.length >= 1
+    ? (financials[0].totalRevenue - financials[1].totalRevenue) /
+        financials[1].totalRevenue
+    : null;
+}
+
+function calcDebtRatio(data: ISymbolData): number | null {
+  const financials = data.financials.financials;
+  return financials &&
+    financials.length >= 0 &&
+    financials[0].totalDebt !== null &&
+    financials[0].totalAssets !== null
+    ? financials[0].totalDebt! / financials[0].totalAssets!
+    : null;
+}
+
+function calcGrossMargin(data: ISymbolData): number | null {
+  const financials = data.financials.financials;
+  return financials && financials.length >= 0
+    ? financials[0].grossProfit / financials[0].totalRevenue
+    : null;
+}
+
 export const StockDetailBody: SFC<IStockDetailProps> = props => {
   const renderFound = () => {
-    const quote = props.symbolData!.quote;
-    const stats = props.symbolData!.stats;
-    const financials = props.symbolData!.financials.financials;
-    let revenueGrowth = null;
-    let debtRatio = null;
-    let grossMargin = null;
-    if (financials.length >= 0) {
-      grossMargin = financials[0].grossProfit / financials[0].totalRevenue;
-      if (
-        financials[0].totalDebt !== null &&
-        financials[0].totalAssets !== null
-      ) {
-        debtRatio = financials[0].totalDebt! / financials[0].totalAssets!;
-      }
-      if (financials.length >= 1) {
-        revenueGrowth =
-          (financials[0].totalRevenue - financials[1].totalRevenue) /
-          financials[1].totalRevenue;
-      }
-    }
+    const symbolData = props.symbolData!;
+    const quote = symbolData.quote;
+    const stats = symbolData.stats;
+    const revenueGrowth = calcRevenueGrowth(symbolData);
+    const debtRatio = calcDebtRatio(symbolData);
+    const grossMargin = calcGrossMargin(symbolData);
 
     return (
       <Content>
