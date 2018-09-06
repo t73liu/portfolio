@@ -1,6 +1,7 @@
 import { Left, ListItem, Text, Toast } from "native-base";
 import React, { SFC } from "react";
 import { profitLossStyle } from "../../common/models/IProfitLossStyle";
+import { truncateString } from "../../util/functions";
 
 interface IStockDetailInfoProps {
   title: string;
@@ -13,9 +14,16 @@ export const StockDetailInfo: SFC<IStockDetailInfoProps> = props => {
   const onPressButton = () => {
     if (props.explanation) {
       Toast.show({
-        text: `${props.explanation}`
+        text: `${props.explanation}`,
+        duration: 3000
       });
     }
+  };
+
+  const onLongPress = () => {
+    Toast.show({
+      text: `${props.value}`
+    });
   };
 
   const style = props.type
@@ -25,11 +33,15 @@ export const StockDetailInfo: SFC<IStockDetailInfoProps> = props => {
     : {};
 
   return (
-    <ListItem key={props.title} onPress={onPressButton}>
+    <ListItem
+      key={props.title}
+      onPress={onPressButton}
+      onLongPress={onLongPress}
+    >
       <Left>
         <Text style={style}>{props.title}</Text>
       </Left>
-      <Text style={style}>{props.value}</Text>
+      <Text style={style}>{truncateString(props.value)}</Text>
     </ListItem>
   );
 };

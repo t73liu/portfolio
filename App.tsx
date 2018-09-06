@@ -12,7 +12,7 @@ export default class App extends React.Component<object, IAppState> {
   };
 
   public async componentDidMount() {
-    console.log("Mounting component and loading fonts");
+    console.log("Mounting component and loading fonts.");
     await Expo.Font.loadAsync({
       Ionicons: require("@expo/vector-icons/fonts/Ionicons.ttf"),
       Roboto: require("native-base/Fonts/Roboto.ttf"),
