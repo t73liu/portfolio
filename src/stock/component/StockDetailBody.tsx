@@ -4,7 +4,8 @@ import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 import {
   decimalToPercent,
   formatCurrency,
-  formatDecimal
+  formatDecimal,
+  formatPercent
 } from "../../util/functions";
 import ISymbolData from "../models/ISymbolData";
 import { StockDetailInfo } from "./StockDetailInfo";
@@ -84,15 +85,27 @@ export const StockDetailBody: SFC<IStockDetailProps> = props => {
           <StockDetailInfo
             key={"Dividend Yield"}
             title={"Dividend Yield"}
-            value={decimalToPercent(stats.dividendYield)}
+            value={formatPercent(stats.dividendYield)}
             explanation={
               "How much a company pays out in dividends each year relative to its share price."
             }
           />
           <StockDetailInfo
+            key={"Ex-Dividend Date"}
+            title={"Ex-Dividend Date"}
+            value={
+              typeof stats.exDividendDate === "number"
+                ? "N/A"
+                : stats.exDividendDate.substring(0,10)
+            }
+            explanation={
+              "Investors need to own the stock one day before the ex-dividend date to receive the dividend. Stock price typically drops by the amount of the dividend on the ex-dividend date."
+            }
+          />
+          <StockDetailInfo
             key={"Short Ratio"}
             title={"Short Ratio"}
-            value={decimalToPercent(stats.shortRatio)}
+            value={formatDecimal(stats.shortRatio)}
             explanation={
               "Number of shorted shares divided by average daily trading volume, and it's used to gauge investor sentiment regarding a public company or the market as a whole."
             }
