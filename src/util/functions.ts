@@ -52,3 +52,7 @@ export function validatePositiveInteger(num: string): boolean {
 export function validatePositiveFloat(num: string): boolean {
   return isNumber(num) && parseFloat(num) >= 0;
 }
+
+export function truncateString(str: string, max = 20): string {
+  return str.length < max ? str : `${str.substr(0, max)}...`;
+}
