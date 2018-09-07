@@ -59,6 +59,7 @@ export default class StockGraph extends Component<
 
   private renderFound() {
     const chart = formatChartData(this.props.data.chart, this.state.chartType);
+    const color = this.getChartColor(chart);
     return (
       <Content>
         <Card>
@@ -82,7 +83,7 @@ export default class StockGraph extends Component<
             <YAxis
               data={chart}
               svg={{
-                fill: "grey",
+                fill: "black",
                 fontSize: 10
               }}
               contentInset={{ top: 30, bottom: 30 }}
@@ -94,7 +95,7 @@ export default class StockGraph extends Component<
             />
             <BarChart
               data={chart}
-              svg={{ fill: "red" }}
+              svg={{ fill: color }}
               contentInset={{ top: 30, bottom: 30, left: 30 }}
               numberOfTicks={10}
               style={{
@@ -107,6 +108,13 @@ export default class StockGraph extends Component<
         </Card>
       </Content>
     );
+  }
+
+  private getChartColor(chart: number[]): string {
+    if (chart.length <= 1) {
+      return "black";
+    }
+    return chart[0] < chart[chart.length - 1] ? "green" : "red";
   }
 
   private onValueChange(type: ChartTypes) {
