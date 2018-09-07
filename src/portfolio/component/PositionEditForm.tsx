@@ -84,13 +84,15 @@ export default class PositionEditForm extends Component<
       Toast.show({
         text: "Invalid format for amount. Please provide positive integer.",
         type: "warning",
-        duration: 3000
+        duration: 2500,
+        position: "top"
       });
     } else if (!validatePositiveFloat(this.state.price)) {
       Toast.show({
-        text: "Invalid format for price. Please provide positive real number.",
+        text: "Invalid format for price. Please provide positive number.",
         type: "warning",
-        duration: 3000
+        duration: 2500,
+        position: "top"
       });
     } else {
       const newAmount = parseInt(this.state.amount, 10);
@@ -101,6 +103,11 @@ export default class PositionEditForm extends Component<
         amount: newAmount,
         buyPrice: newPrice
       };
+      Toast.show({
+        text: `Amount = ${newAmount}, Price = ${newPrice}`,
+        type: "success",
+        position: "top"
+      });
       this.props.savePosition(position);
       this.setState({
         amount: newAmount.toString(),

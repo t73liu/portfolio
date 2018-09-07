@@ -26,16 +26,16 @@ export const RootContainer: React.SFC = () => {
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor} loading={<AppLoading />}>
-        <Root>
-          <Container style={styles.container}>
+        <Container style={styles.container}>
+          <Root>
             <RootNavigator />
             <AdMobBanner
               bannerSize="smartBannerLandscape"
               adUnitID="ca-app-pub-3940256099942544/6300978111" // Test ID, Replace with your-admob-unit-id
               testDeviceID="EMULATOR"
             />
-          </Container>
-        </Root>
+          </Root>
+        </Container>
       </PersistGate>
     </Provider>
   );

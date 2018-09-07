@@ -15,7 +15,7 @@ export const PortfolioText: SFC<IPortfolioItemProps> = props => {
     const quote = props.quote!;
     const marketValue = quote.latestPrice * props.position.amount;
     const pnl = marketValue - bookValue;
-    const pnlPercent = pnl / bookValue;
+    const pnlPercent = bookValue === 0 ? 0 : pnl / bookValue;
     return (
       <Body>
         <Text style={pnl < 0 ? profitLossStyle.loss : profitLossStyle.profit}>

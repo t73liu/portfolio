@@ -96,7 +96,7 @@ export const StockDetailBody: SFC<IStockDetailProps> = props => {
             value={
               typeof stats.exDividendDate === "number"
                 ? "N/A"
-                : stats.exDividendDate.substring(0,10)
+                : stats.exDividendDate.substring(0, 10)
             }
             explanation={
               "Investors need to own the stock one day before the ex-dividend date to receive the dividend. Stock price typically drops by the amount of the dividend on the ex-dividend date."
