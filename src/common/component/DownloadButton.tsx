@@ -43,7 +43,7 @@ export default class DownloadButton extends Component<
         text: this.props.errorMsg,
         buttonText: "Dismiss",
         type: "danger",
-        duration: 10000,
+        duration: 6000,
         onClose: this.props.handleToast
       });
     }

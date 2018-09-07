@@ -5,6 +5,7 @@ import {
   DEFAULT_HEADERS,
   PROBLEM_CODE
 } from "apisauce";
+import * as R from "rambda";
 import { Linking } from "react-native";
 import IDictionary from "../common/models/IDictionary";
 import ISymbolData from "../stock/models/ISymbolData";
@@ -48,9 +49,30 @@ export async function getSymbolNames(): Promise<ISymbolName[] | IError> {
 export async function getMarketData(
   tickers: string[]
 ): Promise<IDictionary<ISymbolData> | IError> {
-  if (tickers.length < 1 || tickers.length > 100) {
-    throw new Error("Number of tickers need to be between 1 to 100");
+  if (tickers.length === 0) {
+    return {
+      problem: "User Error",
+      explanation: "No tickers in watchlist/portfolio"
+    };
   }
+  const splitTickers = R.splitEvery(100, tickers);
+  let result: IDictionary<ISymbolData> | IError = {};
+  for (const tickerSet of splitTickers) {
+    await getMarketDataWithinLimit(tickerSet).then(value => {
+      result = isError<IDictionary<ISymbolData>>(value)
+        ? value
+        : R.merge(result, value);
+    });
+    if (isError<IDictionary<ISymbolData>>(result)) {
+      break;
+    }
+  }
+  return result;
+}
+
+async function getMarketDataWithinLimit(
+  tickers: string[]
+): Promise<IDictionary<ISymbolData> | IError> {
   return api
     .get<IDictionary<ISymbolData>>(
       `/stock/market/batch?symbols=${tickers.join()}&types=peers,stats,financials,quote,news&last=10&period=annual`

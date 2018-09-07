@@ -22,8 +22,8 @@ const styles = StyleSheet.create<IRootStyle>({
   }
 });
 
-AdMobRewarded.setAdUnitID('ca-app-pub-3940256099942544/5224354917'); // Test ID, Replace with your-admob-unit-id
-AdMobRewarded.setTestDeviceID('EMULATOR');
+AdMobRewarded.setAdUnitID("ca-app-pub-3940256099942544/5224354917"); // Test ID, Replace with your-admob-unit-id
+AdMobRewarded.setTestDeviceID("EMULATOR");
 
 export const RootContainer: React.SFC = () => {
   return (
