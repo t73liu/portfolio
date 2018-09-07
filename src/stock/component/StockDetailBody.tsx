@@ -1,5 +1,6 @@
 import { Content, H3, List, ListItem } from "native-base";
 import React, { SFC } from "react";
+import { NavigationInjectedProps } from "react-navigation";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 import {
   decimalToPercent,
@@ -9,7 +10,7 @@ import {
 } from "../../util/functions";
 import ISymbolData from "../models/ISymbolData";
 import { StockDetailInfo } from "./StockDetailInfo";
-import { IStockDetailProps } from "./StockDetailScreen";
+import StockGraph from "./StockGraph";
 
 function calcRevenueGrowth(data: ISymbolData): number | null {
   const financials = data.financials.financials;
@@ -36,7 +37,13 @@ function calcGrossMargin(data: ISymbolData): number | null {
     : null;
 }
 
-export const StockDetailBody: SFC<IStockDetailProps> = props => {
+interface IStockDetailBodyOwnProps {
+  symbolData?: ISymbolData;
+}
+
+type IStockDetailBodyProps = IStockDetailBodyOwnProps & NavigationInjectedProps;
+
+export const StockDetailBody: SFC<IStockDetailBodyProps> = props => {
   const renderFound = () => {
     const symbolData = props.symbolData!;
     const quote = symbolData.quote;
@@ -47,6 +54,7 @@ export const StockDetailBody: SFC<IStockDetailProps> = props => {
 
     return (
       <Content>
+        <StockGraph key={"graph"} data={symbolData} />
         <List>
           <ListItem itemDivider={true} key="INFO">
             <H3>INFO</H3>

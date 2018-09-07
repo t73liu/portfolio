@@ -70,12 +70,15 @@ export async function getMarketData(
   return result;
 }
 
+const requiredTypes =
+  "types=peers,stats,quote,financials,news,chart&period=annual&last=10&range=1y";
+
 async function getMarketDataWithinLimit(
   tickers: string[]
 ): Promise<IDictionary<ISymbolData> | IError> {
   return api
     .get<IDictionary<ISymbolData>>(
-      `/stock/market/batch?symbols=${tickers.join()}&types=peers,stats,financials,quote,news&last=10&period=annual`
+      `/stock/market/batch?symbols=${tickers.join()}&${requiredTypes}`
     )
     .then(
       (value: ApiResponse<IDictionary<ISymbolData>>) =>
@@ -89,9 +92,7 @@ export async function getTickerData(
   ticker: string
 ): Promise<ISymbolData | IError> {
   return api
-    .get<ISymbolData>(
-      `/stock/${ticker}/batch?types=peers,stats,financials,quote,news&last=10&period=annual`
-    )
+    .get<ISymbolData>(`/stock/${ticker}/batch?&${requiredTypes}`)
     .then(
       (value: ApiResponse<ISymbolData>) =>
         isApiErrorResponse<ISymbolData>(value)

@@ -27,7 +27,7 @@ export interface IStockDetailDispatchProps {
   dismissError: () => void;
 }
 
-export type IStockDetailProps = NavigationInjectedProps &
+type IStockDetailProps = NavigationInjectedProps &
   IStockDetailStateProps &
   IStockDetailDispatchProps;
 
@@ -69,7 +69,10 @@ export const StockDetailScreen: SFC<IStockDetailProps> = props => {
           />
         </Right>
       </Header>
-      <StockDetailBody {...props} />
+      <StockDetailBody
+        navigation={props.navigation}
+        symbolData={props.symbolData}
+      />
     </Container>
   );
 };
