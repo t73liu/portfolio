@@ -17,7 +17,7 @@ import React, { SFC } from "react";
 import { Dimensions } from "react-native";
 import { PieChart, PieChartData } from "react-native-svg-charts";
 import { NavigationInjectedProps } from "react-navigation";
-import { CodeButton } from "../../common/component/CodeButton";
+import { InfoButton } from "../../common/component/InfoButton";
 import RefreshAllButtonContainer from "../../stock/container/RefreshAllButtonContainer";
 import { formatCurrency, randomColor } from "../../util/functions";
 import PortfolioItemContainer from "../container/PortfolioItemContainer";
@@ -56,7 +56,7 @@ export const PortfolioScreen: SFC<IPortfolioScreenProps> = props => {
     <Container>
       <Header>
         <Left>
-          <CodeButton />
+          <InfoButton />
         </Left>
         <Body>
           <Title>Portfolio</Title>

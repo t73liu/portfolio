@@ -8,7 +8,7 @@ import {
   Title
 } from "native-base";
 import React, { SFC } from "react";
-import { CodeButton } from "../../common/component/CodeButton";
+import { InfoButton } from "../../common/component/InfoButton";
 import RefreshAllButtonContainer from "../../stock/container/RefreshAllButtonContainer";
 import INewsItem from "../models/INewsItem";
 import { NewsList } from "./NewsList";
@@ -27,7 +27,7 @@ export const NewsScreen: SFC<INewsScreenProps> = props => {
     <Container>
       <Header>
         <Left>
-          <CodeButton />
+          <InfoButton />
         </Left>
         <Body>
           <Title>News</Title>
