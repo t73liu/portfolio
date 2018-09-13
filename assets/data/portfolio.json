@@ -1,26 +1,14 @@
 [
   {
-    "id": "d9c7db40-aefe-11e8-8bba-0343f92ecb40",
-    "ticker": "EA",
-    "amount": 20,
-    "buyPrice": 123.41
-  },
-  {
-    "id": "da9ae2b0-aefe-11e8-8bba-0343f92ecb40",
-    "ticker": "EA",
-    "amount": 10,
-    "buyPrice": 200
-  },
-  {
     "id": "daffe610-aefe-11e8-8bba-0343f92ecb40",
-    "ticker": "AMZN",
-    "buyPrice": 2000,
-    "amount": 5
+    "ticker": "MSFT",
+    "buyPrice": 105,
+    "amount": 100
   },
   {
     "id": "dbaf5ff0-aefe-11e8-8bba-0343f92ecb40",
-    "ticker": "PDD",
-    "buyPrice": 20,
+    "ticker": "PVTL",
+    "buyPrice": 25,
     "amount": 200
   }
 ]

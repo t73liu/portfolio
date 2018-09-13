@@ -226,7 +226,7 @@ export const StockDetailBody: SFC<IStockDetailBodyProps> = props => {
       <Content>
         <List>
           <ListItem key="NO INFO AVAILABLE">
-            <H3>NO INFO AVAILABLE!</H3>
+            <H3>Press Download Button ...</H3>
           </ListItem>
         </List>
       </Content>
