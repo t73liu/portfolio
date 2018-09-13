@@ -13,6 +13,29 @@ export const formatCurrency = format({
   round: 2
 });
 
+const formatMillions = format({
+  prefix: "$",
+  suffix: "M",
+  round: 4
+});
+
+const formatBillions = format({
+  prefix: "$",
+  suffix: "B",
+  round: 4
+});
+
+const billion = 1000000000;
+
+const million = 1000000;
+
+export function formatBigCurrency(num: number) {
+  if (num >= billion) {
+    return formatBillions(num / billion);
+  }
+  return formatMillions(num / million);
+}
+
 export const formatShares = format({
   round: 0
 });

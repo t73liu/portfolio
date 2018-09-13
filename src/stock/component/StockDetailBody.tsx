@@ -4,6 +4,7 @@ import { NavigationInjectedProps } from "react-navigation";
 import SymbolItemContainer from "../../symbols/container/SymbolItemContainer";
 import {
   decimalToPercent,
+  formatBigCurrency,
   formatCurrency,
   formatDecimal,
   formatPercent
@@ -178,7 +179,7 @@ export const StockDetailBody: SFC<IStockDetailBodyProps> = props => {
           <StockDetailInfo
             key={"Market Cap"}
             title={"Market Cap"}
-            value={formatCurrency(quote.marketCap)}
+            value={formatBigCurrency(quote.marketCap)}
           />
           <StockDetailInfo
             key={"One Month Change"}
