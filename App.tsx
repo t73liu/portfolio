@@ -1,6 +1,9 @@
-import * as Expo from "expo";
+import Expo, { AppLoading } from "expo";
 import * as React from "react";
-import { RootContainer } from "./src/RootContainer";
+import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+import RootContainer from "./src/RootContainer";
+import store, { persistor } from "./src/store";
 
 interface IAppState {
   readonly loading: boolean;
@@ -25,8 +28,14 @@ export default class App extends React.Component<object, IAppState> {
 
   public render() {
     if (this.state.loading) {
-      return <Expo.AppLoading />;
+      return <AppLoading />;
     }
-    return <RootContainer />;
+    return (
+      <Provider store={store}>
+        <PersistGate persistor={persistor} loading={<AppLoading />}>
+          <RootContainer />
+        </PersistGate>
+      </Provider>
+    );
   }
 }
