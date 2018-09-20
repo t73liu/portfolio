@@ -7,7 +7,7 @@ export const InfoButton: SFC = () => {
   const handlePress = async () => {
     ActionSheet.show(
       {
-        options: ["Support Us With Ads", "Source Code"]
+        options: ["Support Us With Ads", "Source Code", "Privacy Policy"]
       },
       async (index: number) => {
         switch (index) {
@@ -17,6 +17,9 @@ export const InfoButton: SFC = () => {
             break;
           case 1:
             openUrl("https://github.com/t73liu/portfolio");
+            break;
+          case 2:
+            openUrl("https://t73liu.github.io/portfolio/");
             break;
         }
       }
