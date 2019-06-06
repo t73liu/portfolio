@@ -37,11 +37,10 @@ export function isError<T>(value: T | IError): value is IError {
 export async function getSymbolNames(): Promise<ISymbolName[] | IError> {
   return api
     .get<ISymbolName[]>("/ref-data/symbols?filter=symbol,name")
-    .then(
-      value =>
-        isApiErrorResponse<ISymbolName[]>(value)
-          ? getUnhandledError(value.problem)
-          : (value!.data as ISymbolName[])
+    .then(value =>
+      isApiErrorResponse<ISymbolName[]>(value)
+        ? getUnhandledError(value.problem)
+        : (value!.data as ISymbolName[])
     );
 }
 
@@ -80,11 +79,10 @@ async function getMarketDataWithinLimit(
     .get<IDictionary<ISymbolData>>(
       `/stock/market/batch?symbols=${tickers.join()}&${requiredTypes}`
     )
-    .then(
-      (value: ApiResponse<IDictionary<ISymbolData>>) =>
-        isApiErrorResponse<IDictionary<ISymbolData>>(value)
-          ? getUnhandledError(value.problem)
-          : (value!.data as IDictionary<ISymbolData>)
+    .then((value: ApiResponse<IDictionary<ISymbolData>>) =>
+      isApiErrorResponse<IDictionary<ISymbolData>>(value)
+        ? getUnhandledError(value.problem)
+        : (value!.data as IDictionary<ISymbolData>)
     );
 }
 
@@ -93,11 +91,10 @@ export async function getTickerData(
 ): Promise<ISymbolData | IError> {
   return api
     .get<ISymbolData>(`/stock/${ticker}/batch?&${requiredTypes}`)
-    .then(
-      (value: ApiResponse<ISymbolData>) =>
-        isApiErrorResponse<ISymbolData>(value)
-          ? getUnhandledError(value.problem)
-          : (value!.data as ISymbolData)
+    .then((value: ApiResponse<ISymbolData>) =>
+      isApiErrorResponse<ISymbolData>(value)
+        ? getUnhandledError(value.problem)
+        : (value!.data as ISymbolData)
     );
 }
 

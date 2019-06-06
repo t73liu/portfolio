@@ -1,11 +1,11 @@
 import { Button, Footer, FooterTab, Text } from "native-base";
 import React from "react";
-import { createBottomTabNavigator } from "react-navigation";
+import { createAppContainer, createBottomTabNavigator } from "react-navigation";
 import NewsNavigator from "./NewsNavigator";
 import PortfolioNavigator from "./PortfolioNavigator";
 import WatchlistNavigator from "./WatchlistNavigator";
 
-export default createBottomTabNavigator(
+const RootNavigator = createBottomTabNavigator(
   {
     Watchlist: WatchlistNavigator,
     News: NewsNavigator,
@@ -50,3 +50,7 @@ export default createBottomTabNavigator(
     }
   }
 );
+
+const RootNavigatorContainer = createAppContainer(RootNavigator);
+
+export default RootNavigatorContainer;

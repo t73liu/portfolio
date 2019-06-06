@@ -1,4 +1,4 @@
-import { AdMobBanner, AdMobRewarded } from "expo";
+import { AdMobBanner, AdMobRewarded } from "expo-ads-admob";
 import { Container, Root } from "native-base";
 import React from "react";
 import { StatusBar } from "react-native";
