@@ -1,5 +1,8 @@
 # Stock Portfolio
 
+This project is inactive due to third-party API becoming deprecated starting June 2019.
+IEX Cloud is a paid service that mirrors existing API.
+
 ## Features
 
 - [x] Track stocks with ratio analysis
@@ -18,8 +21,3 @@
 6.  Set connection to Tunnel if not using LAN
 
 Additional documentation can be found at https://docs.expo.io/versions/latest/.
-
-## Third Party Services
-
-- Data provided for free by [IEX](https://iextrading.com/developer/)
-  - [Terms of service](https://iextrading.com/api-exhibit-a/)
